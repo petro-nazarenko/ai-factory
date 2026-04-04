@@ -1,3 +1,5 @@
+![AI Factory](logo.svg)
+
 # AI Factory — B2B Opportunity Mining & Deal Generation System
 
 ![Python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)

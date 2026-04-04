@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="#0d1117"/>
+
+  <!-- Gear outer ring -->
+  <g transform="translate(100,100)">
+    <circle r="48" fill="none" stroke="#00ff88" stroke-width="3" opacity="0.3"/>
+
+    <!-- Gear teeth (12 teeth) -->
+    <g stroke="#00ff88" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-48" x2="0" y2="-58"/>
+      <line x1="24" y1="-41.6" x2="29" y2="-50.2"/>
+      <line x1="41.6" y1="-24" x2="50.2" y2="-29"/>
+      <line x1="48" y1="0" x2="58" y2="0"/>
+      <line x1="41.6" y1="24" x2="50.2" y2="29"/>
+      <line x1="24" y1="41.6" x2="29" y2="50.2"/>
+      <line x1="0" y1="48" x2="0" y2="58"/>
+      <line x1="-24" y1="41.6" x2="-29" y2="50.2"/>
+      <line x1="-41.6" y1="24" x2="-50.2" y2="29"/>
+      <line x1="-48" y1="0" x2="-58" y2="0"/>
+      <line x1="-41.6" y1="-24" x2="-50.2" y2="-29"/>
+      <line x1="-24" y1="-41.6" x2="-29" y2="-50.2"/>
+    </g>
+
+    <!-- Inner gear ring -->
+    <circle r="34" fill="#0d1117" stroke="#00ff88" stroke-width="2"/>
+
+    <!-- Circuit nodes on inner ring -->
+    <circle cx="0" cy="-34" r="3" fill="#00ff88"/>
+    <circle cx="34" cy="0" r="3" fill="#00ff88"/>
+    <circle cx="0" cy="34" r="3" fill="#00ff88"/>
+    <circle cx="-34" cy="0" r="3" fill="#00ff88"/>
+
+    <!-- Circuit traces -->
+    <g stroke="#00ff88" stroke-width="1.5" opacity="0.6" fill="none">
+      <!-- Top node traces -->
+      <polyline points="0,-34 0,-22 -12,-22 -12,-10"/>
+      <polyline points="0,-34 0,-22 12,-22 12,-10"/>
+      <!-- Right node traces -->
+      <polyline points="34,0 22,0 22,-10"/>
+      <polyline points="34,0 22,0 22,10"/>
+      <!-- Bottom node traces -->
+      <polyline points="0,34 0,22 10,22 10,10"/>
+      <polyline points="0,34 0,22 -10,22 -10,10"/>
+      <!-- Left node traces -->
+      <polyline points="-34,0 -22,0 -22,10"/>
+      <polyline points="-34,0 -22,0 -22,-10"/>
+    </g>
+
+    <!-- Circuit junction dots -->
+    <g fill="#00ff88" opacity="0.8">
+      <circle cx="12" cy="-10" r="2"/>
+      <circle cx="-12" cy="-10" r="2"/>
+      <circle cx="22" cy="-10" r="2"/>
+      <circle cx="22" cy="10" r="2"/>
+      <circle cx="10" cy="10" r="2"/>
+      <circle cx="-10" cy="10" r="2"/>
+      <circle cx="-22" cy="10" r="2"/>
+      <circle cx="-22" cy="-10" r="2"/>
+    </g>
+
+    <!-- Center: AI text -->
+    <circle r="16" fill="#00ff88" opacity="0.1"/>
+    <circle r="16" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#00ff88">AI</text>
+  </g>
+</svg>
