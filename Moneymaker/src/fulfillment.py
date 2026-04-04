@@ -16,8 +16,14 @@ import json
 import logging
 import re
 from textwrap import dedent
+from typing import Any
 
-import anthropic
+try:
+    import anthropic
+    _ANTHROPIC_ERROR = anthropic.APIError
+except ImportError:
+    anthropic = None  # type: ignore[assignment]
+    _ANTHROPIC_ERROR = Exception  # type: ignore[assignment,misc]
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from src.config import settings
@@ -152,11 +158,11 @@ _MOCK_NOTES = "Simulated fulfillment using a mock template (dry-run mode)."
 
 
 @retry(
-    retry=retry_if_exception_type(anthropic.APIError),
+    retry=retry_if_exception_type(_ANTHROPIC_ERROR),
     wait=wait_exponential(multiplier=1, min=2, max=30),
     stop=stop_after_attempt(3),
 )
-async def _ai_fulfill(client: anthropic.AsyncAnthropic, plan: MVPPlan) -> dict:
+async def _ai_fulfill(client: Any, plan: MVPPlan) -> dict:
     response = await client.messages.create(
         model=settings.anthropic_model,
         max_tokens=2048,
@@ -207,11 +213,11 @@ class ManualFulfillment:
 
     def __init__(self, dry_run: bool = False) -> None:
         self.dry_run = dry_run
-        self._client: anthropic.AsyncAnthropic | None = None
+        self._client: Any = None
 
-    def _get_client(self) -> anthropic.AsyncAnthropic:
+    def _get_client(self) -> Any:
         if self._client is None:
-            self._client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)
+            self._client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)  # type: ignore[union-attr]
         return self._client
 
     async def fulfill(self, plan: MVPPlan) -> FulfillmentResult:

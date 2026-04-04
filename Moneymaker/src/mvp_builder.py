@@ -27,8 +27,14 @@ import json
 import logging
 import re
 from textwrap import dedent
+from typing import Any
 
-import anthropic
+try:
+    import anthropic
+    _ANTHROPIC_ERROR = anthropic.APIError
+except ImportError:
+    anthropic = None  # type: ignore[assignment]
+    _ANTHROPIC_ERROR = Exception  # type: ignore[assignment,misc]
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from src.config import settings
@@ -236,11 +242,11 @@ _USER_TEMPLATE = dedent(
 
 
 @retry(
-    retry=retry_if_exception_type(anthropic.APIError),
+    retry=retry_if_exception_type(_ANTHROPIC_ERROR),
     wait=wait_exponential(multiplier=1, min=2, max=30),
     stop=stop_after_attempt(3),
 )
-async def _ai_plan(client: anthropic.AsyncAnthropic, filter_result: FilterResult, fmt: MVPFormat) -> dict:
+async def _ai_plan(client: Any, filter_result: FilterResult, fmt: MVPFormat) -> dict:
     idea = filter_result.idea
     response = await client.messages.create(
         model=settings.anthropic_model,
@@ -311,11 +317,11 @@ class MVPBuilder:
     def __init__(self, dry_run: bool = False, format_weights: dict[str, float] | None = None) -> None:
         self.dry_run = dry_run
         self._format_weights = format_weights or {}
-        self._client: anthropic.AsyncAnthropic | None = None
+        self._client: Any = None
 
-    def _get_client(self) -> anthropic.AsyncAnthropic:
+    def _get_client(self) -> Any:
         if self._client is None:
-            self._client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)
+            self._client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)  # type: ignore[union-attr]
         return self._client
 
     async def build(self, filter_result: FilterResult) -> MVPPlan:
