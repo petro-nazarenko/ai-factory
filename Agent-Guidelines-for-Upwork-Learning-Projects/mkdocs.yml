@@ -1,0 +1,86 @@
+site_name: Upwork Learning
+site_description: Automation and Integration Tools for Upwork Projects
+site_author: Petr Nazarenko
+site_url: https://petro-nazarenko.github.io/Agent-Guidelines-for-Upwork-Learning-Projects
+
+repo_name: petro-nazarenko/Agent-Guidelines-for-Upwork-Learning-Projects
+repo_url: https://github.com/petro-nazarenko/Agent-Guidelines-for-Upwork-Learning-Projects
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - docs/gen_ref.py
+  - material/docs-reference
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Configuration: getting-started/configuration.md
+      - Quick Start: getting-started/quick-start.md
+  - Integrations:
+      - Google Sheets: integrations/google-sheets.md
+      - PDF Processing: integrations/pdf-processing.md
+      - Email: integrations/email.md
+  - CLI Reference:
+      - Overview: cli/index.md
+      - Sheets Commands: cli/sheets.md
+      - PDF Commands: cli/pdf.md
+      - Email Commands: cli/email.md
+  - Examples:
+      - Bol.com API: examples/bol-com.md
+      - Workflows: examples/workflows.md
+  - Development:
+      - Contributing: development/contributing.md
+      - Testing: development/testing.md
+      - Type Checking: development/type-checking.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/petro-nazarenko
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css

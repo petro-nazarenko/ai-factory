@@ -1,0 +1,18 @@
+#!/bin/bash
+# Pre-commit hook to run linting and type checking
+
+echo "Running pre-commit checks..."
+
+# Run ruff
+echo "Running ruff..."
+ruff check src/
+
+# Run mypy
+echo "Running mypy..."
+mypy src/
+
+# Run tests
+echo "Running tests..."
+pytest tests/
+
+echo "Pre-commit checks complete!"

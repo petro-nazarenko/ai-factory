@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Create virtual environment
+        run: uv venv
+
+      - name: Install dependencies
+        run: uv pip install -e ".[dev,security]" --python .venv/bin/python
+
+      - name: Lint with ruff
+        run: .venv/bin/ruff check src/ tests/
+
+      - name: Check formatting
+        run: .venv/bin/ruff format --check src/ tests/
+
+      - name: Type check with mypy
+        run: .venv/bin/mypy src/
+
+      - name: Run tests
+        run: .venv/bin/pytest --cov=src --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: false
+
+  audit:
+    name: Dependency Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Create virtual environment
+        run: uv venv
+
+      - name: Install dependencies
+        run: uv pip install -e ".[dev]" --python .venv/bin/python
+
+      - name: Audit dependencies for known vulnerabilities
+        # CVE-2026-4539 (pygments): no patched release available yet; pinned to 2.19.2 in pyproject.toml
+        run: uv pip install pip-audit --python .venv/bin/python && .venv/bin/pip-audit --ignore-vuln CVE-2026-4539
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Create virtual environment
+        run: uv venv
+
+      - name: Install docs dependencies
+        run: uv pip install --python .venv/bin/python mkdocs-material mike
+
+      - name: Deploy documentation
+        run: uv run mkdocs gh-deploy --force

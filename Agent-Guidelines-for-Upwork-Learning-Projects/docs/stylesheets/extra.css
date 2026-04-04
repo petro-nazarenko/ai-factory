@@ -1,0 +1,11 @@
+/* Custom styles for MkDocs Material */
+
+.md-typeset code {
+    background-color: var(--md-code-background-color);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.highlight .go {
+    background-color: inherit;
+}

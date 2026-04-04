@@ -1,0 +1,54 @@
+# Pre-commit hooks configuration
+# https://pre-commit.com/
+
+repos:
+  # Gitleaks - Secret scanning
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+      - id: gitleaks
+
+  # Codespell - Spell checking
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args: [
+          "--ignore-words-list=crate,nd,te,als,ot,ro,hist,ser",
+          "--skip=*.pyc,*.svg,*.lock,.venv,venv,dist,build",
+        ]
+        types: [file]
+        files: "^.*\\.(md|txt|rst|py)$"
+
+  # Ruff - Linting and formatting
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: ruff check
+        language: system
+        types: [python]
+        pass_filenames: true
+
+      - id: ruff-format
+        name: ruff format
+        entry: ruff format
+        language: system
+        types: [python]
+        pass_filenames: true
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
+        pass_filenames: false
+        args: [src/]
+
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        types: [python]
+        pass_filenames: false
+        args: [tests/]
