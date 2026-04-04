@@ -1,56 +1,62 @@
 import json
 import os
 import subprocess
-from pathlib import Path
+from typing import Any, Optional
 
 from fastapi import FastAPI, Header, HTTPException, status
-from fastapi.responses import JSONResponse
 
 app = FastAPI(title="AI Factory API")
 
-REPO_ROOT = Path(__file__).parent.parent
-RUNS_DIR = REPO_ROOT / "workspace" / "runs"
-PIPELINE_SCRIPT = REPO_ROOT / "run_pipeline.sh"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RUNS_DIR = os.path.join(BASE_DIR, "workspace", "runs")
+PIPELINE_SCRIPT = os.path.join(BASE_DIR, "run_pipeline.sh")
 API_KEY = os.environ.get("API_KEY", "")
 
 
-def check_auth(x_api_key: str = Header(...)):
+def check_auth(x_api_key: str) -> None:
     if not API_KEY:
         raise HTTPException(status_code=500, detail="API_KEY not configured on server")
     if x_api_key != API_KEY:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid API key")
 
 
-def read_json(path: Path) -> dict | list | None:
+def read_json(path: str) -> Optional[dict]:
     try:
-        return json.loads(path.read_text())
+        with open(path) as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            return data
+        return None
     except Exception:
         return None
 
 
-def get_run_data(run_id: str) -> dict:
-    run_dir = RUNS_DIR / run_id
-    if not run_dir.exists():
+def get_run_data(run_id: str) -> Optional[dict]:
+    run_dir = os.path.join(RUNS_DIR, run_id)
+    if not os.path.isdir(run_dir):
         return None
 
-    data = {"run_id": run_id}
+    data: dict[str, Any] = {"run_id": run_id}
 
-    status_data = read_json(run_dir / "status.json")
+    status_data = read_json(os.path.join(run_dir, "status.json"))
     if status_data:
         data["step"] = status_data.get("step")
         data["status"] = status_data.get("status")
         data["retries"] = status_data.get("retries", 0)
         data["errors"] = status_data.get("errors", [])
 
-    report = read_json(run_dir / "report.json")
+    report = read_json(os.path.join(run_dir, "report.json"))
     if report:
         data["report"] = report
 
-    validated_dir = run_dir / "validated"
+    validated_dir = os.path.join(run_dir, "validated")
     ideas = []
-    if validated_dir.exists():
-        for md_file in sorted(validated_dir.glob("*.md")):
-            ideas.append({"file": md_file.name, "content": md_file.read_text()})
+    if os.path.isdir(validated_dir):
+        for fname in sorted(os.listdir(validated_dir)):
+            if fname.endswith(".md"):
+                fpath = os.path.join(validated_dir, fname)
+                with open(fpath) as f:
+                    ideas.append({"file": fname, "content": f.read()})
     data["validated_ideas"] = ideas
 
     return data
@@ -61,20 +67,17 @@ def get_run_data(run_id: str) -> dict:
 # ---------------------------------------------------------------------------
 
 @app.post("/run", status_code=202)
-def start_run(
-    dry_run: bool = False,
-    x_api_key: str = Header(...),
-):
+def start_run(dry_run: bool = False, x_api_key: str = Header(...)) -> dict:
     check_auth(x_api_key)
 
-    cmd = ["bash", str(PIPELINE_SCRIPT)]
+    cmd = ["bash", PIPELINE_SCRIPT]
     if dry_run:
         cmd.append("--dry-run")
 
     try:
         proc = subprocess.Popen(
             cmd,
-            cwd=str(REPO_ROOT),
+            cwd=BASE_DIR,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             start_new_session=True,
@@ -82,14 +85,11 @@ def start_run(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to start pipeline: {e}")
 
-    # Derive the run_id that the script will create (same timestamp format)
-    # We can't know the exact RUN_ID until the script runs, so we return the pid
-    # and instruct the caller to poll GET /runs for the new entry.
     return {"message": "Pipeline started", "pid": proc.pid, "dry_run": dry_run}
 
 
 @app.get("/runs/{run_id}")
-def get_run(run_id: str, x_api_key: str = Header(...)):
+def get_run(run_id: str, x_api_key: str = Header(...)) -> dict:
     check_auth(x_api_key)
 
     data = get_run_data(run_id)
@@ -99,19 +99,20 @@ def get_run(run_id: str, x_api_key: str = Header(...)):
 
 
 @app.get("/runs")
-def list_runs(x_api_key: str = Header(...)):
+def list_runs(x_api_key: str = Header(...)) -> dict:
     check_auth(x_api_key)
 
-    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    os.makedirs(RUNS_DIR, exist_ok=True)
     runs = []
-    for run_dir in sorted(RUNS_DIR.iterdir(), reverse=True):
-        if not run_dir.is_dir():
+    for name in sorted(os.listdir(RUNS_DIR), reverse=True):
+        run_dir = os.path.join(RUNS_DIR, name)
+        if not os.path.isdir(run_dir):
             continue
-        status_data = read_json(run_dir / "status.json")
+        status_data = read_json(os.path.join(run_dir, "status.json"))
         if status_data is None:
             continue
         runs.append({
-            "run_id": run_dir.name,
+            "run_id": name,
             "step": status_data.get("step"),
             "status": status_data.get("status"),
         })
