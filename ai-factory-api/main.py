@@ -1,9 +1,11 @@
 import json
 import os
 import subprocess
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 from fastapi import FastAPI, Header, HTTPException, status
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI(title="AI Factory API")
 
@@ -70,22 +72,40 @@ def get_run_data(run_id: str) -> Optional[dict]:
 def start_run(dry_run: bool = False, x_api_key: str = Header(...)) -> dict:
     check_auth(x_api_key)
 
+    run_id = "run_" + datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    run_dir = os.path.join(RUNS_DIR, run_id)
+    os.makedirs(os.path.join(run_dir, "validated"), exist_ok=True)
+    logs_path = os.path.join(run_dir, "logs.txt")
+
     cmd = ["bash", PIPELINE_SCRIPT]
     if dry_run:
         cmd.append("--dry-run")
 
     try:
+        logs_file = open(logs_path, "ab")  # append-binary so script's tee -a merges cleanly
         proc = subprocess.Popen(
             cmd,
             cwd=BASE_DIR,
             stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            stderr=logs_file,
             start_new_session=True,
         )
+        logs_file.close()  # parent doesn't need the fd; child has its own copy
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to start pipeline: {e}")
 
-    return {"message": "Pipeline started", "pid": proc.pid, "dry_run": dry_run}
+    return {"message": "Pipeline started", "run_id": run_id, "pid": proc.pid, "dry_run": dry_run}
+
+
+@app.get("/runs/{run_id}/logs", response_class=PlainTextResponse)
+def get_run_logs(run_id: str, x_api_key: str = Header(...)) -> str:
+    check_auth(x_api_key)
+
+    logs_path = os.path.join(RUNS_DIR, run_id, "logs.txt")
+    if not os.path.isfile(logs_path):
+        raise HTTPException(status_code=404, detail=f"No logs for run '{run_id}'")
+    with open(logs_path) as f:
+        return f.read()
 
 
 @app.get("/runs/{run_id}")
