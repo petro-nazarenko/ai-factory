@@ -268,6 +268,88 @@ Default: `GENERATE_ONLY`
 
 ---
 
+## PIPELINE 3 — MATCH → OFFER → SEND (TODO)
+
+Full venture builder loop:
+
+```
+Signals → Ideas → Filter → Validation
+        → Leads (source_url, company, author)
+        → MATCH  (idea.domain ↔ lead.pain → fit score)
+        → OFFER  (personalized message per company per pain)
+        → SEND   (email / Upwork / LinkedIn DM)
+        → TRACK  (Sheets: sent, opened, replied, closed)
+        → $
+```
+
+### STEP 6 — MATCHING ENGINE
+
+Input: `validated/*.md` + `leads/leads.json`
+
+Match criteria:
+- `idea.domain` ↔ `lead.pain` keywords
+- `idea.target_user` ↔ `lead.company` profile
+- `idea.tags` ↔ `lead.stack`
+
+Output: `workspace/matches/matches.json`
+
+```json
+[
+  {
+    "idea": "SalesAI",
+    "lead_company": "PBS",
+    "lead_url": "https://news.ycombinator.com/item?id=...",
+    "lead_contact": "user@company.com",
+    "fit_score": 8.5,
+    "match_reason": "PBS hiring SDRs → SalesAI solves SDR assessment"
+  }
+]
+```
+
+---
+
+### STEP 7 — OFFER GENERATOR
+
+Input: `matches.json`
+
+For each match → generate personalized outreach:
+- reference their specific pain from HN post
+- show relevant solution (validated idea)
+- include demo link if deployed
+
+Output: `workspace/offers/offer_N.md`
+
+---
+
+### STEP 8 — ACTION LAYER
+
+Send via:
+- Email → `Agent-Guidelines/email-send`
+- Track in Google Sheets → `Agent-Guidelines/sheets-write`
+- Follow-up schedule: day 3, day 7, day 14
+
+---
+
+## SYSTEM ARCHITECTURE
+
+```
+ai-factory (orchestrator)
+├── Moneymaker/          — signal mining
+├── ai-knowledge-filler/ — validation + structuring
+├── workspace/
+│   ├── llm_router.py    — multi-provider LLM routing
+│   ├── connector.py     — ideas → AKF format
+│   ├── client_finder.py — lead discovery
+│   ├── runs/            — all pipeline outputs
+│   ├── leads/           — discovered leads
+│   ├── matches/         — idea ↔ lead matches (TODO)
+│   └── offers/          — generated outreach (TODO)
+├── ai-factory-api/      — FastAPI gateway (Railway)
+└── Agent-Guidelines/    — execution layer
+```
+
+---
+
 ## OPERATOR MINDSET
 
 You are running jobs, not answering questions.
