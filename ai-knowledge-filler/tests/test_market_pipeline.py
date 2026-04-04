@@ -1,0 +1,716 @@
+"""Tests for MarketAnalysisPipeline (akf/market_pipeline.py).
+
+Covers:
+  - StageResult and MarketPipelineResult dataclasses
+  - analyze_market() — happy path and LLM failure
+  - analyze_competitors() — happy path, empty context guard
+  - determine_positioning() — happy path, empty context guards
+  - analyze() — full pipeline success
+  - analyze() — stage cascade: Stage 1 failure skips 2 and 3
+  - analyze() — stage cascade: Stage 2 failure skips 3
+  - analyze() — empty request guard
+  - File writing: safe filename generation, output directory creation
+  - MarketPipelineResult.files property
+"""
+
+import time
+from pathlib import Path
+from unittest.mock import MagicMock, patch
+
+import pytest
+
+from akf.market_pipeline import (
+    MarketAnalysisPipeline,
+    MarketPipelineResult,
+    StageResult,
+    _COMPETITOR_ANALYSIS_PROMPT,
+    _FINANCIAL_ASSESSMENT_PROMPT,
+    _MARKET_ANALYSIS_PROMPT,
+    _POSITIONING_PROMPT,
+)
+
+# ─── FIXTURES ─────────────────────────────────────────────────────────────────
+
+SAMPLE_REQUEST = "B2B SaaS project management tools for SMEs"
+
+SAMPLE_MARKET_CONTENT = """\
+---
+title: "Market Analysis — B2B SaaS Project Management"
+type: reference
+domain: business-strategy
+level: advanced
+status: active
+tags: [market-analysis, b2b-saas, business-strategy]
+created: 2026-03-10
+updated: 2026-03-10
+---
+
+## Market Overview
+This is a sample market analysis document.
+
+## Market Size & Growth
+The market is worth $6B and growing at 12% CAGR.
+"""
+
+SAMPLE_COMPETITOR_CONTENT = """\
+---
+title: "Competitor Analysis — B2B SaaS Project Management"
+type: reference
+domain: business-strategy
+level: advanced
+status: active
+tags: [market-analysis, competitors, competitive-analysis]
+created: 2026-03-10
+updated: 2026-03-10
+---
+
+## Competitive Landscape Overview
+Three dominant players control 60% of the market.
+
+## Key Competitors
+- **Asana** — leading platform
+- **Monday.com** — visual PM tool
+"""
+
+SAMPLE_POSITIONING_CONTENT = """\
+---
+title: "Positioning — B2B SaaS Project Management"
+type: reference
+domain: business-strategy
+level: advanced
+status: active
+tags: [market-analysis, positioning, go-to-market]
+created: 2026-03-10
+updated: 2026-03-10
+---
+
+## Positioning Rationale
+Target underserved SME segment with focus on simplicity.
+
+## Unique Selling Proposition (USP)
+The simplest PM tool that grows with your team.
+"""
+
+SAMPLE_FINANCIAL_CONTENT = """\
+---
+title: "Financial Assessment — B2B SaaS Project Management"
+type: reference
+domain: business-strategy
+level: advanced
+status: active
+tags: [market-analysis, financial-assessment, market-value]
+created: 2026-03-10
+updated: 2026-03-10
+---
+
+## Market Valuation
+- TAM: $6B global project management software market
+- SAM: $1.2B SME-focused segment
+- SOM: $60M achievable in 3 years at 5% SAM share
+
+## Revenue Potential
+At 1% SAM share: ~$12M ARR
+At 5% SAM share: ~$60M ARR
+At 10% SAM share: ~$120M ARR
+
+## Investment Requirements
+Estimated $2-4M seed funding to reach product-market fit.
+"""
+
+
+def _make_pipeline(tmp_path: Path) -> MarketAnalysisPipeline:
+    return MarketAnalysisPipeline(
+        output=str(tmp_path),
+        model="auto",
+        verbose=False,
+    )
+
+
+def _mock_provider(content: str) -> MagicMock:
+    provider = MagicMock()
+    provider.generate.return_value = content
+    return provider
+
+
+# ─── StageResult ──────────────────────────────────────────────────────────────
+
+
+class TestStageResult:
+    def test_success_defaults(self):
+        r = StageResult(success=True, content="hello", stage="market_analysis")
+        assert r.success is True
+        assert r.content == "hello"
+        assert r.file_path is None
+        assert r.error == ""
+
+    def test_failure_defaults(self):
+        r = StageResult(success=False, content="", error="boom")
+        assert r.success is False
+        assert r.error == "boom"
+
+
+# ─── MarketPipelineResult ─────────────────────────────────────────────────────
+
+
+class TestMarketPipelineResult:
+    def _make(self, s1_ok=True, s2_ok=True, s3_ok=True, s4_ok=True) -> MarketPipelineResult:
+        def _stage(ok, name, path=None):
+            return StageResult(
+                success=ok,
+                content="x",
+                stage=name,
+                file_path=Path(path) if (ok and path) else None,
+            )
+
+        return MarketPipelineResult(
+            success=s1_ok and s2_ok and s3_ok and s4_ok,
+            request=SAMPLE_REQUEST,
+            market_analysis=_stage(s1_ok, "market_analysis", "/tmp/s1.md"),
+            competitor_analysis=_stage(s2_ok, "competitor_analysis", "/tmp/s2.md"),
+            positioning=_stage(s3_ok, "positioning", "/tmp/s3.md"),
+            financial_assessment=_stage(s4_ok, "financial_assessment", "/tmp/s4.md"),
+        )
+
+    def test_files_all_success(self):
+        result = self._make()
+        assert len(result.files) == 4
+
+    def test_files_partial_success(self):
+        result = self._make(s4_ok=False)
+        assert len(result.files) == 3
+
+    def test_files_all_failure(self):
+        result = self._make(s1_ok=False, s2_ok=False, s3_ok=False, s4_ok=False)
+        assert result.files == []
+
+    def test_repr(self):
+        result = self._make()
+        assert "MarketPipelineResult" in repr(result)
+        assert "stages_ok=4" in repr(result)
+
+    def test_repr_partial(self):
+        result = self._make(s4_ok=False)
+        assert "stages_ok=3" in repr(result)
+
+
+# ─── analyze_market ───────────────────────────────────────────────────────────
+
+
+class TestAnalyzeMarket:
+    def test_success_writes_file(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_MARKET_CONTENT
+            result = pipeline.analyze_market(SAMPLE_REQUEST)
+
+        assert result.success is True
+        assert result.stage == "market_analysis"
+        assert result.file_path is not None
+        assert result.file_path.exists()
+        assert result.duration_ms >= 0
+        assert result.error == ""
+
+    def test_file_contains_llm_output(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_MARKET_CONTENT
+            result = pipeline.analyze_market(SAMPLE_REQUEST)
+
+        assert result.file_path.read_text(encoding="utf-8") == SAMPLE_MARKET_CONTENT
+
+    def test_llm_failure_returns_failed_stage(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = RuntimeError("provider error")
+            result = pipeline.analyze_market(SAMPLE_REQUEST)
+
+        assert result.success is False
+        assert result.file_path is None
+        assert "provider error" in result.error
+
+    def test_prompt_contains_request(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_MARKET_CONTENT
+            pipeline.analyze_market("unique-market-xyz-123")
+
+        call_args = mock_llm.call_args[0][0]
+        assert "unique-market-xyz-123" in call_args
+
+
+# ─── analyze_competitors ──────────────────────────────────────────────────────
+
+
+class TestAnalyzeCompetitors:
+    def test_success_writes_file(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_COMPETITOR_CONTENT
+            result = pipeline.analyze_competitors(SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT)
+
+        assert result.success is True
+        assert result.stage == "competitor_analysis"
+        assert result.file_path is not None
+        assert result.file_path.exists()
+
+    def test_prompt_includes_market_context(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_COMPETITOR_CONTENT
+            pipeline.analyze_competitors(SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT)
+
+        call_args = mock_llm.call_args[0][0]
+        assert "Market Analysis" in call_args  # market context is included
+
+    def test_llm_failure(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = RuntimeError("timeout")
+            result = pipeline.analyze_competitors(SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT)
+
+        assert result.success is False
+        assert "timeout" in result.error
+
+
+# ─── determine_positioning ────────────────────────────────────────────────────
+
+
+class TestDeterminePositioning:
+    def test_success_writes_file(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_POSITIONING_CONTENT
+            result = pipeline.determine_positioning(
+                SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT, SAMPLE_COMPETITOR_CONTENT
+            )
+
+        assert result.success is True
+        assert result.stage == "positioning"
+        assert result.file_path is not None
+
+    def test_empty_market_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.determine_positioning(SAMPLE_REQUEST, "", SAMPLE_COMPETITOR_CONTENT)
+
+        assert result.success is False
+        assert "market_context" in result.error
+
+    def test_empty_competitor_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.determine_positioning(SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT, "")
+
+        assert result.success is False
+        assert "competitor_context" in result.error
+
+    def test_whitespace_only_market_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.determine_positioning(SAMPLE_REQUEST, "   ", SAMPLE_COMPETITOR_CONTENT)
+
+        assert result.success is False
+
+    def test_prompt_includes_both_contexts(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_POSITIONING_CONTENT
+            pipeline.determine_positioning(
+                SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT, SAMPLE_COMPETITOR_CONTENT
+            )
+
+        call_args = mock_llm.call_args[0][0]
+        assert SAMPLE_REQUEST in call_args
+        assert "Market Overview" in call_args  # from market context
+        assert "Competitive Landscape" in call_args  # from competitor context
+
+
+# ─── analyze() — full pipeline ────────────────────────────────────────────────
+
+
+class TestAnalyzeFullPipeline:
+    def _patch_all_stages(self, mock_llm):
+        """Configure mock_llm to return correct content per call order."""
+        mock_llm.side_effect = [
+            SAMPLE_MARKET_CONTENT,
+            SAMPLE_COMPETITOR_CONTENT,
+            SAMPLE_POSITIONING_CONTENT,
+            SAMPLE_FINANCIAL_CONTENT,
+        ]
+
+    def test_full_pipeline_success(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            self._patch_all_stages(mock_llm)
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is True
+        assert result.market_analysis.success is True
+        assert result.competitor_analysis.success is True
+        assert result.positioning.success is True
+        assert result.financial_assessment.success is True
+        assert len(result.files) == 4
+        assert result.total_duration_ms >= 0
+        assert result.output_dir == tmp_path
+
+    def test_four_files_written_to_output_dir(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            self._patch_all_stages(mock_llm)
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        for fp in result.files:
+            assert fp.parent == tmp_path
+            assert fp.suffix == ".md"
+
+    def test_stage1_failure_skips_stages_2_and_3(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = RuntimeError("llm unavailable")
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is False
+        assert result.market_analysis.success is False
+        assert result.competitor_analysis.success is False
+        assert (
+            "Stage 1" in result.competitor_analysis.error
+            or "prior" in result.competitor_analysis.error
+            or "skipped" in result.competitor_analysis.error
+        )
+        assert result.positioning.success is False
+        assert result.financial_assessment.success is False
+        assert len(result.files) == 0
+        # LLM called only once (Stage 1 fails, no further calls)
+        assert mock_llm.call_count == 1
+
+    def test_stage2_failure_skips_stage3(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = [
+                SAMPLE_MARKET_CONTENT,  # Stage 1 succeeds
+                RuntimeError("competitor llm error"),  # Stage 2 fails
+            ]
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is False
+        assert result.market_analysis.success is True
+        assert result.competitor_analysis.success is False
+        assert result.positioning.success is False
+        assert "prior" in result.positioning.error or "skipped" in result.positioning.error
+        assert result.financial_assessment.success is False
+        assert len(result.files) == 1  # only Stage 1 file
+
+    def test_stage3_failure_skips_stage4(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = [
+                SAMPLE_MARKET_CONTENT,  # Stage 1 succeeds
+                SAMPLE_COMPETITOR_CONTENT,  # Stage 2 succeeds
+                RuntimeError("positioning error"),  # Stage 3 fails
+            ]
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is False
+        assert result.market_analysis.success is True
+        assert result.competitor_analysis.success is True
+        assert result.positioning.success is False
+        assert result.financial_assessment.success is False
+        assert (
+            "prior" in result.financial_assessment.error
+            or "skipped" in result.financial_assessment.error
+        )
+        assert len(result.files) == 2  # only Stages 1 and 2
+
+    def test_empty_request_returns_error(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.analyze("")
+
+        assert result.success is False
+        assert result.market_analysis.success is False
+        assert "empty" in result.market_analysis.error
+
+    def test_whitespace_request_returns_error(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.analyze("   ")
+
+        assert result.success is False
+
+    def test_output_dir_created_if_missing(self, tmp_path):
+        nested = tmp_path / "deep" / "nested" / "output"
+        pipeline = MarketAnalysisPipeline(output=str(nested), model="auto", verbose=False)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = [
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+                SAMPLE_FINANCIAL_CONTENT,
+            ]
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert nested.exists()
+        assert result.success is True
+
+
+# ─── _safe_filename ───────────────────────────────────────────────────────────
+
+
+class TestSafeFilename:
+    def test_returns_md_extension(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        name = pipeline._safe_filename("analysis", SAMPLE_REQUEST)
+        assert name.endswith(".md")
+
+    def test_no_special_chars(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        name = pipeline._safe_filename("analysis", "市场分析 — B2B! SaaS?")
+        # Should only contain safe chars
+        import re
+
+        assert re.match(r"^[\w.\-_]+$", name)
+
+    def test_includes_stage_prefix(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        name = pipeline._safe_filename("competitors", SAMPLE_REQUEST)
+        assert name.startswith("market_competitors_")
+
+    def test_long_request_truncated(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        long_request = "a" * 200
+        name = pipeline._safe_filename("analysis", long_request)
+        # slug is truncated at 40 chars, total filename should be manageable
+        assert len(name) < 100
+
+
+# ─── assess_financial_value ───────────────────────────────────────────────────
+
+
+class TestAssessFinancialValue:
+    def test_success_writes_file(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_FINANCIAL_CONTENT
+            result = pipeline.assess_financial_value(
+                SAMPLE_REQUEST,
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+            )
+
+        assert result.success is True
+        assert result.stage == "financial_assessment"
+        assert result.file_path is not None
+        assert result.file_path.exists()
+        assert result.duration_ms >= 0
+        assert result.error == ""
+
+    def test_file_contains_llm_output(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_FINANCIAL_CONTENT
+            result = pipeline.assess_financial_value(
+                SAMPLE_REQUEST,
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+            )
+
+        assert result.file_path.read_text(encoding="utf-8") == SAMPLE_FINANCIAL_CONTENT
+
+    def test_empty_market_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.assess_financial_value(
+            SAMPLE_REQUEST, "", SAMPLE_COMPETITOR_CONTENT, SAMPLE_POSITIONING_CONTENT
+        )
+        assert result.success is False
+        assert "market_context" in result.error
+
+    def test_empty_competitor_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.assess_financial_value(
+            SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT, "", SAMPLE_POSITIONING_CONTENT
+        )
+        assert result.success is False
+        assert "competitor_context" in result.error
+
+    def test_empty_positioning_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.assess_financial_value(
+            SAMPLE_REQUEST, SAMPLE_MARKET_CONTENT, SAMPLE_COMPETITOR_CONTENT, ""
+        )
+        assert result.success is False
+        assert "positioning_context" in result.error
+
+    def test_whitespace_market_context_fails(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        result = pipeline.assess_financial_value(
+            SAMPLE_REQUEST, "   ", SAMPLE_COMPETITOR_CONTENT, SAMPLE_POSITIONING_CONTENT
+        )
+        assert result.success is False
+
+    def test_llm_failure_returns_failed_stage(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.side_effect = RuntimeError("provider error")
+            result = pipeline.assess_financial_value(
+                SAMPLE_REQUEST,
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+            )
+        assert result.success is False
+        assert result.file_path is None
+        assert "provider error" in result.error
+
+    def test_prompt_includes_all_contexts(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = SAMPLE_FINANCIAL_CONTENT
+            pipeline.assess_financial_value(
+                SAMPLE_REQUEST,
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+            )
+
+        call_args = mock_llm.call_args[0][0]
+        assert SAMPLE_REQUEST in call_args
+        assert "Market Overview" in call_args  # from market context
+        assert "Competitive Landscape" in call_args  # from competitor context
+        assert "Positioning Rationale" in call_args  # from positioning context
+
+    def test_filename_uses_financial_prefix(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        name = pipeline._safe_filename("financial", SAMPLE_REQUEST)
+        assert name.startswith("market_financial_")
+
+
+# ─── _write (path traversal guard) ───────────────────────────────────────────
+
+
+# ─── Validation enforcement ───────────────────────────────────────────────────
+
+
+class TestValidationEnforcement:
+    """Market pipeline stages must reject schema-invalid LLM output."""
+
+    INVALID_CONTENT = "# No frontmatter here\n\nJust bare markdown with no YAML block."
+
+    def test_invalid_content_stage1_returns_failure(self, tmp_path):
+        """analyze_market with schema-invalid LLM output must return success=False
+        and include an E-code in the error message."""
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = self.INVALID_CONTENT
+            result = pipeline.analyze_market(SAMPLE_REQUEST)
+
+        assert result.success is False
+        assert result.file_path is None
+        # Error message must contain at least one E-code (e.g. E005_SCHEMA_VIOLATION)
+        assert any(
+            code in result.error
+            for code in ["E001", "E002", "E003", "E004", "E005", "E006", "E007"]
+        ), f"Expected E-code in error, got: {result.error!r}"
+
+    def test_invalid_content_not_written_to_disk(self, tmp_path):
+        """No file should be written when LLM output fails validation."""
+        pipeline = _make_pipeline(tmp_path)
+        with patch("akf.market_pipeline.MarketAnalysisPipeline._call_llm") as mock_llm:
+            mock_llm.return_value = self.INVALID_CONTENT
+            pipeline.analyze_market(SAMPLE_REQUEST)
+
+        written_files = list(tmp_path.glob("*.md"))
+        assert written_files == [], f"Expected no files on disk, found: {written_files}"
+
+
+# ─── _write (path traversal guard) ───────────────────────────────────────────
+
+
+class TestWrite:
+    def test_avoids_overwrite_with_timestamp(self, tmp_path):
+        pipeline = _make_pipeline(tmp_path)
+        # Write same filename twice
+        pipeline._write("content1", "test_file.md")
+        pipeline._write("content2", "test_file.md")
+        files = list(tmp_path.glob("test_file*.md"))
+        assert len(files) == 2
+
+    def test_path_traversal_blocked(self, tmp_path):
+        """Filenames with path traversal components must not escape output_dir."""
+        pipeline = _make_pipeline(tmp_path)
+        # _write uses Path(filename).name — traversal component stripped
+        fp = pipeline._write("safe content", "../../evil.md")
+        assert fp.parent == tmp_path
+        assert fp.name == "evil.md"
+
+
+# ─── Dependency injection ─────────────────────────────────────────────────────
+
+
+class TestMarketAnalysisPipelineInjection:
+    """Verify writer and config are accepted and stored."""
+
+    def test_writer_injection(self, tmp_path):
+        from unittest.mock import MagicMock
+
+        writer = MagicMock()
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), writer=writer, verbose=False)
+        assert pipeline.writer is writer
+
+    def test_writer_default_is_none(self, tmp_path):
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), verbose=False)
+        assert pipeline.writer is None
+
+    def test_config_injection(self, tmp_path):
+        """Config is accepted and stored; it is available for future extension
+        (e.g. custom domain taxonomy in prompts) without breaking existing behaviour."""
+        from unittest.mock import MagicMock
+
+        cfg = MagicMock()
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), config=cfg, verbose=False)
+        assert pipeline.config is cfg
+
+    def test_config_default_is_none(self, tmp_path):
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), verbose=False)
+        assert pipeline.config is None
+
+    def test_analyze_emits_telemetry_on_success(self, tmp_path):
+        from unittest.mock import MagicMock, patch
+        from akf.telemetry import MarketAnalysisEvent
+
+        writer = MagicMock()
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), writer=writer, verbose=False)
+        with patch(
+            "akf.market_pipeline.MarketAnalysisPipeline._call_llm",
+            side_effect=[
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+                SAMPLE_FINANCIAL_CONTENT,
+            ],
+        ):
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is True
+        assert writer.write.call_count == 4
+        events = [call.args[0] for call in writer.write.call_args_list]
+        assert all(isinstance(e, MarketAnalysisEvent) for e in events)
+        stages = [e.stage for e in events]
+        assert stages == [
+            "market_analysis",
+            "competitor_analysis",
+            "positioning",
+            "financial_assessment",
+        ]
+
+    def test_analyze_no_writer_does_not_raise(self, tmp_path):
+        """analyze() must work without a writer (writer=None)."""
+        pipeline = MarketAnalysisPipeline(output=str(tmp_path), writer=None, verbose=False)
+        with patch(
+            "akf.market_pipeline.MarketAnalysisPipeline._call_llm",
+            side_effect=[
+                SAMPLE_MARKET_CONTENT,
+                SAMPLE_COMPETITOR_CONTENT,
+                SAMPLE_POSITIONING_CONTENT,
+                SAMPLE_FINANCIAL_CONTENT,
+            ],
+        ):
+            result = pipeline.analyze(SAMPLE_REQUEST)
+
+        assert result.success is True

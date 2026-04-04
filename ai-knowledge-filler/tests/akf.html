@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKF Reference — Knowledge System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0e14;
+  --surface: #12151f;
+  --surface-hover: #1c2030;
+  --border: #262c3f;
+  --accent: #4fc3f7;
+  --accent-soft: rgba(79, 195, 247, 0.1);
+  --text: #e0e6f0;
+  --text-muted: #8899aa;
+  --code-bg: #080a0f;
+  --green: #69f0ae;
+  --red: #ff5252;
+  --yellow: #ffd740;
+  --sidebar-w: 280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    font-family: 'Syne', sans-serif; 
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* Sidebar */
+#sidebar { 
+    width: var(--sidebar-w); 
+    background: var(--surface); 
+    border-right: 1px solid var(--border); 
+    height: 100vh; 
+    position: fixed; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.logo-area { padding: 24px; border-bottom: 1px solid var(--border); }
+.logo { font-size: 24px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+.version { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--text-muted); opacity: 0.7; }
+
+.lang-switch { display: flex; padding: 12px 24px; gap: 8px; border-bottom: 1px solid var(--border); }
+.btn-lang { 
+    background: transparent; border: 1px solid var(--border); color: var(--text-muted);
+    padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 4px; font-family: 'JetBrains Mono';
+}
+.btn-lang.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+
+#nav { flex: 1; overflow-y: auto; padding: 12px 0; }
+#nav a { 
+    display: block; padding: 10px 24px; color: var(--text-muted); text-decoration: none; 
+    font-size: 13px; transition: 0.2s; border-left: 3px solid transparent;
+}
+#nav a:hover { background: var(--surface-hover); color: var(--text); }
+#nav a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); }
+
+/* Main Content */
+#main { margin-left: var(--sidebar-w); flex: 1; padding: 60px; max-width: 900px; }
+.section { display: none; animation: slideUp 0.3s ease-out; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+h1 { font-size: 32px; font-weight: 800; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.badge { font-family: 'JetBrains Mono'; font-size: 11px; padding: 4px 8px; border-radius: 4px; background: var(--surface-hover); border: 1px solid var(--border); }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; line-height: 1.6; }
+pre { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border); margin: 16px 0; }
+code { font-family: 'JetBrains Mono'; font-size: 13px; color: var(--green); }
+
+/* Search Overlay */
+#search-box { padding: 12px 24px; }
+#search-input { 
+    width: 100%; background: var(--bg); border: 1px solid var(--border); 
+    padding: 8px 12px; border-radius: 6px; color: var(--text); font-family: 'JetBrains Mono'; font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <div class="logo-area">
+    <div class="logo">AKF ENGINE</div>
+    <div class="version">production system · v1.0.9</div>
+  </div>
+  
+  <div class="lang-switch">
+    <button class="btn-lang active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="btn-lang" id="btn-ru" onclick="setLang('ru')">RU</button>
+  </div>
+
+  <div id="search-box">
+    <input type="text" id="search-input" placeholder="Search rules..." oninput="search(this.value)">
+  </div>
+
+  <nav id="nav">
+    <a href="javascript:void(0)" onclick="show('overview')" class="active">📋 <span class="lang-en">Overview</span><span class="lang-ru">Обзор</span></a>
+    <a href="javascript:void(0)" onclick="show('errors')">🔴 <span class="lang-en">Error Codes</span><span class="lang-ru">Коды ошибок</span></a>
+    <a href="javascript:void(0)" onclick="show('cli')">💻 <span class="lang-en">CLI Reference</span><span class="lang-ru">Команды CLI</span></a>
+  </nav>
+</div>
+
+<div id="main">
+  <div id="overview" class="section" style="display:block">
+    <h1>
+        <span class="lang-en">Overview</span><span class="lang-ru">Обзор системы</span>
+        <span class="badge">README.md</span>
+    </h1>
+    <div class="card">
+      <p class="lang-en">AI-powered content production system for structured Markdown — generate, validate, and commit schema-correct files at scale.</p>
+      <p class="lang-ru">Система производства контента на базе AI для структурированного Markdown: генерация, валидация и коммит файлов с гарантированной корректностью схемы.</p>
+    </div>
+    <h3><span class="lang-en">Pipeline</span><span class="lang-ru">Процесс</span></h3>
+    <pre><code>Prompt → LLM → Validation → Normalizer → Retry → Commit Gate</code></pre>
+  </div>
+
+  <div id="errors" class="section">
+    <h1><span class="lang-en">Error Codes</span><span class="lang-ru">Коды ошибок</span></h1>
+    <div class="card">
+        <table style="width:100%; text-align:left; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid var(--border); color: var(--accent);">
+                <th style="padding: 10px;">Code</th>
+                <th style="padding: 10px;">Field</th>
+                <th style="padding: 10px;">Meaning</th>
+            </tr>
+            <tr><td style="padding: 10px;">E001</td><td style="padding: 10px;">enums</td><td>Value not in allowed set</td></tr>
+            <tr><td style="padding: 10px;">E003</td><td style="padding: 10px;">dates</td><td>Not ISO 8601 (YYYY-MM-DD)</td></tr>
+            <tr><td style="padding: 10px;">E006</td><td style="padding: 10px;">domain</td><td>Value not in taxonomy</td></tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+    document.querySelectorAll('.lang-en, .lang-ru').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.lang-' + lang).forEach(el => {
+        el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+    });
+    document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + lang).classList.add('active');
+}
+
+function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+
+// Initialize
+setLang('en');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+name: Validate Metadata
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install AKF
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[all]"
+
+      - name: Validate docs/
+        run: akf validate --path docs/
+
+      - name: Validate outputs/ (if exists)
+        run: |
+          if [ -d "outputs" ]; then
+            akf validate --path outputs/
+          else
+            echo "outputs/ not found — skipping"
+          fi

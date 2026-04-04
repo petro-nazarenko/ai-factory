@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Personal notes
+PERSONAL_*.md
+SCRATCH.md
+TODO_PRIVATE.md
+System/Security/API_Keys_Console.md
+# Obsidian
+.obsidian/
+.trash/
+
+# Temporary/Workflow files
+*✅*.md
+*🚀*.md
+*⚠️*.md
+*⏪*.md
+*🎉*.md
+htmlcov/
+.coverage
+*.txt
+.stversions/
+
+build/
+dist/
+*.egg-info/
+uv.lock
+.obsidian/
+.pylint_cache
+FETCH_HEAD
+telemetry/
+rag/.chroma/
+
+# Generated test artifacts
+*_Checklist_*.md
+Test_File*.md
+Python_Decorators.md
+CURRENT_STATE.md
+corpus.canvas
+plan3.json
