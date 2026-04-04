@@ -214,6 +214,36 @@ def validate_schema(text: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Lead-source metadata injection
+# ---------------------------------------------------------------------------
+
+
+def _inject_lead_meta(text: str, meta: dict) -> str:
+    """Append lead-source fields to validated frontmatter.
+
+    Called after schema validation so the extra fields never interfere with
+    the validator (which only checks the required AKF fields).
+    """
+    match = re.match(r"^(---\s*\n)(.*?)(\n---\s*\n)(.*)", text, re.DOTALL)
+    if not match:
+        return text
+    opening, fm_text, closing, body = match.groups()
+
+    lead_fields = []
+    for key in ("source_url", "source_company", "source_author", "source_platform", "posted_date"):
+        val = str(meta.get(key) or "").strip()
+        if val:
+            # Escape any quotes so the YAML stays valid
+            lead_fields.append(f'{key}: "{val.replace(chr(34), chr(39))}"')
+
+    if not lead_fields:
+        return text
+
+    injected_fm = fm_text + "\n" + "\n".join(lead_fields)
+    return opening + injected_fm + closing + body
+
+
+# ---------------------------------------------------------------------------
 # Generate + validate with retry
 # ---------------------------------------------------------------------------
 
@@ -223,6 +253,7 @@ def generate_and_validate(
     slug: str,
     output_dir: Path,
     now_iso: str,
+    meta: dict | None = None,
 ) -> tuple[bool, str | None]:
     """Generate a spec via router, validate it, retry on schema errors.
 
@@ -248,6 +279,9 @@ def generate_and_validate(
             )
 
             validate_schema(text)
+
+            if meta:
+                text = _inject_lead_meta(text, meta)
 
             out_path = output_dir / f"{slug}.md"
             out_path.write_text(text, encoding="utf-8")
@@ -320,9 +354,16 @@ def cmd_batch(args: argparse.Namespace) -> None:
         prompt = item.get("prompt", "")
         score = item.get("score", 0.0)
         source = item.get("source", "")
+        meta = {
+            "source_url": item.get("source_url", ""),
+            "source_company": item.get("source_company", ""),
+            "source_author": item.get("source_author", ""),
+            "source_platform": item.get("source_platform", source),
+            "posted_date": item.get("posted_date", ""),
+        }
 
         print(f"[AKF] Processing {slug} (score={score}, source={source})")
-        ok, _ = generate_and_validate(prompt, slug, output_dir, now_iso)
+        ok, _ = generate_and_validate(prompt, slug, output_dir, now_iso, meta=meta)
         if ok:
             succeeded += 1
         else:

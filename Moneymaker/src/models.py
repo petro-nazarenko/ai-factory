@@ -27,6 +27,10 @@ class PainSignal(BaseModel):
 
     source: SignalSource
     source_url: str = ""
+    source_author: str = Field(default="", description="Username or name of the person who posted.")
+    source_company: str = Field(default="", description="Company or organisation associated with the signal.")
+    source_text: str = Field(default="", description="Original untruncated post/job text.")
+    posted_date: str = Field(default="", description="ISO 8601 date when the signal was originally posted.")
     who_is_complaining: str = Field(..., description="The persona / audience experiencing the pain.")
     what_they_want: str = Field(..., description="The outcome or capability they are seeking.")
     current_workaround: str = Field(

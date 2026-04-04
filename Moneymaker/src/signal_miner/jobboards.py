@@ -15,6 +15,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
+from datetime import datetime, timezone
 
 import httpx
 
@@ -80,9 +81,23 @@ async def _fetch_hn_signals(client: httpx.AsyncClient, limit: int) -> list[PainS
                     return None
                 raw = text[:600]
                 first_line = text.split("\n")[0][:200]
+                # Extract company name: HN hiring posts typically start with
+                # "CompanyName | role | ..." or "CompanyName (url) | ..."
+                company_match = re.match(r"^([^|({\n]{2,60}?)(?:\s*[|({\|]|\s+http)", first_line)
+                company = company_match.group(1).strip() if company_match else ""
+                author = item.get("by", "")
+                unix_ts = item.get("time", 0)
+                posted_date = (
+                    datetime.fromtimestamp(unix_ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                    if unix_ts else ""
+                )
                 return PainSignal(
                     source=SignalSource.JOBBOARDS,
                     source_url=f"https://news.ycombinator.com/item?id={kid_id}",
+                    source_author=author,
+                    source_company=company,
+                    source_text=text,
+                    posted_date=posted_date,
                     who_is_complaining="Company hiring on HN",
                     what_they_want=first_line,
                     current_workaround=text[len(first_line):300].strip() or "Hiring a specialist",
@@ -140,10 +155,21 @@ async def _fetch_remoteok_signals(client: httpx.AsyncClient, limit: int) -> list
 
             salary_str = f" | ${salary_min}–${salary_max}/yr" if (salary_min or salary_max) else ""
 
+            epoch = job.get("epoch") or job.get("date", "")
+            posted_date = ""
+            if isinstance(epoch, (int, float)) and epoch:
+                posted_date = datetime.fromtimestamp(epoch, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            elif isinstance(epoch, str):
+                posted_date = epoch
+
             signals.append(
                 PainSignal(
                     source=SignalSource.JOBBOARDS,
                     source_url=url,
+                    source_author="",
+                    source_company=company,
+                    source_text=description[:600],
+                    posted_date=posted_date,
                     who_is_complaining=f"Company hiring remotely ({company})",
                     what_they_want=f"{position}{salary_str}",
                     current_workaround=description[:300] or "Hiring a remote specialist",

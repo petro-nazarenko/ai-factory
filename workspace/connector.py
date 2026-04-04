@@ -54,12 +54,18 @@ def main() -> None:
     for plan in ideas:
         score = plan.get("filter_result", {}).get("score", 0.0)
         if score >= SCORE_THRESHOLD:
-            source = plan.get("filter_result", {}).get("idea", {}).get("signal", {}).get("source", "")
+            signal = plan.get("filter_result", {}).get("idea", {}).get("signal", {})
             passed.append({
                 "prompt": build_prompt(plan),
                 "score": score,
                 "source_idea": plan.get("title", ""),
-                "source": source,
+                "source": signal.get("source", ""),
+                "source_url": signal.get("source_url", ""),
+                "source_author": signal.get("source_author", ""),
+                "source_company": signal.get("source_company", ""),
+                "source_text": signal.get("source_text", ""),
+                "source_platform": signal.get("source", ""),
+                "posted_date": signal.get("posted_date", ""),
             })
 
     total = len(ideas)
