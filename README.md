@@ -1,5 +1,11 @@
 # AI Factory — B2B Opportunity Mining & Deal Generation System
 
+![Python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
+![Railway](https://img.shields.io/badge/deployed_on-Railway-0B0D0E?logo=railway&logoColor=white)
+![Last Commit](https://img.shields.io/github/last-commit/petro-nazarenko/ai-factory?color=informational)
+![Stars](https://img.shields.io/github/stars/petro-nazarenko/ai-factory?style=social)
+
 **From market signals to closed deals. Automatically.**
 
 ---
