@@ -1,162 +1,174 @@
-# AI Factory
+# AI Factory — B2B Opportunity Mining & Deal Generation System
 
-Автономный конвейер генерации и валидации product-идей.
-Запускается одной командой, работает без UI.
+**From market signals to closed deals. Automatically.**
 
 ---
 
-## Быстрый старт
+## What it does
 
-```bash
-# Живой прогон (нужен CEREBRAS_API_KEY / GROQ_API_KEY в Moneymaker/.env)
-bash run_pipeline.sh
+AI Factory scans job boards and Reddit for companies expressing specific pain — hiring posts, tool requests, workflow complaints. It converts those signals into validated product ideas, tags each idea with the exact company and contact that created the signal, then (in Pipeline 3) matches ideas to leads, generates personalized outreach, and tracks the result. The output is not a list of ideas. It is a prioritized pipeline of real companies with real problems and a ready draft of why you should talk to them.
 
-# Без внешних вызовов (mock-данные, проверка pipeline)
-bash run_pipeline.sh --dry-run
+---
+
+## How it works
+
 ```
-
-Результаты — в `workspace/runs/<RUN_ID>/`.
-
----
-
-## Архитектура
-
-```mermaid
-flowchart TD
-    ENV["⚙️ Moneymaker/.env\nAPI-ключи провайдеров"]
-    ROUTER["🔀 workspace/llm_router.py\nCerebras · Groq · Together · Mistral\nTPM/TPD трекинг · 429 fallback"]
-
-    subgraph PIPELINE["run_pipeline.sh"]
-        direction TB
-
-        S0["STEP 0 — INIT\nRUN_ID · status.json · logs.txt"]
-
-        S1["STEP 1 — SIGNAL MINING\nMoneymaker/main.py\n--sources jobboards reddit\n--limit 20"]
-
-        subgraph SOURCES["Источники сигналов"]
-            HN["HN · Who is hiring?"]
-            RO["RemoteOK API"]
-            RD["Reddit\nпаин-сигналы"]
-        end
-
-        S2["STEP 2 — CONNECTOR\nworkspace/connector.py\nФильтр: score ≥ 7.0\nideas.json → connector.json"]
-
-        S3["STEP 3 — VALIDATION\nai-knowledge-filler/akf.py\nbatch mode\nmax 2 retry/поле"]
-
-        S4["REPORT\nreport.json\nstatus.json → success"]
-    end
-
-    subgraph ARTIFACTS["workspace/runs/RUN_ID/"]
-        F1["ideas.json\nMVPPlan[]"]
-        F2["connector.json\nprompt[]  score≥7"]
-        F3["validated/\nidea_N.md\nYAML frontmatter"]
-        F4["logs.txt\nreport.json\nstatus.json"]
-    end
-
-    CF["workspace/client_finder.py\nPipeline 2 — Client Finder\nHN → leads/leads.json"]
-
-    ENV --> ROUTER
-    ROUTER --> S3
-    ROUTER -.->|acomplete| S1
-
-    S0 --> S1
-    SOURCES --> S1
-    S1 --> F1
-    F1 --> S2
-    S2 --> F2
-    F2 --> S3
-    S3 --> F3
-    S3 --> S4
-    S4 --> F4
-
-    HN -.->|параллельно| CF
+HN / RemoteOK / Reddit
+        │
+        ▼
+  [1] SIGNAL MINING       — extract pain, score intensity, capture source metadata
+        │                   (company, author, url, post date)
+        ▼
+  [2] IDEA GENERATION     — LLM converts signal → MVPPlan (problem / solution / revenue)
+        │
+        ▼
+  [3] MONEY FILTER        — drop ideas without existing spend, clear buyer, 24h MVP
+        │
+        ▼
+  [4] VALIDATION (AKF)    — enforce schema, retry on error, write structured .md
+        │                   each file carries source_url + source_company + source_author
+        ▼
+  [5] LEAD EXTRACTION     — validated ideas become qualified leads
+        │
+        ▼
+  [6] MATCH ──────────────── idea.domain ↔ lead.pain  (fit score)     ← TODO
+        │
+        ▼
+  [7] OFFER GENERATION ── personalized message referencing their exact post  ← TODO
+        │
+        ▼
+  [8] SEND + TRACK ─────── email / Upwork / Sheets log                 ← TODO
+        │
+        ▼
+        $
 ```
 
 ---
 
-## Pipeline пошагово
+## Current status
 
-### STEP 0 — INIT
+What works end-to-end today (deployed on Railway):
 
-```
-RUN_ID = run_YYYYMMDD_HHMMSS
-workspace/runs/$RUN_ID/
-  status.json   ← {"step":"init","status":"pending"}
-  logs.txt      ← append-only лог каждого шага
-```
-
-Загружает `Moneymaker/.env`. Проверяет наличие хотя бы одного LLM-ключа.
-При `--dry-run` проверка ключей пропускается.
+| Step | Status | Notes |
+|---|---|---|
+| Signal mining (HN + RemoteOK) | ✅ | Real API calls or mock via `--dry-run` |
+| Idea generation + money filter | ✅ | Groq / Cerebras / Anthropic with auto-fallback |
+| AKF schema validation | ✅ | E001–E008 error codes, max 2 retries per field |
+| Lead metadata on every idea | ✅ | `source_url`, `source_company`, `source_author` in frontmatter |
+| REST API (Railway) | ✅ | `POST /run`, `GET /runs`, `GET /runs/{id}/logs` |
+| Match engine | 🔲 | Pipeline 3 — in spec |
+| Offer generator | 🔲 | Pipeline 3 — in spec |
+| Send + track | 🔲 | Pipeline 3 — in spec |
 
 ---
 
-### STEP 1 — Signal Mining (`Moneymaker`)
+## Stack
 
-```bash
-python Moneymaker/main.py \
-  --sources jobboards reddit \
-  --limit 20 \
-  --output $BASE/ideas.json \
-  --no-fulfill --no-distribute
-```
-
-| Источник | Что собирает |
+| Layer | Technology |
 |---|---|
-| `jobboards` | HN «Ask HN: Who is hiring?» + RemoteOK API |
-| `reddit` | Pain-сигналы из профильных сабреддитов |
+| Signal mining | Python, httpx, praw (Reddit), HN Algolia API |
+| LLM routing | Groq (llama-3.3-70b), Cerebras (llama3.3-70b), Anthropic Claude (fallback) |
+| Validation | Custom schema validator (E001–E008), YAML frontmatter |
+| API | FastAPI, uvicorn, Railway |
+| Execution | gspread (Sheets), imapclient (email) |
+| Config | pydantic-settings, python-dotenv |
 
-Выход: `ideas.json` — массив `MVPPlan` с полями `idea`, `score`, `revenue_model`, `format`.
-
-При ошибке — одна автоматическая retry. Если и она упала — `STOP`.
-Пустой `ideas.json` → `STOP`.
-
----
-
-### STEP 2 — Connector
-
-```bash
-python workspace/connector.py \
-  --input  $BASE/ideas.json \
-  --output $BASE/connector.json
-```
-
-- Фильтрует идеи с `score < 7.0`
-- Преобразует каждую `MVPPlan` в AKF-промпт: `"Create a solution spec: <title>. Target user: … Solution: … Revenue model: …"`
-- Если ни одна идея не прошла фильтр — `STOP` с exit code 2
-
-Выход: `connector.json` — массив `{prompt, score, source}`.
+LLM provider priority: Groq → Cerebras → Anthropic. The router tracks TPM/TPD limits and fails over automatically on 429s.
 
 ---
 
-### STEP 3 — Validation (`AKF`)
+## API
+
+Deployed at `https://web-production-61489.up.railway.app`. Auth via `X-API-Key` header.
+
+### Start a pipeline run
 
 ```bash
-python ai-knowledge-filler/akf.py batch \
-  --input  $BASE/connector.json \
-  --output $BASE/validated/
+POST /run?dry_run=true
+X-API-Key: <key>
 ```
 
-Для каждой идеи:
+Response:
+```json
+{
+  "message": "Pipeline started",
+  "run_id": "run_20260404_220006",
+  "pid": 3,
+  "dry_run": true
+}
+```
 
-1. Вызывает `router.complete("validation", prompt, system_prompt=_SYSTEM_PROMPT)`
-2. Валидирует YAML-frontmatter по схеме (E001–E008)
-3. При ошибке — добавляет инструкцию к промпту, retry (max 2)
-4. Третий провал → идея пропускается, pipeline продолжается
-5. Если **ни одна** идея не прошла → `STOP`
+### Get run status and validated ideas
 
-Схема выходного файла `validated/idea_N.md`:
+```bash
+GET /runs/{run_id}
+X-API-Key: <key>
+```
+
+Returns `status.json` fields + `report.json` + full content of all `validated/*.md` files.
+
+### Stream logs
+
+```bash
+GET /runs/{run_id}/logs
+X-API-Key: <key>
+```
+
+Returns raw `logs.txt`. Each line:
+```
+[2026-04-04T22:00:22Z] [run_20260404_220006] [VALIDATION] [SUCCESS] validated/ populated
+```
+
+### List all runs
+
+```bash
+GET /runs
+X-API-Key: <key>
+```
+
+---
+
+## Run locally
+
+```bash
+# Requires at least one LLM key
+cp Moneymaker/.env.example Moneymaker/.env
+echo "GROQ_API_KEY=your_key" >> Moneymaker/.env
+
+pip install -r requirements.txt
+
+# Dry run — no external calls, mock data
+bash run_pipeline.sh --dry-run
+
+# Live run
+bash run_pipeline.sh
+```
+
+Results in `workspace/runs/<RUN_ID>/`.
+
+---
+
+## Output format
+
+Each validated idea is a Markdown file with YAML frontmatter:
 
 ```yaml
 ---
-title: "..."
-type: guide | reference | checklist
-domain: automation | maritime | api-design | devops
-level: beginner | intermediate | advanced
+title: "SDR Assessment Automation Tool"
+type: guide
+domain: automation
+level: intermediate
 status: active
-tags: [tag1, tag2, tag3]
-created: "2026-04-04T12:00:00Z"
-updated: "2026-04-04T12:00:00Z"
+tags: [sales, automation, ai, assessment]
+created: "2026-04-04T22:00:00Z"
+updated: "2026-04-04T22:00:00Z"
+source_url: "https://news.ycombinator.com/item?id=43512345"
+source_company: "Acme Sales Inc"
+source_author: "acme_cto"
+source_platform: "jobboards"
+posted_date: "2026-04-01T09:15:00Z"
 ---
+
 ## Problem
 ## Target User
 ## Solution
@@ -167,145 +179,60 @@ updated: "2026-04-04T12:00:00Z"
 ## Tech Stack
 ```
 
----
-
-### REPORT
-
-```json
-{
-  "run_id": "run_20260404_142501",
-  "mode": "GENERATE_ONLY",
-  "status": "success",
-  "dry_run": false,
-  "steps_completed": ["init", "idea_gen", "connector", "validation"],
-  "ideas_validated": 4,
-  "errors": []
-}
-```
+`source_url` links directly to the person and post that created the signal.
 
 ---
 
-## LLM Router
+## Roadmap — Pipeline 3
 
-`workspace/llm_router.py` — единая точка всех LLM-вызовов.
+**Match → Offer → Send**
 
 ```
-router.complete("validation", prompt)   ← sync, без asyncio (akf.py)
-await router.acomplete("generation", prompt)  ← async (idea_generator.py)
-```
+workspace/matches/matches.json
+  idea.domain ↔ lead.pain keywords
+  idea.target_user ↔ lead.company profile
+  fit_score per pair
 
-| Провайдер | Ключ | Модель | TPM / TPD |
-|---|---|---|---|
-| Cerebras | `CEREBRAS_API_KEY` | llama3.1-8b | 60k / 1M |
-| Groq | `GROQ_API_KEY` | llama-3.3-70b-versatile | 6k / 500k |
-| Together AI | `TOGETHER_API_KEY` | Llama-3.3-70B-Turbo | — / — |
-| Mistral | `MISTRAL_API_KEY` | mistral-small-latest | — / — |
+workspace/offers/offer_N.md
+  references the exact HN post the company wrote
+  shows the relevant validated solution
+  includes deployed demo URL if available
 
-Логика выбора: preferred → TPM/TPD check → 429 cooldown → следующий провайдер.
-Cerebras использует официальный SDK (не httpx).
-
----
-
-## Pipeline 2 — Client Finder (отдельный скрипт)
-
-```bash
-python workspace/client_finder.py --limit 50
-python workspace/client_finder.py --dry-run   # без сети
-```
-
-Сканирует HN «Who is hiring?» на ключевые слова cloud / AWS / devops / cost / monitoring.
-Выход: `workspace/leads/leads.json`
-
-```json
-[
-  {
-    "company": "Acme Cloud",
-    "contact": "founder@acme.io",
-    "pain": "AWS costs spiraling, need optimization",
-    "hn_url": "https://news.ycombinator.com/item?id=...",
-    "score": 9
-  }
-]
+Agent-Guidelines/email-send
+  sends offer
+  logs to Google Sheets: sent / opened / replied / closed
+  follow-up schedule: day 3, day 7, day 14
 ```
 
 ---
 
-## Структура проекта
+## Project structure
 
 ```
 ai-factory/
-├── run_pipeline.sh              ← точка входа
-├── Moneymaker/                  ← STEP 1: signal mining + idea generation
+├── run_pipeline.sh                        ← pipeline entry point
+├── ai-factory-api/main.py                 ← FastAPI gateway (Railway)
+├── Moneymaker/                            ← steps 1–3: mining, ideas, filter
 │   ├── main.py
-│   ├── src/
-│   │   ├── engine.py
-│   │   ├── idea_generator.py    ← router.acomplete("generation")
-│   │   ├── money_filter.py
-│   │   ├── signal_miner/
-│   │   │   ├── jobboards.py     ← HN + RemoteOK
-│   │   │   └── reddit.py
-│   │   └── ...
-│   └── .env                     ← API ключи (не коммитить)
+│   └── src/
+│       ├── signal_miner/jobboards.py      ← HN + RemoteOK, captures lead metadata
+│       ├── signal_miner/reddit.py
+│       ├── idea_generator.py
+│       ├── money_filter.py
+│       └── models.py                      ← PainSignal with source fields
 ├── workspace/
-│   ├── llm_router.py            ← централизованный LLM router
-│   ├── connector.py             ← STEP 2: фильтрация + маппинг
-│   ├── client_finder.py         ← Pipeline 2: поиск клиентов
-│   ├── leads/
-│   │   └── leads.json
-│   └── runs/
-│       └── run_YYYYMMDD_HHMMSS/
-│           ├── ideas.json
-│           ├── connector.json
-│           ├── validated/
-│           │   └── idea_N.md
-│           ├── logs.txt
-│           ├── status.json
-│           └── report.json
-├── ai-knowledge-filler/
-│   ├── akf.py                   ← STEP 3: генерация + валидация схемы
-│   └── ...
-└── Agent-Guidelines-for-Upwork-Learning-Projects/
-    └── ...                      ← STEP 4/5: Sheets + email (FULL_PIPELINE)
+│   ├── llm_router.py                      ← unified LLM routing + fallback
+│   ├── connector.py                       ← ideas.json → connector.json (score ≥ 7.0)
+│   ├── client_finder.py                   ← standalone lead scanner
+│   ├── leads/leads.json
+│   └── runs/<RUN_ID>/
+│       ├── ideas.json
+│       ├── connector.json
+│       ├── validated/idea_N.md
+│       ├── logs.txt
+│       ├── status.json
+│       └── report.json
+├── ai-knowledge-filler/akf.py             ← schema validation + lead metadata injection
+├── Agent-Guidelines-for-Upwork-Learning-Projects/  ← Sheets + email execution
+└── requirements.txt
 ```
-
----
-
-## Режимы запуска
-
-| Режим | Команда | Внешние вызовы |
-|---|---|---|
-| `DRY_RUN` | `bash run_pipeline.sh --dry-run` | нет (mock-данные) |
-| `GENERATE_ONLY` | `bash run_pipeline.sh` | LLM API только |
-| `FULL_PIPELINE` | см. CLAUDE.md | LLM + Sheets + email |
-
----
-
-## Настройка
-
-```bash
-# Минимальная конфигурация (достаточно одного ключа)
-echo "CEREBRAS_API_KEY=your_key" >> Moneymaker/.env
-
-# Опционально
-echo "GROQ_API_KEY=your_key"      >> Moneymaker/.env
-echo "TOGETHER_API_KEY=your_key"  >> Moneymaker/.env
-echo "MISTRAL_API_KEY=your_key"   >> Moneymaker/.env
-
-# Зависимости
-pip install httpx cerebras-cloud-sdk groq anthropic pydantic-settings rich python-dotenv
-```
-
----
-
-## Коды ошибок AKF
-
-| Код | Поле | Исправление |
-|---|---|---|
-| E001 | title | отсутствует |
-| E002 | type | не из `guide\|reference\|checklist` |
-| E003 | domain | не из `automation\|maritime\|api-design\|devops` |
-| E004 | level | не из `beginner\|intermediate\|advanced` |
-| E005 | status | не `active` |
-| E006 | tags | меньше 3 тегов |
-| E007 | created/updated | не ISO 8601 |
-| E008 | структура | нет YAML-блока `---` |
