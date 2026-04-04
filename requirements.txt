@@ -6,3 +6,4 @@ cerebras-cloud-sdk
 praw
 openai
 python-dotenv
+rich
