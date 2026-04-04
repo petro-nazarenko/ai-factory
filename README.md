@@ -1,14 +1,20 @@
-![AI Factory](logo.svg)
+<p align="center">
+  <img src="logo.svg" width="80" />
+</p>
 
-# AI Factory — B2B Opportunity Mining & Deal Generation System
+<h1 align="center">AI Factory</h1>
 
-![Python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
-![Railway](https://img.shields.io/badge/deployed_on-Railway-0B0D0E?logo=railway&logoColor=white)
-![Last Commit](https://img.shields.io/github/last-commit/petro-nazarenko/ai-factory?color=informational)
-![Stars](https://img.shields.io/github/stars/petro-nazarenko/ai-factory?style=social)
+<p align="center">
+  <em>From market signals to closed deals. Automatically.</em>
+</p>
 
-**From market signals to closed deals. Automatically.**
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/deployed_on-Railway-0B0D0E?logo=railway&logoColor=white" />
+  <img src="https://img.shields.io/github/last-commit/petro-nazarenko/ai-factory?color=informational" />
+  <img src="https://img.shields.io/github/stars/petro-nazarenko/ai-factory?style=social" />
+</p>
 
 ---
 
