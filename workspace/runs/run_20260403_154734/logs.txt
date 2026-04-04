@@ -1,0 +1,6 @@
+[2026-04-03T12:47:34Z] [run_20260403_154734] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_154734
+[2026-04-03T12:47:34Z] [run_20260403_154734] [INIT] [SUCCESS] LLM provider: Groq (llama-3.3-70b-versatile)
+[2026-04-03T12:47:34Z] [run_20260403_154734] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=false
+[2026-04-03T12:47:37Z] [run_20260403_154734] [IDEA_GEN] [SUCCESS] ideas.json written
+[2026-04-03T12:47:38Z] [run_20260403_154734] [CONNECTOR] [RUNNING] input=ideas.json threshold=0.7
+[2026-04-03T12:47:38Z] [run_20260403_154734] [CONNECTOR] [FAIL] connector.py error (exit 1) — STOP

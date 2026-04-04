@@ -1,0 +1,80 @@
+[
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Engineering hiring manager at a large public media organization. Solution: A platform that connects companies with pre-vetted engineers for flexible, project-based work. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Diversity and inclusion manager at a media organization. Solution: A platform that connects companies with underrepresented groups of engineers and provides training and development resources. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: An All-in-one CollaborationAI. Target user: Product manager at a fast-growing startup. Solution: An all-in-one collaboration and project management platform that integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "An All-in-one CollaborationAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Recruitment PlatformAI. Target user: Founder of a startup. Solution: A recruitment platform that connects startups with top talent and provides resources for hiring and retention. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Recruitment PlatformAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Knowledge ManagementAI. Target user: Operations manager at a startup. Solution: A knowledge management and documentation platform that integrates with existing tools and workflows. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Knowledge ManagementAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: DevOps engineer at a research institution. Solution: A platform that streamlines software development and deployment processes and integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: IT manager at a research institution. Solution: A platform that provides standardized software development and deployment processes and integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Recruitment PlatformAI. Target user: Engineering manager at a software company. Solution: A recruitment platform that connects companies with top software engineering talent and provides resources for hiring and retention. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Recruitment PlatformAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Cloud engineer at a software company. Solution: A platform that streamlines cloud infrastructure management processes and integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Security manager at a software company. Solution: A platform that provides security and compliance solutions for cloud infrastructure and integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Recruitment PlatformAI. Target user: Operations manager at a website maintenance company. Solution: A recruitment platform that connects companies with top website maintenance talent and provides resources for hiring and retention. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Recruitment PlatformAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Quality assurance manager at a website maintenance company. Solution: A platform that provides accuracy and functionality solutions for website maintenance and integrates with existing tools. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Recruitment PlatformAI. Target user: Sales manager at a sales development company. Solution: A recruitment platform that connects companies with top sales development talent and provides resources for hiring and retention. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Recruitment PlatformAI",
+    "source": "jobboards"
+  }
+]

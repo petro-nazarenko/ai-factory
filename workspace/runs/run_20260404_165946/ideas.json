@@ -1,0 +1,1172 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:jobboards] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Freelance copywriter",
+          "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+          "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+          "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Freelance copywriter",
+        "what_they_want": "A tool that auto-formats client briefs into ready-to-send proposals",
+        "current_workaround": "Copy-pasting into Google Docs templates manually \u2014 takes 45 min",
+        "raw_text": "[mock:reddit] I spend ages reformatting briefs, please automate this",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.8) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.8) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:jobboards] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.8) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+          "what_they_want": "Automated competitor price tracking with daily email alerts",
+          "current_workaround": "Checks 3 competitor sites manually every morning",
+          "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+          "score": 7.8
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.8) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "E-commerce store owner (Shopify, <$50k/mo)",
+        "what_they_want": "Automated competitor price tracking with daily email alerts",
+        "current_workaround": "Checks 3 competitor sites manually every morning",
+        "raw_text": "[mock:reddit] Anyone built a cheap price tracker for small stores?",
+        "score": 7.8
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.2) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.2) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:jobboards] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+        "target_user": "Freelance copywriter with 3\u201310 clients",
+        "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+        "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+        "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.88,
+      "reject_reason": null,
+      "reasoning": "All three positive signals confirmed.",
+      "has_existing_spending": 8.5,
+      "has_clear_buyer": 8.5,
+      "mvp_feasible_24h": 8.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Web AppAI",
+    "tagline": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance copywriter with 3\u201310 clients hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Web AppAI</title></head>\n<body>\n  <h1>A Web AppAI</h1>\n  <p>A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelancers spend 45+ minutes per client reformatting briefs into proposals",
+      "target_user": "Freelance copywriter with 3\u201310 clients",
+      "solution": "A web app that converts a raw brief (pasted text) into a polished proposal PDF in one click",
+      "why_now": "LLMs make high-quality text transformation cheap; clients expect professional proposals",
+      "existing_spend_behavior": "Most freelancers already pay for Notion, Google Workspace, or Bonsai ($20\u2013$50/mo)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "E-commerce owners manually check competitor prices every morning",
+        "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+        "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+        "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+        "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.2) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Lightweight SaasAI",
+    "tagline": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Shopify store owner earning $10k\u2013$100k/mo hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Lightweight SaasAI</title></head>\n<body>\n  <h1>A Lightweight SaasAI</h1>\n  <p>A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "E-commerce owners manually check competitor prices every morning",
+      "target_user": "Shopify store owner earning $10k\u2013$100k/mo",
+      "solution": "A lightweight SaaS that monitors up to 20 competitor URLs and emails a daily price delta report",
+      "why_now": "Pricing parity is critical during current inflationary period; no cheap self-serve tool exists",
+      "existing_spend_behavior": "Merchants already pay for tools like Klaviyo, Privy, and ReConvert ($30\u2013$100/mo each)",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Solo founders struggle to collect video testimonials without expensive software",
+        "target_user": "B2B SaaS founder with 10\u2013100 customers",
+        "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+        "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+        "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+        "signal": {
+          "source": "reddit",
+          "source_url": "",
+          "who_is_complaining": "Solo SaaS founder",
+          "what_they_want": "One-click video testimonial collection from customers",
+          "current_workaround": "Sends Loom links via email, low response rate",
+          "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+          "score": 7.2
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.2) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A One-page LinkAI",
+    "tagline": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where B2B SaaS founder with 10\u2013100 customers hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A One-page LinkAI</title></head>\n<body>\n  <h1>A One-page LinkAI</h1>\n  <p>A one-page link customers open on mobile to record a 60-second testimonial video, no app install</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Solo founders struggle to collect video testimonials without expensive software",
+      "target_user": "B2B SaaS founder with 10\u2013100 customers",
+      "solution": "A one-page link customers open on mobile to record a 60-second testimonial video, no app install",
+      "why_now": "Video social proof is proven to increase conversions; Testimonial.to charges $50+/mo",
+      "existing_spend_behavior": "Founders already pay for Loom, UserEvidence, or Boast.io for similar outcomes",
+      "signal": {
+        "source": "reddit",
+        "source_url": "",
+        "who_is_complaining": "Solo SaaS founder",
+        "what_they_want": "One-click video testimonial collection from customers",
+        "current_workaround": "Sends Loom links via email, low response rate",
+        "raw_text": "[mock:reddit] Getting video testimonials is painful without a $200/mo tool",
+        "score": 7.2
+      }
+    }
+  }
+]

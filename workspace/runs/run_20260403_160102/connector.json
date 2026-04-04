@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Remote hiring manager at a tech company. Solution: A platform that connects companies with pre-vetted, remote intermediate full stack engineers. Revenue model: Monthly SaaS subscription",
+    "score": 8.5,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Software ThatAI. Target user: CEO or founder of a remote startup with a growing team. Solution: A software that helps companies design, implement, and manage transparent salary structures for their remote teams. Revenue model: Monthly SaaS subscription",
+    "score": 7.25,
+    "source_idea": "A Software ThatAI",
+    "source": "jobboards"
+  }
+]

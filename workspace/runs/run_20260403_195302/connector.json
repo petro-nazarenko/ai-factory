@@ -1,0 +1,20 @@
+[
+  {
+    "prompt": "Create a solution spec: An Ai-powered TalentAI. Target user: Hiring manager at a media company. Solution: An AI-powered talent acquisition platform that matches companies with qualified engineers. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "An Ai-powered TalentAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Hybrid WorkAI. Target user: Operations manager at a large organization. Solution: A hybrid work management tool that streamlines scheduling, attendance tracking, and communication for distributed teams. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Hybrid WorkAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Diversity and inclusion manager at a tech company. Solution: A platform that connects companies with underrepresented engineers and provides resources for creating inclusive work environments. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  }
+]

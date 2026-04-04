@@ -1,0 +1,9 @@
+[2026-04-03T16:21:44Z] [run_20260403_192144] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_192144
+[2026-04-03T16:21:44Z] [run_20260403_192144] [INIT] [SUCCESS] LLM provider: Groq (llama-3.3-70b-versatile)
+[2026-04-03T16:21:44Z] [run_20260403_192144] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=false
+[2026-04-03T16:22:04Z] [run_20260403_192144] [IDEA_GEN] [SUCCESS] ideas.json written
+[2026-04-03T16:22:04Z] [run_20260403_192144] [CONNECTOR] [RUNNING] input=ideas.json threshold=0.7
+[2026-04-03T16:22:04Z] [run_20260403_192144] [CONNECTOR] [SUCCESS] connector.json written
+[2026-04-03T16:22:04Z] [run_20260403_192144] [VALIDATION] [RUNNING] input=connector.json output=validated/ dry_run=false
+[2026-04-03T16:22:07Z] [run_20260403_192144] [VALIDATION] [SUCCESS] validated/ populated
+[2026-04-03T16:22:07Z] [run_20260403_192144] [REPORT] [SUCCESS] run complete — 1 ideas validated in /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_192144

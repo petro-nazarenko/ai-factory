@@ -1,0 +1,2 @@
+[2026-04-03T12:44:18Z] [run_20260403_154418] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_154418
+[2026-04-03T12:44:18Z] [run_20260403_154418] [INIT] [FAIL] ANTHROPIC_API_KEY not set — set it in env or Moneymaker/.env

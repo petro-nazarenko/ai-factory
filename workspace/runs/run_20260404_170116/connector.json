@@ -1,0 +1,62 @@
+[
+  {
+    "prompt": "Create a solution spec: A Recruitment PlatformAI. Target user: Talent Acquisition Manager at a large corporation. Solution: A recruitment platform that leverages AI-powered matchmaking to find and connect companies with underrepresented engineers in the tech industry.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Recruitment PlatformAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ThatAI. Target user: Founder of a recruitment agency. Solution: A platform that provides recruitment agencies and companies with the tools and expertise they need to find and attract diverse top engineering talent, at a lower cost and with better results.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ThatAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: Create A CentralizedAI. Target user: Manager in a growing tech company with 10-20 employees. Solution: Create a centralized knowledge base and resource library within Notion, with automatic workflow templates and single-click access to key tools and documents. Revenue model: Monthly SaaS subscription",
+    "score": 7.88,
+    "source_idea": "Create A CentralizedAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: Offer An Ai-poweredAI. Target user: Simplified dashboard user and IT Administrator. Solution: Offer an AI-powered dashboard organization AI powered dashboard, automatically grouping and categorizing content for enhanced discoverability and reduced clutter. Revenue model: Monthly SaaS subscription",
+    "score": 7.0,
+    "source_idea": "Offer An Ai-poweredAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: Develop An AutomatedAI. Target user: IT Admins of growing companies using Notion as their primary workspace. Solution: Develop an automated role manager and access control system for Notion, streamlining team permission management and reducing the risk of data breaches. Revenue model: Monthly SaaS subscription",
+    "score": 7.0,
+    "source_idea": "Develop An AutomatedAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Software IntegrationAI. Target user: Researchers, DevOps engineers, or IT managers working with scientific computing software in research institutions or companies.. Solution: A software integration platform that allows researchers and engineers to integrate and manage multiple scientific computing tools and systems from a single dashboard.. Revenue model: Monthly SaaS subscription",
+    "score": 7.0,
+    "source_idea": "A Software IntegrationAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Specialized TalentAI. Target user: Talent Acquisition Manager at a mid-sized company hiring remotely in the US or UK. Solution: A specialized talent sourcing platform offering handpicked SDRs, matching company needs with top sales talent for remote onboarding and seamless integration. Revenue model: Monthly SaaS subscription",
+    "score": 7.88,
+    "source_idea": "A Specialized TalentAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: An Ai-driven SalesAI. Target user: Remote Recruitment Manager at a startup in the SaaS or MarTech space. Solution: An AI-driven Sales Development Representative (SDR) skills assessment and matching tool, evaluating SDRs on core competencies, cultural fit, and work style for optimized remote hiring decisions. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "An Ai-driven SalesAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Comprehensive SalesAI. Target user: Sales Development Lead at a scaling e-commerce business with a high SDR turnover rate. Solution: A comprehensive Sales Development Representative (SDR) onboarding, training, and management platform, providing structured learning paths, real-time feedback, and data-driven insights for efficient remote talent management. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Comprehensive SalesAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: Our Saas PlatformAI. Target user: Manager of Sales or Hiring at growing SaaS, MarTech, FinTech, or EdTech companies. Solution: Our SaaS platform offers a curated marketplace connecting hiring managers with top Sales Development Representative candidates, reducing the time and cost of the hiring process.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Our Saas PlatformAI",
+    "source": "jobboards"
+  }
+]

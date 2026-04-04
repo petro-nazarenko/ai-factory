@@ -1,0 +1,847 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Difficulty finding qualified engineers for various platforms",
+        "target_user": "Engineering hiring manager at a large public media organization",
+        "solution": "A platform that connects companies with pre-vetted engineers for flexible, project-based work",
+        "why_now": "The rise of remote work and the increasing demand for skilled engineers",
+        "existing_spend_behavior": "Already pays for job boards and recruitment agencies",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666455",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+          "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+          "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that connects companies with pre-vetted engineers for flexible, project-based work",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Engineering hiring manager at a large public media organization hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that connects companies with pre-vetted engineers for flexible, project-based work</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Difficulty finding qualified engineers for various platforms",
+      "target_user": "Engineering hiring manager at a large public media organization",
+      "solution": "A platform that connects companies with pre-vetted engineers for flexible, project-based work",
+      "why_now": "The rise of remote work and the increasing demand for skilled engineers",
+      "existing_spend_behavior": "Already pays for job boards and recruitment agencies",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666455",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+        "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+        "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Lack of diversity in engineering candidate pools",
+        "target_user": "Diversity and inclusion manager at a media organization",
+        "solution": "A platform that connects companies with underrepresented groups of engineers and provides training and development resources",
+        "why_now": "The increasing importance of diversity and inclusion in the workplace",
+        "existing_spend_behavior": "Already invests in diversity and inclusion initiatives and training programs",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666455",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+          "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+          "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that connects companies with underrepresented groups of engineers and provides training and development resou",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Diversity and inclusion manager at a media organization hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that connects companies with underrepresented groups of engineers and provides training and development resou</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Lack of diversity in engineering candidate pools",
+      "target_user": "Diversity and inclusion manager at a media organization",
+      "solution": "A platform that connects companies with underrepresented groups of engineers and provides training and development resources",
+      "why_now": "The increasing importance of diversity and inclusion in the workplace",
+      "existing_spend_behavior": "Already invests in diversity and inclusion initiatives and training programs",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666455",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+        "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+        "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Inefficient collaboration and project management tools",
+        "target_user": "Product manager at a fast-growing startup",
+        "solution": "An all-in-one collaboration and project management platform that integrates with existing tools",
+        "why_now": "The rise of remote work and the need for more efficient collaboration tools",
+        "existing_spend_behavior": "Already pays for multiple collaboration and project management tools",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665940",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+          "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+          "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "An All-in-one CollaborationAI",
+    "tagline": "An all-in-one collaboration and project management platform that integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Product manager at a fast-growing startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>An All-in-one CollaborationAI</title></head>\n<body>\n  <h1>An All-in-one CollaborationAI</h1>\n  <p>An all-in-one collaboration and project management platform that integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Inefficient collaboration and project management tools",
+      "target_user": "Product manager at a fast-growing startup",
+      "solution": "An all-in-one collaboration and project management platform that integrates with existing tools",
+      "why_now": "The rise of remote work and the need for more efficient collaboration tools",
+      "existing_spend_behavior": "Already pays for multiple collaboration and project management tools",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665940",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+        "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+        "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Difficulty finding and hiring top talent in competitive markets",
+        "target_user": "Founder of a startup",
+        "solution": "A recruitment platform that connects startups with top talent and provides resources for hiring and retention",
+        "why_now": "The increasing competition for top talent in competitive markets",
+        "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665940",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+          "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+          "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Recruitment PlatformAI",
+    "tagline": "A recruitment platform that connects startups with top talent and provides resources for hiring and retention",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Founder of a startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Recruitment PlatformAI</title></head>\n<body>\n  <h1>A Recruitment PlatformAI</h1>\n  <p>A recruitment platform that connects startups with top talent and provides resources for hiring and retention</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Difficulty finding and hiring top talent in competitive markets",
+      "target_user": "Founder of a startup",
+      "solution": "A recruitment platform that connects startups with top talent and provides resources for hiring and retention",
+      "why_now": "The increasing competition for top talent in competitive markets",
+      "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665940",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+        "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+        "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Inefficient knowledge management and documentation processes",
+        "target_user": "Operations manager at a startup",
+        "solution": "A knowledge management and documentation platform that integrates with existing tools and workflows",
+        "why_now": "The need for more efficient knowledge management and documentation processes in fast-growing startups",
+        "existing_spend_behavior": "Already pays for documentation and knowledge management tools",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665940",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+          "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+          "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Knowledge ManagementAI",
+    "tagline": "A knowledge management and documentation platform that integrates with existing tools and workflows",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Operations manager at a startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Knowledge ManagementAI</title></head>\n<body>\n  <h1>A Knowledge ManagementAI</h1>\n  <p>A knowledge management and documentation platform that integrates with existing tools and workflows</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Inefficient knowledge management and documentation processes",
+      "target_user": "Operations manager at a startup",
+      "solution": "A knowledge management and documentation platform that integrates with existing tools and workflows",
+      "why_now": "The need for more efficient knowledge management and documentation processes in fast-growing startups",
+      "existing_spend_behavior": "Already pays for documentation and knowledge management tools",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665940",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+        "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+        "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Inefficient software development and deployment processes",
+        "target_user": "DevOps engineer at a research institution",
+        "solution": "A platform that streamlines software development and deployment processes and integrates with existing tools",
+        "why_now": "The need for more efficient software development and deployment processes in research institutions",
+        "existing_spend_behavior": "Already pays for development and deployment tools",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665817",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+          "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+          "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that streamlines software development and deployment processes and integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where DevOps engineer at a research institution hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that streamlines software development and deployment processes and integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Inefficient software development and deployment processes",
+      "target_user": "DevOps engineer at a research institution",
+      "solution": "A platform that streamlines software development and deployment processes and integrates with existing tools",
+      "why_now": "The need for more efficient software development and deployment processes in research institutions",
+      "existing_spend_behavior": "Already pays for development and deployment tools",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665817",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+        "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+        "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Lack of standardization in software development and deployment processes",
+        "target_user": "IT manager at a research institution",
+        "solution": "A platform that provides standardized software development and deployment processes and integrates with existing tools",
+        "why_now": "The need for more standardized software development and deployment processes in research institutions",
+        "existing_spend_behavior": "Already invests in standardization initiatives and training programs",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665817",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+          "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+          "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that provides standardized software development and deployment processes and integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where IT manager at a research institution hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that provides standardized software development and deployment processes and integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Lack of standardization in software development and deployment processes",
+      "target_user": "IT manager at a research institution",
+      "solution": "A platform that provides standardized software development and deployment processes and integrates with existing tools",
+      "why_now": "The need for more standardized software development and deployment processes in research institutions",
+      "existing_spend_behavior": "Already invests in standardization initiatives and training programs",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665817",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+        "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+        "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Difficulty finding and hiring top software engineering talent",
+        "target_user": "Engineering manager at a software company",
+        "solution": "A recruitment platform that connects companies with top software engineering talent and provides resources for hiring and retention",
+        "why_now": "The increasing competition for top software engineering talent",
+        "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666751",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+          "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+          "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Recruitment PlatformAI",
+    "tagline": "A recruitment platform that connects companies with top software engineering talent and provides resources for hiring an",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Engineering manager at a software company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Recruitment PlatformAI</title></head>\n<body>\n  <h1>A Recruitment PlatformAI</h1>\n  <p>A recruitment platform that connects companies with top software engineering talent and provides resources for hiring an</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Difficulty finding and hiring top software engineering talent",
+      "target_user": "Engineering manager at a software company",
+      "solution": "A recruitment platform that connects companies with top software engineering talent and provides resources for hiring and retention",
+      "why_now": "The increasing competition for top software engineering talent",
+      "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666751",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+        "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+        "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Inefficient cloud infrastructure management processes",
+        "target_user": "Cloud engineer at a software company",
+        "solution": "A platform that streamlines cloud infrastructure management processes and integrates with existing tools",
+        "why_now": "The need for more efficient cloud infrastructure management processes in software companies",
+        "existing_spend_behavior": "Already pays for cloud infrastructure management tools",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666751",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+          "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+          "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that streamlines cloud infrastructure management processes and integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Cloud engineer at a software company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that streamlines cloud infrastructure management processes and integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Inefficient cloud infrastructure management processes",
+      "target_user": "Cloud engineer at a software company",
+      "solution": "A platform that streamlines cloud infrastructure management processes and integrates with existing tools",
+      "why_now": "The need for more efficient cloud infrastructure management processes in software companies",
+      "existing_spend_behavior": "Already pays for cloud infrastructure management tools",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666751",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+        "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+        "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Lack of security and compliance in cloud infrastructure",
+        "target_user": "Security manager at a software company",
+        "solution": "A platform that provides security and compliance solutions for cloud infrastructure and integrates with existing tools",
+        "why_now": "The increasing importance of security and compliance in cloud infrastructure",
+        "existing_spend_behavior": "Already invests in security and compliance initiatives and training programs",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666751",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+          "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+          "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that provides security and compliance solutions for cloud infrastructure and integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Security manager at a software company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that provides security and compliance solutions for cloud infrastructure and integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Lack of security and compliance in cloud infrastructure",
+      "target_user": "Security manager at a software company",
+      "solution": "A platform that provides security and compliance solutions for cloud infrastructure and integrates with existing tools",
+      "why_now": "The increasing importance of security and compliance in cloud infrastructure",
+      "existing_spend_behavior": "Already invests in security and compliance initiatives and training programs",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666751",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This ro",
+        "current_workaround": "le would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python project",
+        "raw_text": "Canonical | The company behind Ubuntu | Software Engineer for Ubuntu Server | Americas or Western Europe Time zones | REMOTE | Full-Time Canonical has an opening [1] on the Ubuntu Server team. This role would be working on the cloud-init [2], curtin [3], and Ubuntu Advantage Tools [4] Python projects. If you like working with customers, clouds, writing Python, and working in Open Source this would be a great experience for you. Again, this is a full-time, remote position for someone in the Americas or Western European time zones. I am the hiring manager for this specific role, but we do have m",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Difficulty finding and hiring top website maintenance talent",
+        "target_user": "Operations manager at a website maintenance company",
+        "solution": "A recruitment platform that connects companies with top website maintenance talent and provides resources for hiring and retention",
+        "why_now": "The increasing demand for skilled website maintenance professionals",
+        "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://remoteOK.com/remote-jobs/remote-website-maintenance-crewbloom-1130987",
+          "who_is_complaining": "Company hiring remotely (CrewBloom)",
+          "what_they_want": "Website Maintenance",
+          "current_workaround": "We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully rem",
+          "raw_text": "Website Maintenance at CrewBloom | tags: system, technical, support, seo, recruiting | We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully remote role suited for someone who is experienced in maintaining websites within a staffing or recruiti",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Recruitment PlatformAI",
+    "tagline": "A recruitment platform that connects companies with top website maintenance talent and provides resources for hiring and",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Operations manager at a website maintenance company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Recruitment PlatformAI</title></head>\n<body>\n  <h1>A Recruitment PlatformAI</h1>\n  <p>A recruitment platform that connects companies with top website maintenance talent and provides resources for hiring and</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Difficulty finding and hiring top website maintenance talent",
+      "target_user": "Operations manager at a website maintenance company",
+      "solution": "A recruitment platform that connects companies with top website maintenance talent and provides resources for hiring and retention",
+      "why_now": "The increasing demand for skilled website maintenance professionals",
+      "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://remoteOK.com/remote-jobs/remote-website-maintenance-crewbloom-1130987",
+        "who_is_complaining": "Company hiring remotely (CrewBloom)",
+        "what_they_want": "Website Maintenance",
+        "current_workaround": "We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully rem",
+        "raw_text": "Website Maintenance at CrewBloom | tags: system, technical, support, seo, recruiting | We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully remote role suited for someone who is experienced in maintaining websites within a staffing or recruiti",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Lack of accuracy and functionality in website maintenance",
+        "target_user": "Quality assurance manager at a website maintenance company",
+        "solution": "A platform that provides accuracy and functionality solutions for website maintenance and integrates with existing tools",
+        "why_now": "The increasing importance of accuracy and functionality in website maintenance",
+        "existing_spend_behavior": "Already invests in quality assurance initiatives and training programs",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://remoteOK.com/remote-jobs/remote-website-maintenance-crewbloom-1130987",
+          "who_is_complaining": "Company hiring remotely (CrewBloom)",
+          "what_they_want": "Website Maintenance",
+          "current_workaround": "We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully rem",
+          "raw_text": "Website Maintenance at CrewBloom | tags: system, technical, support, seo, recruiting | We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully remote role suited for someone who is experienced in maintaining websites within a staffing or recruiti",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ThatAI",
+    "tagline": "A platform that provides accuracy and functionality solutions for website maintenance and integrates with existing tools",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Quality assurance manager at a website maintenance company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ThatAI</title></head>\n<body>\n  <h1>A Platform ThatAI</h1>\n  <p>A platform that provides accuracy and functionality solutions for website maintenance and integrates with existing tools</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Lack of accuracy and functionality in website maintenance",
+      "target_user": "Quality assurance manager at a website maintenance company",
+      "solution": "A platform that provides accuracy and functionality solutions for website maintenance and integrates with existing tools",
+      "why_now": "The increasing importance of accuracy and functionality in website maintenance",
+      "existing_spend_behavior": "Already invests in quality assurance initiatives and training programs",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://remoteOK.com/remote-jobs/remote-website-maintenance-crewbloom-1130987",
+        "who_is_complaining": "Company hiring remotely (CrewBloom)",
+        "what_they_want": "Website Maintenance",
+        "current_workaround": "We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully rem",
+        "raw_text": "Website Maintenance at CrewBloom | tags: system, technical, support, seo, recruiting | We\u00e2\u0080\u0099re looking for a detail-oriented Website Maintenance Specialist to support the ongoing upkeep and optimization of our websites. You\u00e2\u0080\u0099ll play a key role in ensuring our websites, job listings, and application flows remain accurate, functional, and user-friendly.   This is a part-time, fully remote role suited for someone who is experienced in maintaining websites within a staffing or recruiti",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Difficulty finding and hiring top sales development talent",
+        "target_user": "Sales manager at a sales development company",
+        "solution": "A recruitment platform that connects companies with top sales development talent and provides resources for hiring and retention",
+        "why_now": "The increasing demand for skilled sales development professionals",
+        "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://remoteOK.com/remote-jobs/remote-sales-development-representative-huzzle-1130984",
+          "who_is_complaining": "Company hiring remotely (Huzzle)",
+          "what_they_want": "Sales Development Representative",
+          "current_workaround": "About Huzzle At Huzzle, we connect exceptional talent with top opportunities at leading companies across the UK, US, Canada, Europe, and Australia. Our clients include fast-growing startups, digital agencies, and tech platforms across SaaS, MarTech, FinTech, and EdTech. You\u00e2\u0080\u0099ll be placed directly w",
+          "raw_text": "Sales Development Representative at Huzzle | tags: salesforce, training, growth, lead, marketing, sales | About Huzzle At Huzzle, we connect exceptional talent with top opportunities at leading companies across the UK, US, Canada, Europe, and Australia. Our clients include fast-growing startups, digital agencies, and tech platforms across SaaS, MarTech, FinTech, and EdTech. You\u00e2\u0080\u0099ll be placed directly with a client as an in-house team member\u00e2\u0080\u0094giving you real ownership, global exposure, and long-term ",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Recruitment PlatformAI",
+    "tagline": "A recruitment platform that connects companies with top sales development talent and provides resources for hiring and r",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Sales manager at a sales development company hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Recruitment PlatformAI</title></head>\n<body>\n  <h1>A Recruitment PlatformAI</h1>\n  <p>A recruitment platform that connects companies with top sales development talent and provides resources for hiring and r</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Difficulty finding and hiring top sales development talent",
+      "target_user": "Sales manager at a sales development company",
+      "solution": "A recruitment platform that connects companies with top sales development talent and provides resources for hiring and retention",
+      "why_now": "The increasing demand for skilled sales development professionals",
+      "existing_spend_behavior": "Already spends on recruitment agencies and job boards",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://remoteOK.com/remote-jobs/remote-sales-development-representative-huzzle-1130984",
+        "who_is_complaining": "Company hiring remotely (Huzzle)",
+        "what_they_want": "Sales Development Representative",
+        "current_workaround": "About Huzzle At Huzzle, we connect exceptional talent with top opportunities at leading companies across the UK, US, Canada, Europe, and Australia. Our clients include fast-growing startups, digital agencies, and tech platforms across SaaS, MarTech, FinTech, and EdTech. You\u00e2\u0080\u0099ll be placed directly w",
+        "raw_text": "Sales Development Representative at Huzzle | tags: salesforce, training, growth, lead, marketing, sales | About Huzzle At Huzzle, we connect exceptional talent with top opportunities at leading companies across the UK, US, Canada, Europe, and Australia. Our clients include fast-growing startups, digital agencies, and tech platforms across SaaS, MarTech, FinTech, and EdTech. You\u00e2\u0080\u0099ll be placed directly with a client as an in-house team member\u00e2\u0080\u0094giving you real ownership, global exposure, and long-term ",
+        "score": 8.5
+      }
+    }
+  }
+]
