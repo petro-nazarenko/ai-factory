@@ -7,3 +7,4 @@ praw
 openai
 python-dotenv
 rich
+pydantic-settings
