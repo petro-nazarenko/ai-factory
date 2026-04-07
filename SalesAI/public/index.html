@@ -311,6 +311,73 @@
       margin-top: 12px;
     }
 
+    /* API key section */
+    .key-section {
+      background: #1a1f2e;
+      border: 1px solid #2d3448;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .key-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .key-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+    }
+
+    .key-link {
+      font-size: 0.78rem;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .key-link:hover { text-decoration: underline; }
+
+    .key-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .key-input {
+      flex: 1;
+      background: #0f1117;
+      border: 1px solid #2d3448;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      font-family: monospace;
+      transition: border-color 0.2s;
+    }
+
+    .key-input:focus { outline: none; border-color: #60a5fa; }
+    .key-input::placeholder { color: #4a5568; font-family: inherit; }
+
+    .key-status {
+      font-size: 0.78rem;
+      margin-top: 8px;
+    }
+
+    .key-status-ok { color: #6ee7b7; }
+    .key-status-missing { color: #94a3b8; }
+
+    .no-key-notice {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      padding: 20px 0 8px;
+    }
+
     @media (max-width: 480px) {
       .dims { grid-template-columns: 1fr; }
       .score-number { font-size: 3rem; }
@@ -344,6 +411,39 @@ function DimBar({ label, value }) {
   );
 }
 
+const GROQ_SESSION_KEY = "groq_api_key";
+
+const PROMPT_TEMPLATE = (qa) => `You are a sales hiring expert evaluating an SDR (Sales Development Representative) candidate.
+
+Score the following candidate responses on a scale of 0–100 and provide a hiring recommendation.
+
+Evaluate across these dimensions:
+- Resilience & objection handling
+- Drive & self-motivation
+- Process & preparation
+- Communication clarity
+- Closing instinct
+
+---
+${qa}
+---
+
+Respond ONLY with valid JSON in this exact format (no markdown, no extra text):
+{
+  "score": <integer 0-100>,
+  "recommendation": "<Strong Hire | Hire | Consider | Reject>",
+  "summary": "<2-3 sentence overall assessment>",
+  "strengths": ["<strength 1>", "<strength 2>"],
+  "concerns": ["<concern 1>", "<concern 2>"],
+  "dimension_scores": {
+    "resilience": <0-100>,
+    "drive": <0-100>,
+    "process": <0-100>,
+    "communication": <0-100>,
+    "closing": <0-100>
+  }
+}`;
+
 // Screens: "form" | "scoring" | "name" | "result"
 function App() {
   const [questions, setQuestions]   = useState([]);
@@ -355,6 +455,7 @@ function App() {
   const [error, setError]           = useState(null);
   const [loadingQ, setLoadingQ]     = useState(true);
   const [saved, setSaved]           = useState(false);
+  const [groqKey, setGroqKey]       = useState(() => sessionStorage.getItem(GROQ_SESSION_KEY) || "");
 
   useEffect(() => {
     fetch("/api/questions")
@@ -373,19 +474,40 @@ function App() {
   const filled = answers.filter(a => a.trim().length >= 20).length;
   const allFilled = questions.length > 0 && filled === questions.length;
   const progress = questions.length ? (filled / questions.length) * 100 : 0;
+  const hasKey = groqKey.trim().length > 0;
+
+  function handleKeyChange(e) {
+    const val = e.target.value;
+    setGroqKey(val);
+    if (val.trim()) {
+      sessionStorage.setItem(GROQ_SESSION_KEY, val.trim());
+    } else {
+      sessionStorage.removeItem(GROQ_SESSION_KEY);
+    }
+  }
 
   async function handleSubmit() {
     setError(null);
     setScreen("scoring");
     try {
-      const res = await fetch("/api/score", {
+      const qa = questions.map((q, i) => `Q${i + 1}: ${q}\nA${i + 1}: ${answers[i]}`).join("\n\n");
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers }),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${groqKey.trim()}`,
+        },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          max_tokens: 600,
+          messages: [{ role: "user", content: PROMPT_TEMPLATE(qa) }],
+        }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Unknown error");
-      setPending(data);
+      if (!res.ok) throw new Error(data.error?.message || "Groq API error");
+      const raw = data.choices[0].message.content.trim();
+      const scored = JSON.parse(raw);
+      setPending(scored);
       setScreen("name");
     } catch (e) {
       setError(e.message);
@@ -437,6 +559,35 @@ function App() {
       {/* FORM */}
       {screen === "form" && (
         <>
+          {/* Groq API Key */}
+          <div className="key-section">
+            <div className="key-section-header">
+              <span className="key-label">Groq API Key</span>
+              <a
+                className="key-link"
+                href="https://console.groq.com/keys"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get free key at console.groq.com/keys →
+              </a>
+            </div>
+            <div className="key-input-row">
+              <input
+                className="key-input"
+                type="password"
+                placeholder="gsk_…"
+                value={groqKey}
+                onChange={handleKeyChange}
+                autoComplete="off"
+                spellCheck={false}
+              />
+            </div>
+            <div className={`key-status ${hasKey ? "key-status-ok" : "key-status-missing"}`}>
+              {hasKey ? "Key saved for this session" : "No key entered — AI scoring disabled"}
+            </div>
+          </div>
+
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${progress}%` }} />
           </div>
@@ -460,9 +611,13 @@ function App() {
             </div>
           ))}
 
-          <button className="btn btn-primary" disabled={!allFilled} onClick={handleSubmit}>
-            Submit & Score ({filled}/{questions.length} answered)
-          </button>
+          {!hasKey ? (
+            <div className="no-key-notice">Add your Groq key above to enable AI scoring</div>
+          ) : (
+            <button className="btn btn-primary" disabled={!allFilled} onClick={handleSubmit}>
+              Submit & Score ({filled}/{questions.length} answered)
+            </button>
+          )}
         </>
       )}
 
