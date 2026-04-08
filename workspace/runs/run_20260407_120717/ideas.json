@@ -1,0 +1,220 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Financial institutions struggle to validate new employees' identities and work history",
+        "target_user": "Recruiting Manager at a US or EU bank with 50+ employees",
+        "solution": "Automated employee verification service that verifies employment and identity using publicly available data sources",
+        "why_now": "With remote work on the rise, verifying employee identity and work history is becoming increasingly challenging and time-consuming",
+        "existing_spend_behavior": "Many financial institutions already spend money on professional background checks and employee verification services",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47672075",
+          "source_author": "kyry_cz",
+          "source_company": "ThreatMark",
+          "source_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in milliseconds driving authentication&#x2F;authorization flow (2nd factor). Stack: [python, typescript, rust], [redis, postgresql], [aws, terraform] ... We are looking for exceptional engineers to build with us and be part of the success: - Backend Engineer [rust, python] - low-latency stream processing engine, rewrite python microservices to rust - DevOps Engineer (IaaC in AWS) If you are interested, please email us @ career@threatmark.com with subject &quot;HN Who&#x27;s Hiring&quot; If you don&#x27;t find the right role here or at  https:&#x2F;&#x2F;www.threatmark.com&#x2F;careers&#x2F; , write us anyway if you believe you can be good fit :) Krystof Hilar, Co-Founder &amp; CTO",
+          "posted_date": "2026-04-07T08:05:52Z",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are",
+          "current_workaround": "working with top banks in EU and US to protect their end users. We develop large-behavioral models",
+          "raw_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in millisecon",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "google_form_manual",
+    "title": "Automated Employee VerificationAI",
+    "tagline": "Automated employee verification service that verifies employment and identity using publicly available data sources",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "1\u20132 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Recruiting Manager at a US or EU bank with 50+ employees hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Google Forms",
+      "Google Sheets",
+      "Zapier",
+      "Gmail"
+    ],
+    "template": "# Google Form + Manual Fulfillment MVP\n\n## Step 1 \u2014 Create Google Form\nFields:\n  1. Name (short answer)\n  2. Email (short answer)\n  3. Describe your current problem in detail (paragraph)\n  4. How much would you pay per month for a solution? (multiple choice: $29 / $49 / $99 / Other)\n\n## Step 2 \u2014 Connect to Google Sheets\n- Link the form to a Google Sheet for automatic response collection.\n\n## Step 3 \u2014 Outreach template (cold DM / email)\nSubject: Quick question about Financial institutions struggle to validate new em\n\nHi [Name],\n\nI'm building Automated Employee VerificationAI \u2014 Automated employee verification service that verifies employment and identity using publicly available data sources\n\nI'd love to send you a free trial in exchange for 10 minutes of feedback.\nInterested? Fill this 1-min form: [FORM_LINK]\n\n## Step 4 \u2014 Manual fulfillment checklist\n- [ ] Receive form submission\n- [ ] Deliver result within 24h via email\n- [ ] Follow up after 3 days\n- [ ] Ask for payment if they found value: $49/mo/mo",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Financial institutions struggle to validate new employees' identities and work history",
+      "target_user": "Recruiting Manager at a US or EU bank with 50+ employees",
+      "solution": "Automated employee verification service that verifies employment and identity using publicly available data sources",
+      "why_now": "With remote work on the rise, verifying employee identity and work history is becoming increasingly challenging and time-consuming",
+      "existing_spend_behavior": "Many financial institutions already spend money on professional background checks and employee verification services",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47672075",
+        "source_author": "kyry_cz",
+        "source_company": "ThreatMark",
+        "source_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in milliseconds driving authentication&#x2F;authorization flow (2nd factor). Stack: [python, typescript, rust], [redis, postgresql], [aws, terraform] ... We are looking for exceptional engineers to build with us and be part of the success: - Backend Engineer [rust, python] - low-latency stream processing engine, rewrite python microservices to rust - DevOps Engineer (IaaC in AWS) If you are interested, please email us @ career@threatmark.com with subject &quot;HN Who&#x27;s Hiring&quot; If you don&#x27;t find the right role here or at  https:&#x2F;&#x2F;www.threatmark.com&#x2F;careers&#x2F; , write us anyway if you believe you can be good fit :) Krystof Hilar, Co-Founder &amp; CTO",
+        "posted_date": "2026-04-07T08:05:52Z",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are",
+        "current_workaround": "working with top banks in EU and US to protect their end users. We develop large-behavioral models",
+        "raw_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in millisecon",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Businesses have limited visibility into the security and trustworthiness of their third-party vendors and partners",
+        "target_user": "Risk Manager at a company with 500+ employees and 100+ vendors",
+        "solution": "Third-party vendor risk assessment and management platform that provides AI-powered risk scores and recommendations",
+        "why_now": "The increase in remote work and outsourcing has made third-party vendor risk management a growing concern for businesses",
+        "existing_spend_behavior": "Many companies already spend money on annual security audits and risk assessments for their vendors",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47672075",
+          "source_author": "kyry_cz",
+          "source_company": "ThreatMark",
+          "source_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in milliseconds driving authentication&#x2F;authorization flow (2nd factor). Stack: [python, typescript, rust], [redis, postgresql], [aws, terraform] ... We are looking for exceptional engineers to build with us and be part of the success: - Backend Engineer [rust, python] - low-latency stream processing engine, rewrite python microservices to rust - DevOps Engineer (IaaC in AWS) If you are interested, please email us @ career@threatmark.com with subject &quot;HN Who&#x27;s Hiring&quot; If you don&#x27;t find the right role here or at  https:&#x2F;&#x2F;www.threatmark.com&#x2F;careers&#x2F; , write us anyway if you believe you can be good fit :) Krystof Hilar, Co-Founder &amp; CTO",
+          "posted_date": "2026-04-07T08:05:52Z",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are",
+          "current_workaround": "working with top banks in EU and US to protect their end users. We develop large-behavioral models",
+          "raw_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in millisecon",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Third-party Vendor RiskAI",
+    "tagline": "Third-party vendor risk assessment and management platform that provides AI-powered risk scores and recommendations",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Risk Manager at a company with 500+ employees and 100+ vendors hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Third-party Vendor RiskAI</title></head>\n<body>\n  <h1>Third-party Vendor RiskAI</h1>\n  <p>Third-party vendor risk assessment and management platform that provides AI-powered risk scores and recommendations</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Businesses have limited visibility into the security and trustworthiness of their third-party vendors and partners",
+      "target_user": "Risk Manager at a company with 500+ employees and 100+ vendors",
+      "solution": "Third-party vendor risk assessment and management platform that provides AI-powered risk scores and recommendations",
+      "why_now": "The increase in remote work and outsourcing has made third-party vendor risk management a growing concern for businesses",
+      "existing_spend_behavior": "Many companies already spend money on annual security audits and risk assessments for their vendors",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47672075",
+        "source_author": "kyry_cz",
+        "source_company": "ThreatMark",
+        "source_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in milliseconds driving authentication&#x2F;authorization flow (2nd factor). Stack: [python, typescript, rust], [redis, postgresql], [aws, terraform] ... We are looking for exceptional engineers to build with us and be part of the success: - Backend Engineer [rust, python] - low-latency stream processing engine, rewrite python microservices to rust - DevOps Engineer (IaaC in AWS) If you are interested, please email us @ career@threatmark.com with subject &quot;HN Who&#x27;s Hiring&quot; If you don&#x27;t find the right role here or at  https:&#x2F;&#x2F;www.threatmark.com&#x2F;careers&#x2F; , write us anyway if you believe you can be good fit :) Krystof Hilar, Co-Founder &amp; CTO",
+        "posted_date": "2026-04-07T08:05:52Z",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are",
+        "current_workaround": "working with top banks in EU and US to protect their end users. We develop large-behavioral models",
+        "raw_text": "ThreatMark | Security, Machine Learning | REMOTE(World) &#x2F; Brno, Czech Republic | Equity ThreatMark protects &gt;50M end users from finacial fraud and saves &gt; $100M every year in losses. We are working with top banks in EU and US to protect their end users. We develop large-behavioral models that recognizes returning users by their mouse movements, keystroke timings and sensoric data (accelerometer, gyroscope). We detect cyberthreats (e.g. malware, phishing, scraping) by exploiting browsers&#x2F;sandboxes of devices. We manage ~PB scale of data and provide realtime scoring in millisecon",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Companies struggle to recruit and retain top decentralized technology talent",
+        "target_user": "Senior hiring manager at a startup or scale-up interested in decentralized technologies",
+        "solution": "A decentralized job board and talent pipeline platform to streamline recruitment and talent attraction",
+        "why_now": "The rising demand for decentralized tech talent and the current limitations of traditional job boards make now the right moment to build it",
+        "existing_spend_behavior": "Existing job boards and recruitment agencies, talent acquisition platforms and career sites",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47670001",
+          "source_author": "wwolffrec",
+          "source_company": "Category Labs",
+          "source_text": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mission to design and build at the frontier of decentralized technology. We strive to design and build step-function improvements over existing blockchain solutions. After raising $225M in series A funding, led by Paradigm, we are growing our team. Senior Software Engineer, Compiler:  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;e5c34899-cea1-4d25-be...  Smart Contract Engineer (Solidity):  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;776ce314-aa12-471b-92...",
+          "posted_date": "2026-04-07T02:21:33Z",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mi",
+          "current_workaround": "ssion to design and build at the frontier of decentralized technology. We strive to design and build",
+          "raw_text": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mission to design and build at the frontier of decentralized technology. We strive to design and build step-function improvements over existing blockchain solutions. After raising $225M in series A funding, led by Paradigm, we are growing our team. Senior Software Engineer, Compiler:  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;e5c34899-cea1-4d25-be...  Smart Contract Engineer (Solidi",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Decentralized JobAI",
+    "tagline": "A decentralized job board and talent pipeline platform to streamline recruitment and talent attraction",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Senior hiring manager at a startup or scale-up interested in decentralized technologies hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Decentralized JobAI</title></head>\n<body>\n  <h1>A Decentralized JobAI</h1>\n  <p>A decentralized job board and talent pipeline platform to streamline recruitment and talent attraction</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Companies struggle to recruit and retain top decentralized technology talent",
+      "target_user": "Senior hiring manager at a startup or scale-up interested in decentralized technologies",
+      "solution": "A decentralized job board and talent pipeline platform to streamline recruitment and talent attraction",
+      "why_now": "The rising demand for decentralized tech talent and the current limitations of traditional job boards make now the right moment to build it",
+      "existing_spend_behavior": "Existing job boards and recruitment agencies, talent acquisition platforms and career sites",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47670001",
+        "source_author": "wwolffrec",
+        "source_company": "Category Labs",
+        "source_text": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mission to design and build at the frontier of decentralized technology. We strive to design and build step-function improvements over existing blockchain solutions. After raising $225M in series A funding, led by Paradigm, we are growing our team. Senior Software Engineer, Compiler:  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;e5c34899-cea1-4d25-be...  Smart Contract Engineer (Solidity):  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;776ce314-aa12-471b-92...",
+        "posted_date": "2026-04-07T02:21:33Z",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mi",
+        "current_workaround": "ssion to design and build at the frontier of decentralized technology. We strive to design and build",
+        "raw_text": "Category Labs |  https:&#x2F;&#x2F;www.category.xyz&#x2F;  | Remote and NYC | Full Time | $200K USD+ Category Labs (formerly known as Monad Labs) is a team of systems engineers and researchers on a mission to design and build at the frontier of decentralized technology. We strive to design and build step-function improvements over existing blockchain solutions. After raising $225M in series A funding, led by Paradigm, we are growing our team. Senior Software Engineer, Compiler:  https:&#x2F;&#x2F;jobs.ashbyhq.com&#x2F;category-labs&#x2F;e5c34899-cea1-4d25-be...  Smart Contract Engineer (Solidi",
+        "score": 8.5
+      }
+    }
+  }
+]

@@ -10,7 +10,7 @@ Options
 -------
     --dry-run        Run the pipeline without calling external APIs (uses mock data).
     --sources        Space-separated list of signal sources to enable.
-                     Choices: reddit producthunt indiehackers jobboards
+                     Choices: reddit producthunt indiehackers jobboards idea_seekers
                      Default: all sources.
     --limit          Maximum number of pain signals to process (default: 10).
     --output         Path to write the JSON report (default: stdout).
@@ -214,8 +214,8 @@ def main() -> None:
     parser.add_argument(
         "--sources",
         nargs="+",
-        default=["reddit", "producthunt", "indiehackers", "jobboards"],
-        choices=["reddit", "producthunt", "indiehackers", "jobboards"],
+        default=["reddit", "producthunt", "indiehackers", "jobboards", "idea_seekers"],
+        choices=["reddit", "producthunt", "indiehackers", "jobboards", "idea_seekers"],
         metavar="SOURCE",
         help="Signal sources to enable (default: all).",
     )

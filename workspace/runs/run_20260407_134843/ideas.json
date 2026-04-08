@@ -1,0 +1,438 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Backend developers struggle to find the best AI tools for logical tasks",
+        "target_user": "Backend developer with 2-5 years of experience",
+        "solution": "Develop a tool that aggregates and compares the performance of AI tools for backend tasks, such as coding and debugging",
+        "why_now": "With the rise of AI-powered development tools, the market is ripe for a solution that helps developers make informed decisions about which tools to use",
+        "existing_spend_behavior": "Backend developers already spend money on tools like Codex, Claude, and other coding AI assistants",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47667220",
+          "source_author": "SunshineTheCat",
+          "source_company": "",
+          "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+          "posted_date": "2026-04-06T21:14:37Z",
+          "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+          "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Develop A ToolAI",
+    "tagline": "Develop a tool that aggregates and compares the performance of AI tools for backend tasks, such as coding and debugging",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Backend developer with 2-5 years of experience hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Develop A ToolAI</title></head>\n<body>\n  <h1>Develop A ToolAI</h1>\n  <p>Develop a tool that aggregates and compares the performance of AI tools for backend tasks, such as coding and debugging</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Backend developers struggle to find the best AI tools for logical tasks",
+      "target_user": "Backend developer with 2-5 years of experience",
+      "solution": "Develop a tool that aggregates and compares the performance of AI tools for backend tasks, such as coding and debugging",
+      "why_now": "With the rise of AI-powered development tools, the market is ripe for a solution that helps developers make informed decisions about which tools to use",
+      "existing_spend_behavior": "Backend developers already spend money on tools like Codex, Claude, and other coding AI assistants",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47667220",
+        "source_author": "SunshineTheCat",
+        "source_company": "",
+        "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+        "posted_date": "2026-04-06T21:14:37Z",
+        "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+        "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+        "score": 7.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Frontend developers struggle to find the best AI tools for creative tasks",
+        "target_user": "Frontend developer with 2-5 years of experience",
+        "solution": "Create a tool that provides a single interface for using multiple AI tools for frontend tasks, such as design and development",
+        "why_now": "With the increasing demand for user experience, frontend developers need access to the best creative AI tools in one place",
+        "existing_spend_behavior": "Frontend developers already spend money on tools like Figma, Sketch, Adobe XD, and other design and development tools",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47667220",
+          "source_author": "SunshineTheCat",
+          "source_company": "",
+          "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+          "posted_date": "2026-04-06T21:14:37Z",
+          "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+          "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Create A ToolAI",
+    "tagline": "Create a tool that provides a single interface for using multiple AI tools for frontend tasks, such as design and develo",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Frontend developer with 2-5 years of experience hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Create A ToolAI</title></head>\n<body>\n  <h1>Create A ToolAI</h1>\n  <p>Create a tool that provides a single interface for using multiple AI tools for frontend tasks, such as design and develo</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Frontend developers struggle to find the best AI tools for creative tasks",
+      "target_user": "Frontend developer with 2-5 years of experience",
+      "solution": "Create a tool that provides a single interface for using multiple AI tools for frontend tasks, such as design and development",
+      "why_now": "With the increasing demand for user experience, frontend developers need access to the best creative AI tools in one place",
+      "existing_spend_behavior": "Frontend developers already spend money on tools like Figma, Sketch, Adobe XD, and other design and development tools",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47667220",
+        "source_author": "SunshineTheCat",
+        "source_company": "",
+        "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+        "posted_date": "2026-04-06T21:14:37Z",
+        "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+        "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+        "score": 7.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Developers waste time switching between multiple AI tools for different tasks",
+        "target_user": "Full-stack developer with 5-10 years of experience",
+        "solution": "Develop an AI tool aggregator that allows developers to access a range of tasks, from coding and debugging to design and development, within a single interface",
+        "why_now": "As AI-powered development tools continue to evolve, the need for a seamless and integrated experience is becoming increasingly important",
+        "existing_spend_behavior": "Developers already spend money on a range of development tools, including AI-powered coding assistants and design software",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47667220",
+          "source_author": "SunshineTheCat",
+          "source_company": "",
+          "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+          "posted_date": "2026-04-06T21:14:37Z",
+          "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+          "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Develop An AiAI",
+    "tagline": "Develop an AI tool aggregator that allows developers to access a range of tasks, from coding and debugging to design and",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Full-stack developer with 5-10 years of experience hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Develop An AiAI</title></head>\n<body>\n  <h1>Develop An AiAI</h1>\n  <p>Develop an AI tool aggregator that allows developers to access a range of tasks, from coding and debugging to design and</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Developers waste time switching between multiple AI tools for different tasks",
+      "target_user": "Full-stack developer with 5-10 years of experience",
+      "solution": "Develop an AI tool aggregator that allows developers to access a range of tasks, from coding and debugging to design and development, within a single interface",
+      "why_now": "As AI-powered development tools continue to evolve, the need for a seamless and integrated experience is becoming increasingly important",
+      "existing_spend_behavior": "Developers already spend money on a range of development tools, including AI-powered coding assistants and design software",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47667220",
+        "source_author": "SunshineTheCat",
+        "source_company": "",
+        "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+        "posted_date": "2026-04-06T21:14:37Z",
+        "who_is_complaining": "Builder on HN (@SunshineTheCat)",
+        "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+        "score": 7.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Freelance builders and contractors have no affordable alternative to Codex for job estimating and proposal management.",
+        "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+        "solution": "Estimate offers a customizable template library and AI-assisted proposal generation for a subscription fee.",
+        "why_now": "The proliferation of job boards has created a demand for specialized tools like Estimize without alternatives.",
+        "existing_spend_behavior": "They already pay for Codex, QuickBooks, and other related tools.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47668682",
+          "source_author": "square_usual",
+          "source_company": "",
+          "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "posted_date": "2026-04-06T23:18:51Z",
+          "who_is_complaining": "Builder on HN (@square_usual)",
+          "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Estimate Offers AAI",
+    "tagline": "Estimate offers a customizable template library and AI-assisted proposal generation for a subscription fee.",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance builders and contractors with 1-5 clients using job boards hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Estimate Offers AAI</title></head>\n<body>\n  <h1>Estimate Offers AAI</h1>\n  <p>Estimate offers a customizable template library and AI-assisted proposal generation for a subscription fee.</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Freelance builders and contractors have no affordable alternative to Codex for job estimating and proposal management.",
+      "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+      "solution": "Estimate offers a customizable template library and AI-assisted proposal generation for a subscription fee.",
+      "why_now": "The proliferation of job boards has created a demand for specialized tools like Estimize without alternatives.",
+      "existing_spend_behavior": "They already pay for Codex, QuickBooks, and other related tools.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47668682",
+        "source_author": "square_usual",
+        "source_company": "",
+        "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "posted_date": "2026-04-06T23:18:51Z",
+        "who_is_complaining": "Builder on HN (@square_usual)",
+        "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "score": 7.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Builders and contractors waste time using generic templates or manual proposal creation methods.",
+        "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+        "solution": "ProposalHub is a self-service platform that offers pre-built templates and AI-powered content suggestions for proposals and estimates.",
+        "why_now": "The growth of the gig economy has increased the need for builders to streamline their estimating and proposal processes.",
+        "existing_spend_behavior": "They already use project management tools like Trello for proposal tracking.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47668682",
+          "source_author": "square_usual",
+          "source_company": "",
+          "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "posted_date": "2026-04-06T23:18:51Z",
+          "who_is_complaining": "Builder on HN (@square_usual)",
+          "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "google_form_manual",
+    "title": "Proposalhub Is AAI",
+    "tagline": "ProposalHub is a self-service platform that offers pre-built templates and AI-powered content suggestions for proposals ",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "1\u20132 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance builders and contractors with 1-5 clients using job boards hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Google Forms",
+      "Google Sheets",
+      "Zapier",
+      "Gmail"
+    ],
+    "template": "# Google Form + Manual Fulfillment MVP\n\n## Step 1 \u2014 Create Google Form\nFields:\n  1. Name (short answer)\n  2. Email (short answer)\n  3. Describe your current problem in detail (paragraph)\n  4. How much would you pay per month for a solution? (multiple choice: $29 / $49 / $99 / Other)\n\n## Step 2 \u2014 Connect to Google Sheets\n- Link the form to a Google Sheet for automatic response collection.\n\n## Step 3 \u2014 Outreach template (cold DM / email)\nSubject: Quick question about Builders and contractors waste time using generic \n\nHi [Name],\n\nI'm building Proposalhub Is AAI \u2014 ProposalHub is a self-service platform that offers pre-built templates and AI-powered content suggestions for proposals \n\nI'd love to send you a free trial in exchange for 10 minutes of feedback.\nInterested? Fill this 1-min form: [FORM_LINK]\n\n## Step 4 \u2014 Manual fulfillment checklist\n- [ ] Receive form submission\n- [ ] Deliver result within 24h via email\n- [ ] Follow up after 3 days\n- [ ] Ask for payment if they found value: $49/mo/mo",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Builders and contractors waste time using generic templates or manual proposal creation methods.",
+      "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+      "solution": "ProposalHub is a self-service platform that offers pre-built templates and AI-powered content suggestions for proposals and estimates.",
+      "why_now": "The growth of the gig economy has increased the need for builders to streamline their estimating and proposal processes.",
+      "existing_spend_behavior": "They already use project management tools like Trello for proposal tracking.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47668682",
+        "source_author": "square_usual",
+        "source_company": "",
+        "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "posted_date": "2026-04-06T23:18:51Z",
+        "who_is_complaining": "Builder on HN (@square_usual)",
+        "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "score": 7.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Builders and contractors struggle with manual data entry and version control while creating estimates and proposals.",
+        "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+        "solution": "Estimeasy offers an all-in-one tool with automated data import, proposal tracking, and client communication features.",
+        "why_now": "The increasing complexity of construction projects has created a need for specialized project management tools.",
+        "existing_spend_behavior": "They already pay for accounting software like QuickBooks for project tracking.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47668682",
+          "source_author": "square_usual",
+          "source_company": "",
+          "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "posted_date": "2026-04-06T23:18:51Z",
+          "who_is_complaining": "Builder on HN (@square_usual)",
+          "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+          "score": 7.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (7.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "google_form_manual",
+    "title": "Estimeasy Offers AnAI",
+    "tagline": "Estimeasy offers an all-in-one tool with automated data import, proposal tracking, and client communication features.",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "1\u20132 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Freelance builders and contractors with 1-5 clients using job boards hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Google Forms",
+      "Google Sheets",
+      "Zapier",
+      "Gmail"
+    ],
+    "template": "# Google Form + Manual Fulfillment MVP\n\n## Step 1 \u2014 Create Google Form\nFields:\n  1. Name (short answer)\n  2. Email (short answer)\n  3. Describe your current problem in detail (paragraph)\n  4. How much would you pay per month for a solution? (multiple choice: $29 / $49 / $99 / Other)\n\n## Step 2 \u2014 Connect to Google Sheets\n- Link the form to a Google Sheet for automatic response collection.\n\n## Step 3 \u2014 Outreach template (cold DM / email)\nSubject: Quick question about Builders and contractors struggle with manual data\n\nHi [Name],\n\nI'm building Estimeasy Offers AnAI \u2014 Estimeasy offers an all-in-one tool with automated data import, proposal tracking, and client communication features.\n\nI'd love to send you a free trial in exchange for 10 minutes of feedback.\nInterested? Fill this 1-min form: [FORM_LINK]\n\n## Step 4 \u2014 Manual fulfillment checklist\n- [ ] Receive form submission\n- [ ] Deliver result within 24h via email\n- [ ] Follow up after 3 days\n- [ ] Ask for payment if they found value: $49/mo/mo",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Builders and contractors struggle with manual data entry and version control while creating estimates and proposals.",
+      "target_user": "Freelance builders and contractors with 1-5 clients using job boards",
+      "solution": "Estimeasy offers an all-in-one tool with automated data import, proposal tracking, and client communication features.",
+      "why_now": "The increasing complexity of construction projects has created a need for specialized project management tools.",
+      "existing_spend_behavior": "They already pay for accounting software like QuickBooks for project tracking.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47668682",
+        "source_author": "square_usual",
+        "source_company": "",
+        "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "posted_date": "2026-04-06T23:18:51Z",
+        "who_is_complaining": "Builder on HN (@square_usual)",
+        "what_they_want": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "current_workaround": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "raw_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+        "score": 7.5
+      }
+    }
+  }
+]

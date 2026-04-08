@@ -28,6 +28,7 @@ from src.models import FilterResult, FulfillmentResult, DistributionResult, Idea
 from src.money_filter import MoneyFilter
 from src.mvp_builder import MVPBuilder
 from src.signal_miner.base import BaseSignalMiner
+from src.signal_miner.idea_seekers import IdeaSeekersSignalMiner
 from src.signal_miner.indiehackers import IndieHackersSignalMiner
 from src.signal_miner.jobboards import JobBoardsSignalMiner
 from src.signal_miner.producthunt import ProductHuntSignalMiner
@@ -35,13 +36,14 @@ from src.signal_miner.reddit import RedditSignalMiner
 
 logger = logging.getLogger(__name__)
 
-SourceName = Literal["reddit", "producthunt", "indiehackers", "jobboards"]
+SourceName = Literal["reddit", "producthunt", "indiehackers", "jobboards", "idea_seekers"]
 
 _MINER_MAP: dict[str, type[BaseSignalMiner]] = {
     "reddit": RedditSignalMiner,
     "producthunt": ProductHuntSignalMiner,
     "indiehackers": IndieHackersSignalMiner,
     "jobboards": JobBoardsSignalMiner,
+    "idea_seekers": IdeaSeekersSignalMiner,
 }
 
 

@@ -1,0 +1,75 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Contractors can't easily integrate AI text generation into their existing workflows.",
+        "target_user": "Builder contractors who use project management tools like Asana or Trello",
+        "solution": "A no-code AI text generation workflow integration tool that connects with popular project management platforms",
+        "why_now": "With the growing adoption of project management tools, there's an increasing need for seamless AI integration to enhance productivity and efficiency",
+        "existing_spend_behavior": "They already spend money on project management software, and adding AI text generation capabilities can further boost their productivity and competitiveness.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=47667220",
+          "source_author": "SunshineTheCat",
+          "source_company": "",
+          "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+          "posted_date": "2026-04-06T21:14:37Z",
+          "who_is_complaining": "Builder/contractor on HN (@SunshineTheCat)",
+          "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+          "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.0,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 6.0,
+      "mvp_feasible_24h": 7.5,
+      "sells_without_brand": 6.5
+    },
+    "format": "api_wrapper",
+    "title": "A No-code AiAI",
+    "tagline": "A no-code AI text generation workflow integration tool that connects with popular project management platforms",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "4\u20138 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Builder contractors who use project management tools like Asana or Trello hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "FastAPI",
+      "httpx",
+      "Render",
+      "Stripe",
+      "Redis"
+    ],
+    "template": "# API Wrapper MVP starter (FastAPI)\n# pip install fastapi uvicorn httpx\n\nfrom fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport httpx\n\napp = FastAPI(title=\"A No-code AiAI\", description=\"A no-code AI text generation workflow integration tool that connects with popular project management platforms\")\n\nclass Request(BaseModel):\n    input: str\n\n@app.post(\"/run\")\nasync def run(req: Request):\n    \"\"\"Core endpoint \u2014 replace with actual upstream API call.\"\"\"\n    async with httpx.AsyncClient() as client:\n        # TODO: replace with real upstream API\n        resp = await client.post(\"https://api.example.com/v1/run\", json={{\"input\": req.input}})\n        if resp.status_code != 200:\n            raise HTTPException(status_code=resp.status_code, detail=resp.text)\n        return resp.json()\n\n# Run: uvicorn main:app --reload",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Contractors can't easily integrate AI text generation into their existing workflows.",
+      "target_user": "Builder contractors who use project management tools like Asana or Trello",
+      "solution": "A no-code AI text generation workflow integration tool that connects with popular project management platforms",
+      "why_now": "With the growing adoption of project management tools, there's an increasing need for seamless AI integration to enhance productivity and efficiency",
+      "existing_spend_behavior": "They already spend money on project management software, and adding AI text generation capabilities can further boost their productivity and competitiveness.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=47667220",
+        "source_author": "SunshineTheCat",
+        "source_company": "",
+        "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+        "posted_date": "2026-04-06T21:14:37Z",
+        "who_is_complaining": "Builder/contractor on HN (@SunshineTheCat)",
+        "what_they_want": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "current_workaround": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;",
+        "raw_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my exp",
+        "score": 8.5
+      }
+    }
+  }
+]

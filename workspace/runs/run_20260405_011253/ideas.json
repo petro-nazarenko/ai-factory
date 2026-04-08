@@ -1,0 +1,522 @@
+[
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "PBS faces challenges in finding and hiring top engineering talent",
+        "target_user": "Engineering recruiter for a mid-sized company (20-200 employees)",
+        "solution": "Automate engineering job postings across multiple job boards with pre-vetted, high-quality candidate pipelines",
+        "why_now": "The current job market demands an efficient hiring process, and with the rise of remote work, a platform like this can attract top talent from a large talent pool",
+        "existing_spend_behavior": "Engineering recruiters already spend money on job boards, resume screening tools, and career websites to source candidates",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666455",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+          "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+          "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "Automate Engineering JobAI",
+    "tagline": "Automate engineering job postings across multiple job boards with pre-vetted, high-quality candidate pipelines",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Engineering recruiter for a mid-sized company (20-200 employees) hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>Automate Engineering JobAI</title></head>\n<body>\n  <h1>Automate Engineering JobAI</h1>\n  <p>Automate engineering job postings across multiple job boards with pre-vetted, high-quality candidate pipelines</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "PBS faces challenges in finding and hiring top engineering talent",
+      "target_user": "Engineering recruiter for a mid-sized company (20-200 employees)",
+      "solution": "Automate engineering job postings across multiple job boards with pre-vetted, high-quality candidate pipelines",
+      "why_now": "The current job market demands an efficient hiring process, and with the rise of remote work, a platform like this can attract top talent from a large talent pool",
+      "existing_spend_behavior": "Engineering recruiters already spend money on job boards, resume screening tools, and career websites to source candidates",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666455",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+        "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+        "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Employers can't find, or accurately gauge the skills of, the available remote engineering talent in the market",
+        "target_user": "Product-led engineering hiring manager of a large company (500-1000 employees)",
+        "solution": "A talent marketplace platform connecting remote engineering work with assessment tools for skills validation, reducing misfit placements, and increasing productivity",
+        "why_now": "Remote work has become the norm, allowing for access to a vast talent pool of skilled engineers, but necessitating better tools for vetting and effective onboarding",
+        "existing_spend_behavior": "Large companies already spend money on training programs for existing employees, talent management software, and professional development services for remote teams",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22666455",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+          "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+          "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Talent MarketplaceAI",
+    "tagline": "A talent marketplace platform connecting remote engineering work with assessment tools for skills validation, reducing m",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Product-led engineering hiring manager of a large company (500-1000 employees) hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Talent MarketplaceAI</title></head>\n<body>\n  <h1>A Talent MarketplaceAI</h1>\n  <p>A talent marketplace platform connecting remote engineering work with assessment tools for skills validation, reducing m</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Employers can't find, or accurately gauge the skills of, the available remote engineering talent in the market",
+      "target_user": "Product-led engineering hiring manager of a large company (500-1000 employees)",
+      "solution": "A talent marketplace platform connecting remote engineering work with assessment tools for skills validation, reducing misfit placements, and increasing productivity",
+      "why_now": "Remote work has become the norm, allowing for access to a vast talent pool of skilled engineers, but necessitating better tools for vetting and effective onboarding",
+      "existing_spend_behavior": "Large companies already spend money on training programs for existing employees, talent management software, and professional development services for remote teams",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22666455",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, enter",
+        "current_workaround": "tain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to",
+        "raw_text": "PBS | Various Engineers | Full-Time | ONSITE (Flexible WFH) | Alexandria, VA PBS serves the American public with programming and services of the highest quality, using media to educate, inspire, entertain, and express a diversity of perspectives. We&#x27;re hiring engineers for multiple platforms to build the PBS Kids and General Audience video products:     \u2022 Senior Backend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;v7c8nb2\n  \u2022 Senior Frontend Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;stab99u\n  \u2022 Full Stack Web Engineer - https:&#x2F;&#x2F;tinyurl.com&#x2F;sufbv47\n  \u2022 Senior iOS Engine",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Small to medium-sized businesses have trouble migrating content from Notion to a custom branded knowledge base or enterprise content platform",
+        "target_user": "Head of Engineering at a 10-50 employee tech startup",
+        "solution": "A simple automated content migration tool that maps Notion templates to a custom branded enterprise knowledge base",
+        "why_now": "Notion is becoming a standard for knowledge management in startups, and companies with growing pains are seeking more flexible solutions",
+        "existing_spend_behavior": "They already pay for content migration tools or developer time to migrate content manually",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665940",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+          "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+          "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.0,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 6.0,
+      "mvp_feasible_24h": 7.5,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Simple AutomatedAI",
+    "tagline": "A simple automated content migration tool that maps Notion templates to a custom branded enterprise knowledge base",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Head of Engineering at a 10-50 employee tech startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Simple AutomatedAI</title></head>\n<body>\n  <h1>A Simple AutomatedAI</h1>\n  <p>A simple automated content migration tool that maps Notion templates to a custom branded enterprise knowledge base</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Small to medium-sized businesses have trouble migrating content from Notion to a custom branded knowledge base or enterprise content platform",
+      "target_user": "Head of Engineering at a 10-50 employee tech startup",
+      "solution": "A simple automated content migration tool that maps Notion templates to a custom branded enterprise knowledge base",
+      "why_now": "Notion is becoming a standard for knowledge management in startups, and companies with growing pains are seeking more flexible solutions",
+      "existing_spend_behavior": "They already pay for content migration tools or developer time to migrate content manually",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665940",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+        "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+        "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Marketing and sales teams have a hard time finding relevant knowledge base content in Notion and other collaboration software",
+        "target_user": "Marketing Manager at a 10-50 employee tech startup",
+        "solution": "An AI-powered content discovery platform that indexes knowledge base content and suggests relevant pages to users based on their interests and role",
+        "why_now": "With the rise of customer-centric companies, knowledge base content has never been more critical for sales and marketing teams",
+        "existing_spend_behavior": "They already use content search tools or enterprise search platforms to find relevant documents",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665940",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+          "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+          "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "An Ai-powered ContentAI",
+    "tagline": "An AI-powered content discovery platform that indexes knowledge base content and suggests relevant pages to users based ",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Marketing Manager at a 10-50 employee tech startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>An Ai-powered ContentAI</title></head>\n<body>\n  <h1>An Ai-powered ContentAI</h1>\n  <p>An AI-powered content discovery platform that indexes knowledge base content and suggests relevant pages to users based </p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Marketing and sales teams have a hard time finding relevant knowledge base content in Notion and other collaboration software",
+      "target_user": "Marketing Manager at a 10-50 employee tech startup",
+      "solution": "An AI-powered content discovery platform that indexes knowledge base content and suggests relevant pages to users based on their interests and role",
+      "why_now": "With the rise of customer-centric companies, knowledge base content has never been more critical for sales and marketing teams",
+      "existing_spend_behavior": "They already use content search tools or enterprise search platforms to find relevant documents",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665940",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At ",
+        "current_workaround": "Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My c",
+        "raw_text": "Notion | Engineer, Designer, Sales, Marketing, PM, Support | SF |  https:&#x2F;&#x2F;www.notion.so  | Full-time Onsite == Intro ==================================== Hey there, Notion founder here. At Notion, our goal to create the general purpose work tool for a post-file, post-MS Office world. My cofounder and I often joke that this was like the &quot;hot startup topic&quot; of the 90s. Unfortunately, tools for knowledge workers haven&#x27;t advanced much since then. The state of art is either Google Docs&#x2F;Quip&#x2F;Dropbox Paper (multiplayer WordPerfect), or rigid SAAS apps (forms + a ta",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Scientific researchers struggle to maintain and optimize large-scale software projects",
+        "target_user": "Senior data scientist or DevOps engineer at a research institution or university",
+        "solution": "A code optimization and maintenance platform designed specifically for large-scale scientific projects",
+        "why_now": "As large-scale scientific projects become increasingly complex, the demand for specialized tools is growing",
+        "existing_spend_behavior": "Science and research organizations already spend thousands on tools like AWS, Azure, and custom software solutions",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665817",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+          "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+          "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Code OptimizationAI",
+    "tagline": "A code optimization and maintenance platform designed specifically for large-scale scientific projects",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Senior data scientist or DevOps engineer at a research institution or university hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Code OptimizationAI</title></head>\n<body>\n  <h1>A Code OptimizationAI</h1>\n  <p>A code optimization and maintenance platform designed specifically for large-scale scientific projects</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Scientific researchers struggle to maintain and optimize large-scale software projects",
+      "target_user": "Senior data scientist or DevOps engineer at a research institution or university",
+      "solution": "A code optimization and maintenance platform designed specifically for large-scale scientific projects",
+      "why_now": "As large-scale scientific projects become increasingly complex, the demand for specialized tools is growing",
+      "existing_spend_behavior": "Science and research organizations already spend thousands on tools like AWS, Azure, and custom software solutions",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665817",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+        "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+        "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Scientific researchers waste time replicating and customizing software workflows",
+        "target_user": "Research scientist or engineer leading a research project with a medium-sized team",
+        "solution": "A platform for discovering, customizing, and deploying pre-built software workflows for scientific problems",
+        "why_now": "The rising complexity of scientific research necessitates more efficient use of resources and workflows",
+        "existing_spend_behavior": "Research organizations spend on tools like GitHub, GitLab, and customized software platforms to manage their workflows",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://news.ycombinator.com/item?id=22665817",
+          "who_is_complaining": "Company hiring on HN",
+          "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+          "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+          "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Platform ForAI",
+    "tagline": "A platform for discovering, customizing, and deploying pre-built software workflows for scientific problems",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Research scientist or engineer leading a research project with a medium-sized team hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Platform ForAI</title></head>\n<body>\n  <h1>A Platform ForAI</h1>\n  <p>A platform for discovering, customizing, and deploying pre-built software workflows for scientific problems</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Scientific researchers waste time replicating and customizing software workflows",
+      "target_user": "Research scientist or engineer leading a research project with a medium-sized team",
+      "solution": "A platform for discovering, customizing, and deploying pre-built software workflows for scientific problems",
+      "why_now": "The rising complexity of scientific research necessitates more efficient use of resources and workflows",
+      "existing_spend_behavior": "Research organizations spend on tools like GitHub, GitLab, and customized software platforms to manage their workflows",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://news.ycombinator.com/item?id=22665817",
+        "who_is_complaining": "Company hiring on HN",
+        "what_they_want": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of s",
+        "current_workaround": "oftware tooling for solving large-scale scientific problems. Named after it&#x27;s original result,",
+        "raw_text": "The Julia Lab (MIT) | DevOps Engineer (+ More) | Onsite or Remote | Full Time |  https:&#x2F;&#x2F;julia.mit.edu&#x2F;  The Julia Lab is a lab in MIT&#x27;s CSAIL which focuses on the development of software tooling for solving large-scale scientific problems. Named after it&#x27;s original result, the Julia programming language, the Julia Lab&#x27;s research ranges from scientific machine learning (SciML) [1] and differentiable programming [2] to large-scale heterogeneous parallel computing [3]. The lab is currently growing in response to new directions and collaborations, and we are looking ",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "Large companies often struggle to find top-class sales talent through general job boards, which leads to inefficient hiring processes.",
+        "target_user": "Recruiting manager at a major tech corporation",
+        "solution": "A professional sales talent marketplace that pre-screens and validates the skills of candidates before connecting them to clients.",
+        "why_now": "The rise of remote work has increased the demand for skilled sales talent, making now a prime opportunity to launch this service.",
+        "existing_spend_behavior": "They already spend money on job boards and recruiting software to find qualified candidates.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://remoteOK.com/remote-jobs/remote-senior-sales-development-representative-huzzle-1130989",
+          "who_is_complaining": "Company hiring remotely (Huzzle)",
+          "what_they_want": "Senior Sales Development Representative",
+          "current_workaround": "About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote r",
+          "raw_text": "Senior Sales Development Representative at Huzzle | tags: saas, system, support, testing, lead, senior, sales, engineering, full-time | About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote roles where they\u00e2\u0080\u0099re hired directly into client teams and provided ongoing support by Huzzle.    Rol",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "A Professional SalesAI",
+    "tagline": "A professional sales talent marketplace that pre-screens and validates the skills of candidates before connecting them t",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Recruiting manager at a major tech corporation hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>A Professional SalesAI</title></head>\n<body>\n  <h1>A Professional SalesAI</h1>\n  <p>A professional sales talent marketplace that pre-screens and validates the skills of candidates before connecting them t</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "Large companies often struggle to find top-class sales talent through general job boards, which leads to inefficient hiring processes.",
+      "target_user": "Recruiting manager at a major tech corporation",
+      "solution": "A professional sales talent marketplace that pre-screens and validates the skills of candidates before connecting them to clients.",
+      "why_now": "The rise of remote work has increased the demand for skilled sales talent, making now a prime opportunity to launch this service.",
+      "existing_spend_behavior": "They already spend money on job boards and recruiting software to find qualified candidates.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://remoteOK.com/remote-jobs/remote-senior-sales-development-representative-huzzle-1130989",
+        "who_is_complaining": "Company hiring remotely (Huzzle)",
+        "what_they_want": "Senior Sales Development Representative",
+        "current_workaround": "About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote r",
+        "raw_text": "Senior Sales Development Representative at Huzzle | tags: saas, system, support, testing, lead, senior, sales, engineering, full-time | About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote roles where they\u00e2\u0080\u0099re hired directly into client teams and provided ongoing support by Huzzle.    Rol",
+        "score": 8.5
+      }
+    }
+  },
+  {
+    "filter_result": {
+      "idea": {
+        "problem": "The traditional interview process can result in wasted time and resources for companies, with many candidates being unsuitable for the role.",
+        "target_user": "Hiring manager at a fast-growing startup",
+        "solution": "An AI-powered sales skills assessment tool that provides unbiased evaluations and recommendations for top candidates.",
+        "why_now": "The increase in remote work and gig economy jobs requires companies to be more efficient in their hiring processes, making a skills assessment tool particularly valuable now.",
+        "existing_spend_behavior": "They already use tools like personality tests to assess candidate fit, but need a more comprehensive evaluation process.",
+        "signal": {
+          "source": "jobboards",
+          "source_url": "https://remoteOK.com/remote-jobs/remote-senior-sales-development-representative-huzzle-1130989",
+          "who_is_complaining": "Company hiring remotely (Huzzle)",
+          "what_they_want": "Senior Sales Development Representative",
+          "current_workaround": "About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote r",
+          "raw_text": "Senior Sales Development Representative at Huzzle | tags: saas, system, support, testing, lead, senior, sales, engineering, full-time | About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote roles where they\u00e2\u0080\u0099re hired directly into client teams and provided ongoing support by Huzzle.    Rol",
+          "score": 8.5
+        }
+      },
+      "passed": true,
+      "score": 7.12,
+      "reject_reason": null,
+      "reasoning": "Two positive signals confirmed; strong raw signal score (8.5) compensates.",
+      "has_existing_spending": 8.0,
+      "has_clear_buyer": 8.0,
+      "mvp_feasible_24h": 6.0,
+      "sells_without_brand": 6.5
+    },
+    "format": "landing_page",
+    "title": "An Ai-powered SalesAI",
+    "tagline": "An AI-powered sales skills assessment tool that provides unbiased evaluations and recommendations for top candidates.",
+    "revenue_model": "Monthly SaaS subscription",
+    "price_point": "$49/mo",
+    "estimated_build_time": "2\u20134 hours",
+    "validation_steps": [
+      "Post in 3 niche communities where Hiring manager at a fast-growing startup hangs out",
+      "DM 20 potential users with a personalised problem framing",
+      "Offer a free 7-day trial in exchange for a 15-min onboarding call",
+      "Charge on day 8 using Stripe Payment Link"
+    ],
+    "tech_stack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+      "Stripe",
+      "Resend"
+    ],
+    "template": "<!-- Next.js / plain HTML landing page starter -->\n<html>\n<head><title>An Ai-powered SalesAI</title></head>\n<body>\n  <h1>An Ai-powered SalesAI</h1>\n  <p>An AI-powered sales skills assessment tool that provides unbiased evaluations and recommendations for top candidates.</p>\n  <p>\ud83d\udcb8 Monthly SaaS subscription \u2014 starting at $49/mo</p>\n  <form action=\"/api/waitlist\" method=\"POST\">\n    <input name=\"email\" type=\"email\" placeholder=\"your@email.com\" required />\n    <button type=\"submit\">Get Early Access \u2192</button>\n  </form>\n</body>\n</html>",
+    "deployed_url": "",
+    "idea": {
+      "problem": "The traditional interview process can result in wasted time and resources for companies, with many candidates being unsuitable for the role.",
+      "target_user": "Hiring manager at a fast-growing startup",
+      "solution": "An AI-powered sales skills assessment tool that provides unbiased evaluations and recommendations for top candidates.",
+      "why_now": "The increase in remote work and gig economy jobs requires companies to be more efficient in their hiring processes, making a skills assessment tool particularly valuable now.",
+      "existing_spend_behavior": "They already use tools like personality tests to assess candidate fit, but need a more comprehensive evaluation process.",
+      "signal": {
+        "source": "jobboards",
+        "source_url": "https://remoteOK.com/remote-jobs/remote-senior-sales-development-representative-huzzle-1130989",
+        "who_is_complaining": "Company hiring remotely (Huzzle)",
+        "what_they_want": "Senior Sales Development Representative",
+        "current_workaround": "About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote r",
+        "raw_text": "Senior Sales Development Representative at Huzzle | tags: saas, system, support, testing, lead, senior, sales, engineering, full-time | About Huzzle At Huzzle, we connect high-performing professionals with global companies across the UK, US, Canada, Europe, and Australia. Our clients include startups, digital agencies, and tech platforms in industries like SaaS, MarTech, FinTech, and EdTech. We match top talent to full-time remote roles where they\u00e2\u0080\u0099re hired directly into client teams and provided ongoing support by Huzzle.    Rol",
+        "score": 8.5
+      }
+    }
+  }
+]

@@ -19,6 +19,7 @@ class SignalSource(str, Enum):
     PRODUCTHUNT = "producthunt"
     INDIEHACKERS = "indiehackers"
     JOBBOARDS = "jobboards"
+    IDEA_SEEKERS = "idea_seekers"
     MOCK = "mock"
 
 

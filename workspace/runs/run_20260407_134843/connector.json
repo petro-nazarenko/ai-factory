@@ -1,0 +1,74 @@
+[
+  {
+    "prompt": "Create a solution spec: Develop A ToolAI. Target user: Backend developer with 2-5 years of experience. Solution: Develop a tool that aggregates and compares the performance of AI tools for backend tasks, such as coding and debugging. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Develop A ToolAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47667220",
+    "source_author": "SunshineTheCat",
+    "source_company": "",
+    "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T21:14:37Z"
+  },
+  {
+    "prompt": "Create a solution spec: Create A ToolAI. Target user: Frontend developer with 2-5 years of experience. Solution: Create a tool that provides a single interface for using multiple AI tools for frontend tasks, such as design and development. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Create A ToolAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47667220",
+    "source_author": "SunshineTheCat",
+    "source_company": "",
+    "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T21:14:37Z"
+  },
+  {
+    "prompt": "Create a solution spec: Develop An AiAI. Target user: Full-stack developer with 5-10 years of experience. Solution: Develop an AI tool aggregator that allows developers to access a range of tasks, from coding and debugging to design and development, within a single interface. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Develop An AiAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47667220",
+    "source_author": "SunshineTheCat",
+    "source_company": "",
+    "source_text": "I ping pong back and forth between claude code and codex. In my experience (very subjective, obviously) for backend&#x2F;&quot;logical&quot; tasks Codex seems to outperform Claude. For front-end&#x2F;UX related tasks Claude wins easily. Overall, Claude does seem to be a little better in other areas too. Codex&#x27;s biggest advantage in my personal opinion, however, is usage. I think maybe once in several months did I even get close to hitting my limit with the $20 plan. With Claude, however, I feel like I can sneeze and half my weekly usage is gone. Same $20 price tag. That&#x27;s been my experience, I&#x27;m sure it differs user to user though.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T21:14:37Z"
+  },
+  {
+    "prompt": "Create a solution spec: Estimate Offers AAI. Target user: Freelance builders and contractors with 1-5 clients using job boards. Solution: Estimate offers a customizable template library and AI-assisted proposal generation for a subscription fee.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Estimate Offers AAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47668682",
+    "source_author": "square_usual",
+    "source_company": "",
+    "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T23:18:51Z"
+  },
+  {
+    "prompt": "Create a solution spec: Proposalhub Is AAI. Target user: Freelance builders and contractors with 1-5 clients using job boards. Solution: ProposalHub is a self-service platform that offers pre-built templates and AI-powered content suggestions for proposals and estimates.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Proposalhub Is AAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47668682",
+    "source_author": "square_usual",
+    "source_company": "",
+    "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T23:18:51Z"
+  },
+  {
+    "prompt": "Create a solution spec: Estimeasy Offers AnAI. Target user: Freelance builders and contractors with 1-5 clients using job boards. Solution: Estimeasy offers an all-in-one tool with automated data import, proposal tracking, and client communication features.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Estimeasy Offers AnAI",
+    "source": "jobboards",
+    "source_url": "https://news.ycombinator.com/item?id=47668682",
+    "source_author": "square_usual",
+    "source_company": "",
+    "source_text": "Just pay the $20 for codex and use it. It&#x27;s the only real alternative.",
+    "source_platform": "jobboards",
+    "posted_date": "2026-04-06T23:18:51Z"
+  }
+]

@@ -1,6 +1,7 @@
 """Signal miner sub-package."""
 
 from src.signal_miner.base import BaseSignalMiner
+from src.signal_miner.idea_seekers import IdeaSeekersSignalMiner
 from src.signal_miner.indiehackers import IndieHackersSignalMiner
 from src.signal_miner.jobboards import JobBoardsSignalMiner
 from src.signal_miner.producthunt import ProductHuntSignalMiner
@@ -12,4 +13,5 @@ __all__ = [
     "ProductHuntSignalMiner",
     "IndieHackersSignalMiner",
     "JobBoardsSignalMiner",
+    "IdeaSeekersSignalMiner",
 ]

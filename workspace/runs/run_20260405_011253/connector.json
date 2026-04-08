@@ -1,0 +1,50 @@
+[
+  {
+    "prompt": "Create a solution spec: Automate Engineering JobAI. Target user: Engineering recruiter for a mid-sized company (20-200 employees). Solution: Automate engineering job postings across multiple job boards with pre-vetted, high-quality candidate pipelines. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "Automate Engineering JobAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Talent MarketplaceAI. Target user: Product-led engineering hiring manager of a large company (500-1000 employees). Solution: A talent marketplace platform connecting remote engineering work with assessment tools for skills validation, reducing misfit placements, and increasing productivity. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Talent MarketplaceAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Simple AutomatedAI. Target user: Head of Engineering at a 10-50 employee tech startup. Solution: A simple automated content migration tool that maps Notion templates to a custom branded enterprise knowledge base. Revenue model: Monthly SaaS subscription",
+    "score": 7.0,
+    "source_idea": "A Simple AutomatedAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: An Ai-powered ContentAI. Target user: Marketing Manager at a 10-50 employee tech startup. Solution: An AI-powered content discovery platform that indexes knowledge base content and suggests relevant pages to users based on their interests and role. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "An Ai-powered ContentAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Code OptimizationAI. Target user: Senior data scientist or DevOps engineer at a research institution or university. Solution: A code optimization and maintenance platform designed specifically for large-scale scientific projects. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Code OptimizationAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Platform ForAI. Target user: Research scientist or engineer leading a research project with a medium-sized team. Solution: A platform for discovering, customizing, and deploying pre-built software workflows for scientific problems. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Platform ForAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: A Professional SalesAI. Target user: Recruiting manager at a major tech corporation. Solution: A professional sales talent marketplace that pre-screens and validates the skills of candidates before connecting them to clients.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "A Professional SalesAI",
+    "source": "jobboards"
+  },
+  {
+    "prompt": "Create a solution spec: An Ai-powered SalesAI. Target user: Hiring manager at a fast-growing startup. Solution: An AI-powered sales skills assessment tool that provides unbiased evaluations and recommendations for top candidates.. Revenue model: Monthly SaaS subscription",
+    "score": 7.12,
+    "source_idea": "An Ai-powered SalesAI",
+    "source": "jobboards"
+  }
+]
