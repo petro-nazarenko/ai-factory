@@ -74,8 +74,7 @@ class TestExtractContact:
 
     def test_falls_back_to_hn_user(self):
         contact = _extract_contact("No email here.", "hnuser42")
-        assert "hnuser42" in contact
-        assert "ycombinator.com" in contact
+        assert contact == "https://news.ycombinator.com/user?id=hnuser42"
 
     def test_unknown_when_nothing(self):
         contact = _extract_contact("No email, no user.", None)
