@@ -9,18 +9,20 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/deployed_on-Railway-0B0D0E?logo=railway&logoColor=white" />
-  <img src="https://img.shields.io/github/last-commit/petro-nazarenko/ai-factory?color=informational" />
-  <img src="https://img.shields.io/github/stars/petro-nazarenko/ai-factory?style=social" />
+  <a href="https://github.com/petro-nazarenko/ai-factory/actions/workflows/ci.yml">
+    <img src="https://github.com/petro-nazarenko/ai-factory/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  </a>
+  <img src="https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white" alt="Python 3.12" />
+  <img src="https://img.shields.io/badge/deployed_on-Railway-0B0D0E?logo=railway&logoColor=white" alt="Railway" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+  <img src="https://img.shields.io/badge/version-0.3.0-informational" alt="v0.3.0" />
 </p>
 
 ---
 
 ## What it does
 
-AI Factory scans job boards and Reddit for companies expressing specific pain — hiring posts, tool requests, workflow complaints. It converts those signals into validated product ideas, tags each idea with the exact company and contact that created the signal, then (in Pipeline 3) matches ideas to leads, generates personalized outreach, and tracks the result. The output is not a list of ideas. It is a prioritized pipeline of real companies with real problems and a ready draft of why you should talk to them.
+AI Factory scans job boards and Reddit for companies expressing specific pain — hiring posts, tool requests, workflow complaints. It converts those signals into validated product ideas, tags each idea with the exact company and contact that created the signal, then matches ideas to leads, generates personalized outreach, and tracks the result. The output is not a list of ideas — it is a prioritized pipeline of real companies with real problems and a ready draft of why you should talk to them.
 
 ---
 
@@ -45,13 +47,13 @@ HN / RemoteOK / Reddit
   [5] LEAD EXTRACTION     — validated ideas become qualified leads
         │
         ▼
-  [6] MATCH ──────────────── idea.domain ↔ lead.pain  (fit score)
+  [6] MATCH               — idea.domain ↔ lead.pain  (fit score)
         │                   (workspace/matcher.py — keyword + LLM scoring)
         ▼
-  [7] OFFER GENERATION ── personalized message referencing their exact post
+  [7] OFFER GENERATION    — personalized message referencing their exact post
         │                   (workspace/offer_generator.py)
         ▼
-  [8] SEND + TRACK ─────── email / Upwork / Sheets log                 ← TODO
+  [8] SEND + TRACK        — email / Upwork / Sheets log                 ← in spec
         │
         ▼
         $
@@ -59,20 +61,18 @@ HN / RemoteOK / Reddit
 
 ---
 
-## Current status
+## Status
 
-What works end-to-end today (deployed on Railway):
-
-| Step | Status | Notes |
+| Step | Component | Status |
 |---|---|---|
-| Signal mining (HN + RemoteOK) | ✅ | Real API calls or mock via `--dry-run` |
-| Idea generation + money filter | ✅ | Groq / Cerebras / Anthropic with auto-fallback |
-| AKF schema validation | ✅ | E001–E008 error codes, max 2 retries per field |
-| Lead metadata on every idea | ✅ | `source_url`, `source_company`, `source_author` in frontmatter |
-| REST API (Railway) | ✅ | `POST /run`, `GET /runs`, `GET /runs/{id}/logs` |
-| Match engine | ✅ | `workspace/matcher.py` — keyword + LLM fit scoring |
-| Offer generator | ✅ | `workspace/offer_generator.py` — personalized cold outreach |
-| Send + track | 🔲 | Pipeline 3 — in spec |
+| Signal mining (HN + RemoteOK) | `Moneymaker/` | ✅ |
+| Idea generation + money filter | `Moneymaker/` | ✅ |
+| AKF schema validation | `ai-knowledge-filler/` | ✅ |
+| Lead metadata on every idea | frontmatter fields | ✅ |
+| REST API (Railway) | `ai-factory-api/` | ✅ |
+| Match engine | `workspace/matcher.py` | ✅ |
+| Offer generator | `workspace/offer_generator.py` | ✅ |
+| Send + track | Pipeline 3 | 🔲 |
 
 ---
 
@@ -81,13 +81,13 @@ What works end-to-end today (deployed on Railway):
 | Layer | Technology |
 |---|---|
 | Signal mining | Python, httpx, praw (Reddit), HN Algolia API |
-| LLM routing | Groq (llama-3.3-70b), Cerebras (llama3.3-70b), Anthropic Claude (fallback) |
+| LLM routing | Groq (llama-3.3-70b) → Cerebras → Anthropic (fallback) |
 | Validation | Custom schema validator (E001–E008), YAML frontmatter |
 | API | FastAPI, uvicorn, Railway |
 | Execution | gspread (Sheets), imapclient (email) |
 | Config | pydantic-settings, python-dotenv |
 
-LLM provider priority: Groq → Cerebras → Anthropic. The router tracks TPM/TPD limits and fails over automatically on 429s.
+The LLM router tracks TPM/TPD limits and fails over automatically on 429s.
 
 ---
 
@@ -95,47 +95,22 @@ LLM provider priority: Groq → Cerebras → Anthropic. The router tracks TPM/TP
 
 Deployed at `https://web-production-61489.up.railway.app`. Auth via `X-API-Key` header.
 
-### Start a pipeline run
+See [`docs/api.md`](docs/api.md) for the full reference.
 
 ```bash
+# Start a pipeline run
 POST /run?dry_run=true
 X-API-Key: <key>
-```
 
-Response:
-```json
-{
-  "message": "Pipeline started",
-  "run_id": "run_20260404_220006",
-  "pid": 3,
-  "dry_run": true
-}
-```
-
-### Get run status and validated ideas
-
-```bash
+# Get run status + validated ideas
 GET /runs/{run_id}
 X-API-Key: <key>
-```
 
-Returns `status.json` fields + `report.json` + full content of all `validated/*.md` files.
-
-### Stream logs
-
-```bash
+# Stream logs
 GET /runs/{run_id}/logs
 X-API-Key: <key>
-```
 
-Returns raw `logs.txt`. Each line:
-```
-[2026-04-04T22:00:22Z] [run_20260404_220006] [VALIDATION] [SUCCESS] validated/ populated
-```
-
-### List all runs
-
-```bash
+# List all runs
 GET /runs
 X-API-Key: <key>
 ```
@@ -158,7 +133,7 @@ bash run_pipeline.sh --dry-run
 bash run_pipeline.sh
 ```
 
-Results in `workspace/runs/<RUN_ID>/`.
+Results land in `workspace/runs/<RUN_ID>/`.
 
 ---
 
@@ -193,31 +168,6 @@ posted_date: "2026-04-01T09:15:00Z"
 ## Tech Stack
 ```
 
-`source_url` links directly to the person and post that created the signal.
-
----
-
-## Pipeline 3 — Match → Offer → Send
-
-Steps 6 and 7 are implemented. Step 8 (send + track) is the remaining TODO.
-
-```
-workspace/matches/matches.json          ✅ workspace/matcher.py
-  idea.domain ↔ lead.pain keywords
-  idea.target_user ↔ lead.company profile
-  fit_score per pair
-
-workspace/offers/offer_N.md             ✅ workspace/offer_generator.py
-  references the exact HN post the company wrote
-  shows the relevant validated solution
-  includes deployed demo URL if available
-
-Agent-Guidelines/email-send             🔲 TODO
-  sends offer
-  logs to Google Sheets: sent / opened / replied / closed
-  follow-up schedule: day 3, day 7, day 14
-```
-
 ---
 
 ## Project structure
@@ -250,7 +200,18 @@ ai-factory/
 │       ├── logs.txt
 │       ├── status.json
 │       └── report.json
-├── ai-knowledge-filler/akf.py             ← schema validation + lead metadata injection
+├── ai-knowledge-filler/                   ← schema validation + lead metadata injection
 ├── Agent-Guidelines-for-Upwork-Learning-Projects/  ← Sheets + email execution
+├── docs/                                  ← project documentation
 └── requirements.txt
 ```
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+MIT — see [ai-knowledge-filler/LICENSE](ai-knowledge-filler/LICENSE).
