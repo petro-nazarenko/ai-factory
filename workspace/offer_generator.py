@@ -1,7 +1,7 @@
 """offer_generator.py — AI Factory STEP 7 (Pipeline 3)
 
 Primary flow: reads connector.json from a pipeline run and generates a
-personalised cold-outreach offer for each signal whose author is known.
+personalized cold-outreach offer for each signal whose author is known.
 The signal author IS the lead — no external leads database needed.
 
 Legacy flow (--from-matches): reads matches.json (output of matcher.py)
@@ -458,7 +458,7 @@ def generate(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Offer Generator — personalised outreach from connector.json (Pipeline 3, Step 7). "
+            "Offer Generator — personalized outreach from connector.json (Pipeline 3, Step 7). "
             "Use --from-matches for the legacy matches.json flow."
         )
     )
