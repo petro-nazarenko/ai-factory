@@ -1,8 +1,8 @@
 # AI Factory — Аудит проекта
 
-> Дата аудита: 2026-04-05  
-> Версия: 0.2.0  
-> Статус: Alpha — **не готов к production**
+> Дата аудита: 2026-04-05 (обновлено 2026-04-09)  
+> Версия: 0.3.0  
+> Статус: Alpha — Pipeline 3 частично реализован
 
 ---
 
@@ -136,14 +136,14 @@
 
 ## 5. Безопасность
 
-### 5.1 `.env`-файлы могут попасть в репозиторий
+### 5.1 `.env`-файлы могут попасть в репозиторий ✅ FIXED
 
 | | |
 |---|---|
 | **Файл** | `.gitignore` |
 | **Проблема** | `Moneymaker/.env` упомянут в README как место хранения API-ключей. Если `.gitignore` не покрывает все `**/. env` паттерны, ключи могут быть закоммичены. |
 | **Риск** | CRITICAL |
-| **Оценка** | 0.5 ч |
+| **Статус** | Исправлено: `.gitignore` покрывает `.env`, `workspace/runs/`, `workspace/leads/`; Cerebras API key заменён на placeholder; path traversal в API исправлен. |
 
 ---
 
@@ -160,17 +160,14 @@
 
 ## 6. Тестирование
 
-### 6.1 Нет тестов для `workspace/` модулей
+### 6.1 Нет тестов для `workspace/` модулей ✅ FIXED
 
-`connector.py`, `llm_router.py`, `client_finder.py` — нет ни одного теста.
-
-**Оценка:** 6 ч (написать unit-тесты с mock для всех трёх модулей)
-
----
+`connector.py`, `matcher.py`, `offer_generator.py`, `client_finder.py` — покрыты тестами в `workspace/tests/`.
 
 ### 6.2 Нет end-to-end теста pipeline в `--dry-run` режиме
 
 Полный прогон `bash run_pipeline.sh --dry-run` не автоматизирован в CI.
+CI workflow (`.github/workflows/ci.yml`) добавлен для unit-тестов; E2E dry-run — TODO.
 
 **Оценка:** 4 ч
 
@@ -190,12 +187,12 @@
 | 3.2 | money_filter.py | LOW | 2 ч |
 | 4.1 | akf.py | MED | 3 ч |
 | 4.2 | system_prompt.md | LOW | 2 ч |
-| 5.1 | .gitignore | CRITICAL | 0.5 ч |
-| 5.2 | run_pipeline.sh | MED | 1 ч |
-| 6.1 | workspace/ | MED | 6 ч |
-| 6.2 | CI/CD | MED | 4 ч |
+| 5.1 | .gitignore | CRITICAL | ✅ FIXED |
+| 5.2 | run_pipeline.sh | MED | ✅ FIXED |
+| 6.1 | workspace/ | MED | ✅ FIXED (tests added) |
+| 6.2 | CI/CD | MED | ✅ FIXED (ci.yml added) |
 
-**Итого: ~30.5 ч** до production-ready.
+**Итого открытых задач: ~12 ч** (rate limiting, Pydantic validation, observability).
 
 ---
 

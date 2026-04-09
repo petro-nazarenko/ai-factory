@@ -1,7 +1,7 @@
 # AI Factory — Система прогресса
 
-> Обновлено: 2026-04-05  
-> Версия: 0.2.0
+> Обновлено: 2026-04-09  
+> Версия: 0.3.0
 
 Этот файл — единая точка отслеживания статуса всех задач по проекту.  
 Обновляй после каждого значимого изменения.
@@ -36,13 +36,13 @@
 - [x] `report.json` после завершения run
 - [x] `logs.txt` — append-only, формат `[TS][RUN_ID][STEP][STATUS]`
 
-### Стабилизация (v0.2.0)
+### Стабилизация (v0.2.0 → v0.3.0)
 
-- [ ] HTTP timeout для jobboards.py (10 сек)
+- [x] HTTP timeout для jobboards.py — semaphore cap (20 concurrent)
 - [ ] Pydantic-валидация входных данных в connector.py
 - [ ] Логирование причины LLM fallback в logs.txt
-- [ ] Integrity check output-файлов в run_pipeline.sh
-- [!] `.gitignore` покрывает все `**/.env` паттерны — **проверить немедленно**
+- [x] Integrity check output-файлов в run_pipeline.sh (guards added)
+- [x] `.gitignore` покрывает `workspace/runs/`, `workspace/leads/`, `workspace/matches/`, `workspace/offers/`
 
 ---
 
@@ -65,21 +65,20 @@
 
 ### Matching Engine
 
-- [ ] `workspace/matcher.py` — базовая реализация
-- [ ] Keyword overlap: `idea.tags` ↔ `lead.pain`
-- [ ] Domain match: `idea.domain` == `lead.domain`
-- [ ] LLM fit score (0–10)
-- [ ] Output: `workspace/matches/matches.json`
-- [ ] Unit-тесты
+- [x] `workspace/matcher.py` — keyword + LLM fit scoring
+- [x] Keyword overlap: `idea.tags` ↔ `lead.pain` (Jaccard, 0–5 scale)
+- [x] LLM fit score (0–10) via llm_router
+- [x] Output: `workspace/matches/matches.json`
+- [x] Unit-тесты (`workspace/tests/test_matcher.py`)
 
 ### Offer Generator
 
-- [ ] `workspace/offer_generator.py`
-- [ ] Шаблон персонализированного сообщения
-- [ ] Ссылка на конкретный пост источника
-- [ ] CTA (звонок / пилот)
-- [ ] Output: `workspace/offers/offer_N.md`
-- [ ] Unit-тесты
+- [x] `workspace/offer_generator.py` — primary flow from connector.json
+- [x] Шаблон персонализированного сообщения (LLM-generated)
+- [x] Ссылка на конкретный пост источника
+- [x] CTA (звонок / пилот)
+- [x] Output: `workspace/offers/offer_N.md`
+- [x] Unit-тесты (`workspace/tests/test_offer_generator.py`)
 
 ### Action Layer
 
@@ -113,9 +112,10 @@
 
 ## ТЕСТИРОВАНИЕ
 
-- [ ] Unit-тесты: `workspace/connector.py`
-- [ ] Unit-тесты: `workspace/llm_router.py`
-- [ ] Unit-тесты: `workspace/client_finder.py`
+- [x] Unit-тесты: `workspace/connector.py` (`workspace/tests/test_connector.py`)
+- [x] Unit-тесты: `workspace/matcher.py` (`workspace/tests/test_matcher.py`)
+- [x] Unit-тесты: `workspace/offer_generator.py` (`workspace/tests/test_offer_generator.py`)
+- [x] Unit-тесты: `workspace/client_finder.py` (`workspace/tests/test_client_finder.py`)
 - [ ] Unit-тесты: AKF retry-логика
 - [ ] E2E тест: `bash run_pipeline.sh --dry-run` в CI
 - [ ] CI coverage report
@@ -160,8 +160,8 @@
 | Версия | Статус | Содержание |
 |---|---|---|
 | v0.1.0 | ✅ shipped | Pipeline 1 + REST API |
-| v0.2.0 | 🔄 текущий | Стабилизация + документация |
-| v0.3.0 | [ ] planned | Pipeline 3 MVP |
+| v0.2.0 | ✅ shipped | Стабилизация + документация |
+| v0.3.0 | 🔄 текущий | Pipeline 3 MVP (matcher + offer_generator + tests) |
 | v0.4.0 | [ ] planned | Observability + Client Finder |
 | v0.5.0 | [ ] planned | SalesAI + hardening |
 | v1.0.0 | [ ] planned | Production release |
@@ -172,6 +172,7 @@
 
 | Дата | Изменение |
 |---|---|
+| 2026-04-09 | workspace/matcher.py, offer_generator.py, run_utils.py, tests/; CI workflow; security fixes |
 | 2026-04-05 | Созданы AUDIT.md, ROADMAP.md, WHITEPAPER.md, PROGRESS.md |
 | 2026-04-04 | REST API задеплоен на Railway |
 | 2026-04-04 | Lead metadata добавлен в frontmatter |

@@ -45,11 +45,11 @@ HN / RemoteOK / Reddit
   [5] LEAD EXTRACTION     — validated ideas become qualified leads
         │
         ▼
-  [6] MATCH ──────────────── idea.domain ↔ lead.pain  (fit score)     ← TODO
-        │
+  [6] MATCH ──────────────── idea.domain ↔ lead.pain  (fit score)
+        │                   (workspace/matcher.py — keyword + LLM scoring)
         ▼
-  [7] OFFER GENERATION ── personalized message referencing their exact post  ← TODO
-        │
+  [7] OFFER GENERATION ── personalized message referencing their exact post
+        │                   (workspace/offer_generator.py)
         ▼
   [8] SEND + TRACK ─────── email / Upwork / Sheets log                 ← TODO
         │
@@ -70,8 +70,8 @@ What works end-to-end today (deployed on Railway):
 | AKF schema validation | ✅ | E001–E008 error codes, max 2 retries per field |
 | Lead metadata on every idea | ✅ | `source_url`, `source_company`, `source_author` in frontmatter |
 | REST API (Railway) | ✅ | `POST /run`, `GET /runs`, `GET /runs/{id}/logs` |
-| Match engine | 🔲 | Pipeline 3 — in spec |
-| Offer generator | 🔲 | Pipeline 3 — in spec |
+| Match engine | ✅ | `workspace/matcher.py` — keyword + LLM fit scoring |
+| Offer generator | ✅ | `workspace/offer_generator.py` — personalized cold outreach |
 | Send + track | 🔲 | Pipeline 3 — in spec |
 
 ---
@@ -197,22 +197,22 @@ posted_date: "2026-04-01T09:15:00Z"
 
 ---
 
-## Roadmap — Pipeline 3
+## Pipeline 3 — Match → Offer → Send
 
-**Match → Offer → Send**
+Steps 6 and 7 are implemented. Step 8 (send + track) is the remaining TODO.
 
 ```
-workspace/matches/matches.json
+workspace/matches/matches.json          ✅ workspace/matcher.py
   idea.domain ↔ lead.pain keywords
   idea.target_user ↔ lead.company profile
   fit_score per pair
 
-workspace/offers/offer_N.md
+workspace/offers/offer_N.md             ✅ workspace/offer_generator.py
   references the exact HN post the company wrote
   shows the relevant validated solution
   includes deployed demo URL if available
 
-Agent-Guidelines/email-send
+Agent-Guidelines/email-send             🔲 TODO
   sends offer
   logs to Google Sheets: sent / opened / replied / closed
   follow-up schedule: day 3, day 7, day 14
@@ -237,7 +237,11 @@ ai-factory/
 ├── workspace/
 │   ├── llm_router.py                      ← unified LLM routing + fallback
 │   ├── connector.py                       ← ideas.json → connector.json (score ≥ 7.0)
+│   ├── matcher.py                         ← step 6: idea ↔ lead fit scoring
+│   ├── offer_generator.py                 ← step 7: personalized cold outreach
 │   ├── client_finder.py                   ← standalone lead scanner
+│   ├── run_utils.py                       ← shared pipeline utilities
+│   ├── tests/                             ← pytest coverage for workspace scripts
 │   ├── leads/leads.json
 │   └── runs/<RUN_ID>/
 │       ├── ideas.json

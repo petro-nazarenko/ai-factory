@@ -1,7 +1,7 @@
 # AI Factory — Roadmap
 
-> Версия: 0.2.0  
-> Обновлено: 2026-04-05  
+> Версия: 0.3.0  
+> Обновлено: 2026-04-09  
 > Стратегия: signal → idea → lead → offer → closed deal
 
 ---
@@ -12,7 +12,7 @@
 |---|---|
 | Pipeline 1 — Signal → Idea → Validate | ✅ Работает |
 | Pipeline 2 — REST API + Railway deploy | ✅ Работает |
-| Pipeline 3 — Match → Offer → Send | 🔲 В разработке |
+| Pipeline 3 — Match → Offer → Send | 🔄 Частично (match + offer готовы, send — TODO) |
 
 ---
 
@@ -30,7 +30,8 @@
 - [ ] Pydantic-валидация входных данных в connector.py
 - [ ] Rate limiting на `POST /run` (max 3 параллельных запуска)
 - [ ] Dry-run тест в CI (end-to-end `--dry-run`)
-- [ ] Unit-тесты для `workspace/` модулей
+- [x] Unit-тесты для `workspace/` модулей (connector, matcher, offer_generator, client_finder)
+- [x] CI workflow (lint + tests) на GitHub Actions
 
 **Оценка:** ~8 ч
 
@@ -40,24 +41,21 @@
 
 **Цель:** от validated идеи до отправленного оффера без ручного участия.
 
-### 2.1 Matching Engine
+### 2.1 Matching Engine ✅
 
-- [ ] `workspace/matcher.py` — сопоставление `idea.domain` ↔ `lead.pain`
-- [ ] Fit score: ключевые слова + TF-IDF или LLM-оценка
-- [ ] Output: `workspace/matches/matches.json`
-- [ ] Unit-тесты
+- [x] `workspace/matcher.py` — keyword + LLM fit scoring
+- [x] Fit score: keyword Jaccard (0–5) + LLM scorer (0–10)
+- [x] Output: `workspace/matches/matches.json`
+- [x] Unit-тесты (`workspace/tests/test_matcher.py`)
 
-**Оценка:** 8 ч
+### 2.2 Offer Generator ✅
 
-### 2.2 Offer Generator
-
-- [ ] `workspace/offer_generator.py` — персонализированное сообщение per lead
-- [ ] Шаблон: ссылка на пост → боль → решение → CTA
-- [ ] Поддержка deployed demo URL (если есть)
-- [ ] Output: `workspace/offers/offer_N.md`
-- [ ] Unit-тесты
-
-**Оценка:** 6 ч
+- [x] `workspace/offer_generator.py` — персонализированное сообщение per lead
+- [x] Primary flow: connector.json → offer per idea author
+- [x] Legacy flow: matches.json (--from-matches flag)
+- [x] Поддержка deployed demo URL (если есть)
+- [x] Output: `workspace/offers/offer_N.md`
+- [x] Unit-тесты (`workspace/tests/test_offer_generator.py`)
 
 ### 2.3 Action Layer
 
@@ -88,7 +86,8 @@
 
 **Цель:** автоматический поиск лидов без участия пользователя.
 
-- [ ] `workspace/client_finder.py` — полная интеграция в pipeline
+- [x] `workspace/client_finder.py` — реализован с semaphore (20 concurrent HN requests)
+- [ ] Полная интеграция в основной pipeline
 - [ ] Источники: HN "Who is hiring", LinkedIn Jobs (через API/scrape), Upwork RSS
 - [ ] Дедупликация лидов (по `source_url`)
 - [ ] Обогащение: company size, tech stack из публичных профилей
@@ -148,8 +147,8 @@
 | Версия | Содержание |
 |---|---|
 | `v0.1.0` | Pipeline 1 + REST API (shipped) |
-| `v0.2.0` | Стабилизация + dry-run тесты (текущий) |
-| `v0.3.0` | Pipeline 3 MVP (Match + Offer + Send) |
-| `v0.4.0` | Observability + Client Finder |
+| `v0.2.0` | Стабилизация + dry-run тесты (shipped) |
+| `v0.3.0` | Pipeline 3 MVP (Match + Offer) + workspace tests + CI (текущий) |
+| `v0.4.0` | Send + Track + Observability + Client Finder integration |
 | `v0.5.0` | SalesAI + hardening |
 | `v1.0.0` | Production release |
