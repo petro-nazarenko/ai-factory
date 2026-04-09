@@ -32,6 +32,7 @@ _HN_ALGOLIA = (
     "?query=Ask+HN%3A+Who+is+hiring%3F&tags=ask_hn&hitsPerPage=3"
 )
 _HN_ITEM = "https://hacker-news.firebaseio.com/v0/item/{}.json"
+_MAX_CONCURRENT_HN_REQUESTS = 20  # cap concurrent requests to avoid rate limiting
 
 # ---------------------------------------------------------------------------
 # Target keyword filters
@@ -193,7 +194,13 @@ async def fetch_leads(limit: int = 50) -> list[dict]:
         kid_ids: list[int] = (thread.get("kids") or [])[:limit * 3]  # fetch more, filter down
 
         logger.info("Fetching %d comments...", len(kid_ids))
-        comments = await asyncio.gather(*[_fetch_comment(client, k) for k in kid_ids])
+        sem = asyncio.Semaphore(_MAX_CONCURRENT_HN_REQUESTS)
+
+        async def _guarded(kid_id: int) -> dict | None:
+            async with sem:
+                return await _fetch_comment(client, kid_id)
+
+        comments = await asyncio.gather(*[_guarded(k) for k in kid_ids])
 
     # 2. Filter and extract
     for comment in comments:
