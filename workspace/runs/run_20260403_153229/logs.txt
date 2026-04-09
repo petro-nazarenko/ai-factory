@@ -1,5 +1,0 @@
-[2026-04-03T12:32:29Z] [run_20260403_153229] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_153229
-[2026-04-03T12:32:29Z] [run_20260403_153229] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=true
-[2026-04-03T12:32:31Z] [run_20260403_153229] [IDEA_GEN] [SUCCESS] ideas.json written
-[2026-04-03T12:32:31Z] [run_20260403_153229] [CONNECTOR] [RUNNING] input=ideas.json threshold=0.7
-[2026-04-03T12:32:31Z] [run_20260403_153229] [CONNECTOR] [FAIL] 0 ideas passed score filter — adjust --limit or sources

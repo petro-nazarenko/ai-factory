@@ -1,9 +1,0 @@
-{
-  "run_id": "run_20260403_153527",
-  "mode": "GENERATE_ONLY",
-  "status": "success",
-  "dry_run": true,
-  "steps_completed": ["init", "idea_gen", "connector", "validation"],
-  "ideas_validated": 14,
-  "errors": []
-}

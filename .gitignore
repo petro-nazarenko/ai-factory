@@ -1,6 +1,8 @@
 **/__pycache__/
 **/*.pyc
 PIPELINE_RU.md
+workspace/runs/
+workspace/leads/
 workspace/matches/
 workspace/offers/
 .coverage

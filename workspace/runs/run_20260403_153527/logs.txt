@@ -1,9 +1,0 @@
-[2026-04-03T12:35:27Z] [run_20260403_153527] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_153527
-[2026-04-03T12:35:27Z] [run_20260403_153527] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=true
-[2026-04-03T12:35:29Z] [run_20260403_153527] [IDEA_GEN] [SUCCESS] ideas.json written
-[2026-04-03T12:35:29Z] [run_20260403_153527] [CONNECTOR] [RUNNING] input=ideas.json threshold=0.7
-[2026-04-03T12:35:29Z] [run_20260403_153527] [CONNECTOR] [SUCCESS] connector.json written
-[2026-04-03T12:35:29Z] [run_20260403_153527] [VALIDATION] [RUNNING] input=connector.json output=validated/ dry_run=true
-[2026-04-03T12:35:29Z] [run_20260403_153527] [VALIDATION] [RUNNING] dry-run mode: AKF will use mock prompts with real schema validation
-[2026-04-03T12:37:23Z] [run_20260403_153527] [VALIDATION] [SUCCESS] validated/ populated
-[2026-04-03T12:37:23Z] [run_20260403_153527] [REPORT] [SUCCESS] run complete — 14 ideas validated in /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_153527

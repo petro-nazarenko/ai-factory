@@ -1,9 +1,0 @@
-[2026-04-08T01:18:20Z] [run_20260408_031820] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260408_031820
-[2026-04-08T01:18:20Z] [run_20260408_031820] [INIT] [SUCCESS] LLM provider: Cerebras (llama3.3-70b)
-[2026-04-08T01:18:20Z] [run_20260408_031820] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=false
-[2026-04-08T01:18:27Z] [run_20260408_031820] [IDEA_GEN] [SUCCESS] ideas.json written
-[2026-04-08T01:18:27Z] [run_20260408_031820] [CONNECTOR] [RUNNING] input=ideas.json threshold=0.7
-[2026-04-08T01:18:27Z] [run_20260408_031820] [CONNECTOR] [SUCCESS] connector.json written
-[2026-04-08T01:18:27Z] [run_20260408_031820] [VALIDATION] [RUNNING] input=connector.json output=validated/ dry_run=false
-[2026-04-08T01:18:32Z] [run_20260408_031820] [VALIDATION] [SUCCESS] validated/ populated
-[2026-04-08T01:18:32Z] [run_20260408_031820] [REPORT] [SUCCESS] run complete — 4 ideas validated in /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260408_031820

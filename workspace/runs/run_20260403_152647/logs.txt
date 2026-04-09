@@ -1,4 +1,0 @@
-[2026-04-03T12:26:47Z] [run_20260403_152647] [INIT] [SUCCESS] run created → /storage/emulated/0/Documents/Claude/projects/ai-factory/workspace/runs/run_20260403_152647
-[2026-04-03T12:26:47Z] [run_20260403_152647] [IDEA_GEN] [RUNNING] sources=jobboards,reddit limit=20 dry_run=true
-[2026-04-03T12:26:48Z] [run_20260403_152647] [IDEA_GEN] [RUNNING] first attempt failed (exit 1) — retrying once
-[2026-04-03T12:26:49Z] [run_20260403_152647] [IDEA_GEN] [FAIL] Moneymaker failed after 2 attempts — STOP
