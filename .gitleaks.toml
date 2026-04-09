@@ -1,0 +1,76 @@
+# Gitleaks configuration — ai-factory root
+# https://github.com/gitleaks/gitleaks
+# Covers LLM provider keys used across the pipeline.
+
+[allowlist]
+description = "Allowlisted paths"
+paths = [
+    "^\\.venv/",
+    "^\\.git/",
+    "^workspace/runs/",
+]
+regexes = [
+    # Placeholder values in .env.example and docs
+    "^csk-your-key-here$",
+    "^gsk_\\.\\.\\.$",
+    "^sk-ant-\\.\\.\\.$",
+    "^your-.*-here$",
+]
+
+# ── LLM provider keys ──────────────────────────────────────────────────────
+
+[[rules]]
+id = "cerebras-api-key"
+description = "Cerebras Cloud API Key"
+regex = '''csk-[a-z0-9]{40,}'''
+tags = ["key", "cerebras", "llm"]
+
+[[rules]]
+id = "groq-api-key"
+description = "Groq API Key"
+regex = '''gsk_[A-Za-z0-9]{50,}'''
+tags = ["key", "groq", "llm"]
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API Key"
+regex = '''sk-ant-[A-Za-z0-9\-_]{80,}'''
+tags = ["key", "anthropic", "llm"]
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API Key"
+regex = '''sk-[A-Za-z0-9]{48}'''
+tags = ["key", "openai", "llm"]
+
+[[rules]]
+id = "together-api-key"
+description = "Together AI API Key"
+regex = '''(?i)together[_-]?api[_-]?key\s*[:=]\s*['"]?[a-zA-Z0-9]{40,}['"]?'''
+tags = ["key", "together", "llm"]
+
+[[rules]]
+id = "mistral-api-key"
+description = "Mistral API Key"
+regex = '''(?i)mistral[_-]?api[_-]?key\s*[:=]\s*['"]?[a-zA-Z0-9]{32,}['"]?'''
+tags = ["key", "mistral", "llm"]
+
+# ── Generic secrets ────────────────────────────────────────────────────────
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key"
+regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+tags = ["key", "aws"]
+
+[[rules]]
+id = "github-token"
+description = "GitHub Token"
+regex = '''gh[pousr]_[A-Za-z0-9_]{36,255}'''
+tags = ["key", "github"]
+
+[[rules]]
+id = "stripe-secret-key"
+description = "Stripe Secret Key"
+regex = '''sk_live_[0-9a-zA-Z]{24,32}'''
+tags = ["key", "stripe"]
