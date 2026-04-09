@@ -13,7 +13,6 @@ if str(_WORKSPACE) not in sys.path:
 
 from matcher import (  # noqa: E402
     _KW_PREFILTER_THRESHOLD,
-    _MIN_SCORE_DEFAULT,
     _keyword_score,
     _llm_score,
     _tokens,

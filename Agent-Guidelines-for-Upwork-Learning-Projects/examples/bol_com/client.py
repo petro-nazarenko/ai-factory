@@ -68,7 +68,7 @@ class BolComClient:
         self._access_token = access_token
         self._http_client: httpx.Client | None = None
 
-    def __enter__(self) -> "BolComClient":
+    def __enter__(self) -> BolComClient:
         """Context manager entry."""
         if not self._access_token:
             self._authenticate()
