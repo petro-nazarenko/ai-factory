@@ -217,6 +217,10 @@ def _evaluate(idea: Idea) -> dict:
     }
 
 
+# Alias for backwards compatibility and test imports
+_heuristic_score = _evaluate
+
+
 # ---------------------------------------------------------------------------
 # Public MoneyFilter class
 # ---------------------------------------------------------------------------

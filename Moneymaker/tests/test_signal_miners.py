@@ -1,7 +1,5 @@
 """Tests for signal miners (dry-run mode)."""
 
-import pytest
-
 from src.models import SignalSource
 from src.signal_miner.indiehackers import IndieHackersSignalMiner
 from src.signal_miner.jobboards import JobBoardsSignalMiner, _fetch_reddit_signals
@@ -77,7 +75,6 @@ class TestJobBoardsMiner:
     def test_fetch_reddit_signals_source_is_reddit(self):
         """Signals from _fetch_reddit_signals must carry SignalSource.REDDIT, not JOBBOARDS."""
         import asyncio
-        import json
         from unittest.mock import AsyncMock, MagicMock, patch
 
         token_response = MagicMock()
