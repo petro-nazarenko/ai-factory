@@ -3,7 +3,6 @@
 import sys
 from pathlib import Path
 
-import pytest
 
 _WORKSPACE = Path(__file__).resolve().parent.parent
 if str(_WORKSPACE) not in sys.path:

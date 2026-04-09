@@ -191,7 +191,7 @@ class TestGenerateFromConnector:
     def test_idempotent_skips_existing(self, tmp_path):
         """Running twice must not raise and must not duplicate files."""
         ideas = [_connector_idea()]
-        first = generate_from_connector(ideas, tmp_path, dry_run=True)
+        generate_from_connector(ideas, tmp_path, dry_run=True)
         second = generate_from_connector(ideas, tmp_path, dry_run=True)
         # Second run returns empty because file already exists
         assert len(second) == 0
@@ -249,7 +249,7 @@ class TestGenerateLegacy:
     def test_idempotent_skips_existing(self, tmp_path):
         matches = [_match()]
         generate(matches, tmp_path, dry_run=True)
-        second = generate(matches, tmp_path, dry_run=True)
+        generate(matches, tmp_path, dry_run=True)
         # Existing file is skipped but still appended to written list
         assert len(list(tmp_path.glob("offer_*.md"))) == 1
 

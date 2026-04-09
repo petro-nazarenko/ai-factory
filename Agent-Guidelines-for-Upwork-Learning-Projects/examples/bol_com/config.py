@@ -1,7 +1,7 @@
 """Configuration for Bol.com example."""
 
-from dataclasses import dataclass
 import os
+from dataclasses import dataclass
 
 
 @dataclass
