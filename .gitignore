@@ -8,3 +8,4 @@ workspace/offers/
 .coverage
 htmlcov/
 telemetry/events.jsonl
+*.egg-info/

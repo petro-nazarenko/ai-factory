@@ -11,11 +11,6 @@ Usage (sync):
 Usage (async):
     from workspace.llm_router import router
     text = await router.acomplete("generation", "Generate 3 ideas for ...")
-
-Import from subdirectory:
-    import sys, os
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../workspace"))
-    from llm_router import router
 """
 
 from __future__ import annotations
