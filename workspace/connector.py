@@ -73,7 +73,9 @@ def main() -> None:
     print(f"[CONNECTOR] {total} ideas → {n_passed} passed filter (score >= {SCORE_THRESHOLD})")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(passed, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp_path = output_path.parent / (output_path.name + ".tmp")
+    tmp_path.write_text(json.dumps(passed, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp_path.rename(output_path)
 
     if n_passed == 0:
         print("[CONNECTOR] [WARN] 0 ideas passed — nothing to send to AKF", file=sys.stderr)
