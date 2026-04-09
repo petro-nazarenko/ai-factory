@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import subprocess
 from datetime import datetime, timezone
 from typing import Any, Optional
@@ -11,8 +12,19 @@ app = FastAPI(title="AI Factory API")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUNS_DIR = os.path.join(BASE_DIR, "workspace", "runs")
+_RUNS_DIR_REAL = os.path.realpath(RUNS_DIR)
 PIPELINE_SCRIPT = os.path.join(BASE_DIR, "run_pipeline.sh")
 API_KEY = os.environ.get("API_KEY", "")
+
+_RUN_ID_RE = re.compile(r"^run_\d{8}_\d{6}$")
+
+
+def _validate_run_id(run_id: str) -> None:
+    if not _RUN_ID_RE.match(run_id):
+        raise HTTPException(status_code=400, detail="Invalid run_id format")
+    run_dir = os.path.realpath(os.path.join(RUNS_DIR, run_id))
+    if not run_dir.startswith(_RUNS_DIR_REAL + os.sep):
+        raise HTTPException(status_code=400, detail="Invalid run_id")
 
 
 def check_auth(x_api_key: str) -> None:
@@ -100,6 +112,7 @@ def start_run(dry_run: bool = False, x_api_key: str = Header(...)) -> dict:
 @app.get("/runs/{run_id}/logs", response_class=PlainTextResponse)
 def get_run_logs(run_id: str, x_api_key: str = Header(...)) -> str:
     check_auth(x_api_key)
+    _validate_run_id(run_id)
 
     logs_path = os.path.join(RUNS_DIR, run_id, "logs.txt")
     if not os.path.isfile(logs_path):
@@ -111,6 +124,7 @@ def get_run_logs(run_id: str, x_api_key: str = Header(...)) -> str:
 @app.get("/runs/{run_id}")
 def get_run(run_id: str, x_api_key: str = Header(...)) -> dict:
     check_auth(x_api_key)
+    _validate_run_id(run_id)
 
     data = get_run_data(run_id)
     if data is None:
