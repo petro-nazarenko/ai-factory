@@ -41,6 +41,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
+from run_utils import find_connector_json
 
 logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -156,33 +157,6 @@ def _is_eligible(idea: dict, min_score: float) -> bool:
     """Return True if the idea has a known author and passes the score filter."""
     author = idea.get("source_author", "").strip()
     return bool(author) and author.lower() != "unknown" and idea.get("score", 0.0) >= min_score
-
-
-def _find_connector_json(runs_dir: Path, run_id: str | None) -> Path:
-    """Return the connector.json path for the given run_id or the latest run."""
-    if not runs_dir.exists():
-        raise FileNotFoundError(f"Runs directory not found: {runs_dir}")
-
-    if run_id:
-        candidate = runs_dir / run_id / "connector.json"
-        if not candidate.exists():
-            raise FileNotFoundError(
-                f"connector.json not found for run '{run_id}': {candidate}"
-            )
-        return candidate
-
-    candidates = sorted(
-        [
-            d / "connector.json"
-            for d in runs_dir.iterdir()
-            if d.is_dir() and (d / "connector.json").exists()
-        ],
-        key=lambda p: p.parent.name,
-        reverse=True,
-    )
-    if not candidates:
-        raise FileNotFoundError(f"No run with connector.json found in {runs_dir}")
-    return candidates[0]
 
 
 # ---------------------------------------------------------------------------
@@ -543,7 +517,7 @@ def main() -> None:
     # Primary mode: read from connector.json
     # ------------------------------------------------------------------
     try:
-        connector_path = _find_connector_json(Path(args.runs), args.run_id)
+        connector_path = find_connector_json(Path(args.runs), args.run_id)
     except FileNotFoundError as exc:
         print(f"[OFFER] [FAIL] {exc}", file=sys.stderr)
         sys.exit(1)
