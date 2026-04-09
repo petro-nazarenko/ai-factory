@@ -88,20 +88,19 @@ def _bootstrap_env() -> None:
             os.environ[key] = dotenv[key]
             injected.append(key)
 
-    # Debug output — always print so the user can see what was found
     found = [k for k in _PROVIDER_KEYS if os.environ.get(k)]
     missing = [k for k in _PROVIDER_KEYS if not os.environ.get(k)]
 
     if loaded_from:
-        print(f"[LLMRouter] .env loaded: {loaded_from}")
+        logger.debug("[LLMRouter] .env loaded: %s", loaded_from)
         if injected:
-            print(f"[LLMRouter] Keys injected from .env : {injected}")
+            logger.debug("[LLMRouter] Keys injected from .env : %s", injected)
     else:
-        print(f"[LLMRouter] No .env file found (searched {len(_ENV_SEARCH_PATHS)} paths)")
+        logger.debug("[LLMRouter] No .env file found (searched %d paths)", len(_ENV_SEARCH_PATHS))
 
-    print(f"[LLMRouter] Keys available : {found}")
+    logger.info("[LLMRouter] Keys available : %s", found)
     if missing:
-        print(f"[LLMRouter] Keys missing   : {missing}")
+        logger.debug("[LLMRouter] Keys missing   : %s", missing)
 
 
 _bootstrap_env()
