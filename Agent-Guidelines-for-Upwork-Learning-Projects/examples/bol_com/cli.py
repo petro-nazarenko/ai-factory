@@ -56,7 +56,7 @@ def fetch_products(
 
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command()
@@ -91,7 +91,7 @@ def get_product(product_id: str) -> None:
 
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command()
@@ -119,7 +119,7 @@ def sync_sheets(
 
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 @app.command()
@@ -154,7 +154,7 @@ def export_csv(
 
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {e}")
-        raise typer.Exit(1)
+        raise typer.Exit(1) from e
 
 
 def main() -> None:

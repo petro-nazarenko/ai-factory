@@ -1,7 +1,7 @@
 """Example: Bol.com API Integration."""
 
 from examples.bol_com.client import BolComClient
-from examples.bol_com.sync import sync_to_sheets
+from examples.bol_com.sync import sync_to_sheets as sync_to_sheets
 
 if __name__ == "__main__":
     client_id = "your_client_id"

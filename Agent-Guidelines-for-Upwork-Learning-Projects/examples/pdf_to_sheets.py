@@ -31,7 +31,6 @@ def extract_invoice_and_sync(
     with processor:
         invoice_data = processor.extract_invoice_data(pdf_path)
 
-    headers = ["Invoice Number", "Date", "Total", "VAT"]
     values = [[
         invoice_data.get("invoice_number", ""),
         invoice_data.get("date", ""),

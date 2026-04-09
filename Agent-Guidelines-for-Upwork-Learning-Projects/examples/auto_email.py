@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from src.integrations.email_handler import EmailClient, EmailConfig, Email
+from src.integrations.email_handler import Email, EmailClient, EmailConfig
 
 
 def send_daily_report(
@@ -68,7 +68,7 @@ def send_alert_email(
     config = EmailConfig()
     client = EmailClient(config=config)
 
-    emoji = {"error": "🔴", "warning": "🟡", "info": "🔵"}.get(severity, "ℹ️")
+    emoji = {"error": "🔴", "warning": "🟡", "info": "🔵"}.get(severity, "i")
 
     subject = f"[{severity.upper()}] {alert_type} Alert"
 
