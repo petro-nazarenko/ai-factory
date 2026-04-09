@@ -141,7 +141,7 @@ PROVIDERS: dict[str, ProviderConfig] = {
         name="cerebras",
         env_key="CEREBRAS_API_KEY",
         base_url="https://api.cerebras.ai/v1",  # used for display only; SDK handles transport
-        models=["llama3.1-8b", "llama3.1-8b"],  # SDK-only provider; both slots same model
+        models=["llama3.3-70b", "llama3.1-8b"],  # index 0 = preferred, 1 = lighter fallback
         tpm_limit=60_000,       # ~60k TPM (fast inference chip)
         tpd_limit=1_000_000,
     ),
@@ -237,6 +237,30 @@ TASKS: dict[str, TaskConfig] = {
         ),
     ),
 }
+
+# ---------------------------------------------------------------------------
+# Startup sanity check — fail fast if any task's preferred_model is absent
+# from its preferred_provider's model list.
+# ---------------------------------------------------------------------------
+
+def _assert_task_model_consistency(
+    providers: dict[str, "ProviderConfig"],
+    tasks: dict[str, "TaskConfig"],
+) -> None:
+    """Raise AssertionError at import time if a task's preferred_model is not
+    listed in the corresponding preferred_provider's models."""
+    for task_name, task in tasks.items():
+        provider = providers.get(task.preferred_provider)
+        if provider is None:
+            continue  # misconfigured provider — caught elsewhere
+        assert task.preferred_model in provider.models, (
+            f"Task '{task_name}' preferred_model '{task.preferred_model}' is not in "
+            f"PROVIDERS['{task.preferred_provider}'].models {provider.models}. "
+            "Update the provider's models list or the task's preferred_model."
+        )
+
+
+_assert_task_model_consistency(PROVIDERS, TASKS)
 
 # ---------------------------------------------------------------------------
 # Usage tracker (per provider)
