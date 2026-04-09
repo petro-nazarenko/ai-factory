@@ -104,6 +104,8 @@ if [[ ! -f "$BASE/ideas.json" ]] || [[ ! -s "$BASE/ideas.json" ]]; then
   exit 1
 fi
 
+IDEAS_MINED=$(python -c "import json,sys; print(len(json.load(open('$BASE/ideas.json'))))")
+
 # ---------------------------------------------------------------------------
 # STEP 2 — CONNECTOR
 # ---------------------------------------------------------------------------
@@ -125,6 +127,8 @@ else
   update_status "connector" "failed"
   exit 1
 fi
+
+IDEAS_PASSED=$(python -c "import json,sys; print(len(json.load(open('$BASE/connector.json'))))")
 
 # ---------------------------------------------------------------------------
 # STEP 3 — AKF VALIDATION
@@ -162,6 +166,8 @@ cat > "$BASE/report.json" <<EOF
   "status": "success",
   "dry_run": $DRY_RUN,
   "steps_completed": ["init", "idea_gen", "connector", "validation"],
+  "ideas_mined": $IDEAS_MINED,
+  "ideas_passed_filter": $IDEAS_PASSED,
   "ideas_validated": $VALIDATED_COUNT,
   "errors": []
 }
