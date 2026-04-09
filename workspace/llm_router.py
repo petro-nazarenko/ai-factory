@@ -536,7 +536,7 @@ class LLMRouter:
         p = self.providers[provider_name]
         if provider_name == "cerebras":
             # Cerebras SDK is sync-only; run in a thread to avoid blocking the loop.
-            loop = asyncio.get_event_loop()
+            loop = asyncio.get_running_loop()
             return await loop.run_in_executor(
                 None,
                 lambda: _cerebras_call_sync(
