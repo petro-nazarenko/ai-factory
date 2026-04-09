@@ -127,7 +127,7 @@ python workspace/connector.py \
 ]
 ```
 
-Filter: only ideas with `score >= 0.7` pass to AKF.
+Filter: only ideas with `score >= 7.0` pass to AKF.
 
 Log: `[CONNECTOR] N ideas → M passed filter`
 
@@ -223,7 +223,7 @@ Default: `GENERATE_ONLY`
 ### Missing ideas.json
 → STOP. Do not proceed without Moneymaker output.
 
-### score < 0.7 (all ideas filtered)
+### score < 7.0 (all ideas filtered)
 → Log warning. Do not proceed. Adjust `--limit` or sources.
 
 ---

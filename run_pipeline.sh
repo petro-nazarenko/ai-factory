@@ -107,7 +107,7 @@ fi
 # ---------------------------------------------------------------------------
 # STEP 2 — CONNECTOR
 # ---------------------------------------------------------------------------
-log "CONNECTOR" "RUNNING" "input=ideas.json threshold=0.7"
+log "CONNECTOR" "RUNNING" "input=ideas.json threshold=7.0"
 update_status "connector" "running"
 
 if python "$REPO/workspace/connector.py" \
