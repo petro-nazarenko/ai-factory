@@ -35,18 +35,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from textwrap import dedent
 
-# ---------------------------------------------------------------------------
-# Router import — workspace/ is one level above ai-knowledge-filler/
-# ---------------------------------------------------------------------------
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../workspace"))
-from llm_router import LLMRouterError, router  # noqa: E402
+from workspace.llm_router import LLMRouterError, router
 
 # ---------------------------------------------------------------------------
 # Schema constants

@@ -250,8 +250,7 @@ def generate_from_connector(
         List of Path objects for each written file.
     """
     if not dry_run:
-        sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from llm_router import router as _llm_router  # noqa: PLC0415
+        from workspace.llm_router import router as _llm_router  # noqa: PLC0415
     else:
         _llm_router = None
 
@@ -380,8 +379,7 @@ def generate(
         List of Path objects for each written file.
     """
     if not dry_run:
-        sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from llm_router import router as _llm_router  # noqa: PLC0415
+        from workspace.llm_router import router as _llm_router  # noqa: PLC0415
     else:
         _llm_router = None
 

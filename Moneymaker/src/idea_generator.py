@@ -10,15 +10,9 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
-import os
-import sys
 from textwrap import dedent
 
-# ---------------------------------------------------------------------------
-# Router import — workspace/ is two levels above Moneymaker/src/
-# ---------------------------------------------------------------------------
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../workspace"))
-from llm_router import LLMRouterError, router  # noqa: E402
+from workspace.llm_router import LLMRouterError, router
 
 from src.config import settings
 from src.models import Idea, PainSignal
