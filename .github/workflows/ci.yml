@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Ruff lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff>=0.6.0
+
+      - name: Lint Moneymaker
+        run: ruff check Moneymaker/
+
+      - name: Lint workspace
+        run: ruff check workspace/
+
+  moneymaker-tests:
+    name: Moneymaker – pytest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Moneymaker
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests (dry-run mode – no secrets required)
+        run: pytest --tb=short
+
+  workspace-tests:
+    name: workspace – pytest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workspace
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r ../requirements.txt
+
+      - name: Run tests
+        run: pytest tests/ --tb=short
