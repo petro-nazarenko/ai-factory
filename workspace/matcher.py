@@ -349,12 +349,14 @@ def main() -> None:
     matches = match(ideas, leads, min_score=args.min_score, dry_run=args.dry_run)
     print(f"[MATCHER] {len(matches)} match(es) with fit_score >= {args.min_score}")
 
-    # --- Write output ---
+    # --- Write output (atomic: write to .tmp then rename) ---
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(
+    tmp_path = output_path.parent / (output_path.name + ".tmp")
+    tmp_path.write_text(
         json.dumps(matches, indent=2, ensure_ascii=False), encoding="utf-8"
     )
+    tmp_path.rename(output_path)
     print(f"[MATCHER] Written → {output_path}")
 
     if not matches:
